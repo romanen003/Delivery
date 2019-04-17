@@ -1,0 +1,33 @@
+.btn {
+    background: rgb(245, 245, 245);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-style: italic;
+    padding: 8px 12px;
+    outline: 0;
+    vertical-align: middle;
+
+    &:hover:enabled {
+        opacity: 0.5;
+    }
+
+    &:disabled {
+        color: #ffffff;
+    }
+
+    &_active {
+        border: 1px solid blue;;
+    }
+
+    &_icon {
+        background: transparent;
+
+        &:hover:enabled {
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
+}
+
