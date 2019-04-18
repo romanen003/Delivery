@@ -1,23 +1,37 @@
-import React, {Component, Fragment} from 'react'
-import './App.scss';
+import React, {Component, Fragment} from 'react';
 import {Input, Select} from './elements';
+import {connect} from "react-redux";
+import {setAuthorisation} from './store/authorization/action';
 
-export class App extends Component {
+interface Props {
+    setAuthorisation: (value: boolean) => void
+}
+
+
+// @ts-ignore
+@connect((state) => ({
+    state
+}),{
+    setAuthorisation
+})
+export class App extends Component<Props>{
   state = {
     value: ''
-  }
+  };
 
-  handleClear = (value: string) => {
+  handleClear = (value: string): void => {
     this.setState(() => ({value}))
-  }
+  };
 
   componentDidMount() {
     fetch('/api/get-users')
       .then(res => res.json())
+      .then(res => this.props.setAuthorisation(true))
       .then(res => console.log('res', res));
-  }
+  };
 
   render() {
+
     return (
       <Fragment>
         <Input.Clear
