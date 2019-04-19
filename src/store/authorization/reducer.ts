@@ -1,22 +1,22 @@
 import {AnyAction} from "redux";
 
-interface AutorizationState {
-    autoriz: boolean,
+interface AuthorizationState {
+    authoriz: boolean,
     id: number | null
 }
 
 
-const initialState: AutorizationState = {
-    autoriz: false,
+const initialState: AuthorizationState = {
+    authoriz: false,
     id: null
 };
 
-export const AuthorizationReducer = (state = initialState, action: AnyAction): AutorizationState  => {
+export const AuthorizationReducer = (state = initialState, action: AnyAction): AuthorizationState  => {
     switch (action.type) {
         case ('AUTH'):
             return {
                 ...state,
-                autoriz: action.payload
+                authoriz: action.payload
             };
         default :
             return state;

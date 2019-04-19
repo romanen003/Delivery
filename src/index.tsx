@@ -12,7 +12,6 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
     <Provider store={store}>
-        // @ts-ignore
         <App />
     </Provider>,
     document.getElementById(ROOT)

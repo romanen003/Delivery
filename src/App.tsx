@@ -1,50 +1,80 @@
-import React, {Component, Fragment} from 'react';
-import {Input, Select} from './elements';
+import React, {Component} from 'react';
+import {Input, Button, Grid, LayoutHome} from './elements';
 import {connect} from "react-redux";
 import {setAuthorisation} from './store/authorization/action';
 
+
+const {Row, Col, Col_Width}: any = Grid;
+
 interface Props {
-    setAuthorisation: (value: boolean) => void
+    setAuthorisation?: (value: boolean) => void
+}
+
+interface State {
+    value: string
 }
 
 
-// @ts-ignore
-@connect((state) => ({
-    state
-}),{
-    setAuthorisation
-})
-export class App extends Component<Props>{
-  state = {
-    value: ''
-  };
+class AppComponent extends Component<Props, State>{
+    state = {
+        value: ''
+    };
 
-  handleClear = (value: string): void => {
-    this.setState(() => ({value}))
-  };
+    handleClear = (value: string): void => {
+        this.setState(() => ({value}))
+    };
 
-  componentDidMount() {
-    fetch('/api/get-users')
-      .then(res => res.json())
-      .then(res => this.props.setAuthorisation(true))
-      .then(res => console.log('res', res));
-  };
+    handleClick = () => {
+        const {
+            setAuthorisation = () => {}
+        } = this.props;
 
-  render() {
+        setAuthorisation(true)
+    };
 
-    return (
-      <Fragment>
-        <Input.Clear
-          onChange={this.handleClear}
-          value={this.state.value}
-        />
-        <Select
-          option={['1','2','3']}
-          value={['1','2']}
-          multiple
-        />
-      </Fragment>
+    componentDidMount() {
+        const {
+            setAuthorisation = () => {}
+        } = this.props;
 
+        fetch('/api/get-users')
+            .then(res => res.json())
+            .then(res => setAuthorisation(true))
+            .then(res => console.log('res', res));
+    };
+
+    renderView = () => (
+        <Grid>
+            <Row>
+                <Col col={Col_Width.QUARTER}>
+                    <Input.Clear
+                        onChange={this.handleClear}
+                        value={this.state.value}
+                    />
+                </Col>
+                <Col>
+                    <Button.Edit
+                        onClick={this.handleClick}
+                    />
+                </Col>
+            </Row>
+        </Grid>
     );
-  }
+
+    render () {
+        return (
+            <LayoutHome
+                headerView={this.renderView()}
+                contentView={this.renderView()}
+                footerView={this.renderView()}
+            />
+
+        );
+    }
 }
+
+export const App = connect((state => ({
+    state
+})),{
+    setAuthorisation
+})(AppComponent);
