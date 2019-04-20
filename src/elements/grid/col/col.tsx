@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './col.scss';
 
 interface Props {
-    children?:ReactNode,
+    children?: ReactNode,
     textAlign?: string,
     vertAlign?: string,
     col?: string

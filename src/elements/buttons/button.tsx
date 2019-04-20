@@ -42,8 +42,7 @@ export class Button extends Component<ButtonProps> {
     static Top = TOP;
 
     static defaultProps = {
-        type: 'button',
-        onClick: () => {}
+        type: 'button'
     };
 
     handleOnClick = (event: React.SyntheticEvent) => {

@@ -19,7 +19,7 @@ export interface InputProps {
 
 export class Input extends Component<InputProps> {
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.currentTarget.value
+    const newValue = event.currentTarget.value;
     const {
       onChange = () => {}
     } = this.props;
