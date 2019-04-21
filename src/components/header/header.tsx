@@ -1,18 +1,36 @@
 import React, {Component} from 'react';
-import {Button, Grid, Text} from '../../elements';
+import {Button, Grid, ModalLayout, Text} from '../../elements';
 import {connect} from "react-redux";
 import {setAuthorisation, showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
+
 
 const {Row, Col, Margin, T_Align} = Grid;
 
 interface Props {
     authorization?: boolean,
     setAuthorisation?: (value: boolean) => void,
-    showModal?: (p: { Component: () => any } ) => void
+    showModal?: (p: string) => void
 }
 
-export const Componenttest = () => (<div>dsfdsfdsfdsf</div>);
+export const Componenttest = () => (
+    <ModalLayout
+        label='fsdfsdfsdfsdfdsfsdfdssddfsdfsdfsdfsdfsdfsdfsdfsdfsdffsdfsdffsdf'
+    >
+        <div>dsfdsfdsfdsf</div>
+    </ModalLayout>
+
+);
+
+export const modalTest = {
+    name: 'TEST_MODAL',
+    Component: Componenttest,
+    view: "CENTER",
+    config: {
+        onClick: () => {}
+    }
+};
+
 
 @(connect((({authorization}: StoreTypes) => ({
         authorization: authorization.authorization
@@ -28,7 +46,7 @@ export class Header extends Component<Props> {
         } = this.props;
 
         setAuthorisation(true);
-        showModal({Component: Componenttest})
+        showModal(modalTest.name)
     };
 
     renderRightSide = () => {

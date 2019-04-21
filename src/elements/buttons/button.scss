@@ -22,6 +22,7 @@
 
     &_icon {
         background: transparent;
+        padding: 0;
 
         &:hover:enabled {
             -webkit-transform: scale(1.2);

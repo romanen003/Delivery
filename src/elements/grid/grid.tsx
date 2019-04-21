@@ -23,9 +23,7 @@ export class Grid extends Component<Props> {
             children,
             sticky = false
         } = this.props;
-        const StyleGrid = classNames('grid', {
-            'grid-no-padding': sticky
-        });
+        const StyleGrid = classNames('grid');
 
         return (
             <div className={StyleGrid}>

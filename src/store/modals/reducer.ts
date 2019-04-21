@@ -2,8 +2,7 @@ import {AnyAction} from "redux";
 import {MODAL_ACTION} from "./constants";
 
 export interface Modal {
-    Component: any,
-    config?: {[key: string]: any}
+    name: string
 }
 
 const initialState: Array<Modal> = [];

@@ -1,4 +1,6 @@
 .text {
-    display: inline-block;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

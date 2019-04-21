@@ -6,7 +6,8 @@ interface Props {
     children?: ReactNode,
     textAlign?: string,
     vertAlign?: string,
-    col?: string
+    col?: string,
+    sticky?: boolean
 }
 
 export const T_ALIGN = {
@@ -32,7 +33,8 @@ export class Col extends Component<Props> {
             children,
             textAlign,
             vertAlign,
-            col
+            col,
+            sticky = false
         } = this.props;
         const rowClassName = classNames(
             'col', {
@@ -44,6 +46,7 @@ export class Col extends Component<Props> {
                 'col_col-seventy': col === COL.SEVENTY,
                 'col_col-thirty': col === COL.THIRTY,
                 'col_col-half': col === COL.HALF,
+                'col-no-padding': sticky
             }
         );
 

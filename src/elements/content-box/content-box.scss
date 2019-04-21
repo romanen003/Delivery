@@ -8,7 +8,7 @@
         }
 
         &-8px {
-            padding: 8px 0;
+            padding: 8px;
         }
 
         &-12px {
@@ -21,6 +21,17 @@
 
         &-20px {
             padding: 20px 0;
+        }
+    }
+    
+    &-max-height {
+        height: 100%;
+    }
+    
+    &-color {
+        
+        &-white {
+            background: white;
         }
     }
 }

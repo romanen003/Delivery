@@ -6,3 +6,4 @@ export {LayoutHome} from './layouts/home/home';
 export {LayoutWithSidebar} from './layouts/page-with-sidebar/page-with-sidebar';
 export {Text} from './text/text';
 export {ContentBox} from './content-box/content-box';
+export {ModalLayout} from './modal-layout/modal-layout';

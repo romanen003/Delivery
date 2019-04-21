@@ -9,11 +9,11 @@ interface Prop {
 
 const STYLE = {};
 
-export let Text: ({children}: Prop) => any;
-Text = ({
+
+export const Text = ({
     children,
     style
-}) => {
+}: Prop) => {
     const styleText = classNames('text', {});
 
     return (

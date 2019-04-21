@@ -8,8 +8,24 @@
 }
 
 .modal-wrapper {
-    background: white;
-    display: inline-block;
-    height: 100%;
-    width: 400px;
+    
+    &-left {
+        background: white;
+        display: inline-block;
+        height: 100%;
+        width: 400px;
+    }
+    
+    &-center {
+        background: lavender;
+        box-sizing: border-box;
+        min-height: 300px;
+        padding: 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+    
 }

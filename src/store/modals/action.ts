@@ -2,8 +2,7 @@ import {MODAL_ACTION} from "./constants";
 import {ReactNode} from "react";
 
 interface showModalProps {
-    component: ReactNode,
-    config?: {[key: string]: any}
+    name: string
 }
 
 export const showModal = (payload: showModalProps) => ({
