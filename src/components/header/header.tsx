@@ -9,7 +9,7 @@ import './header.scss';
 import {Account} from '../account/account';
 
 
-const {Row, Col, Margin, T_Align} = Grid;
+const {Row, Col, Margin} = Grid;
 
 export const Componenttest = () => (
     <ModalLayout

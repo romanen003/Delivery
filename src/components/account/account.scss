@@ -1,5 +1,25 @@
 .account {
+    background: white;
     box-sizing: border-box;
     display: inline-block;
-    padding: 10px 20px;
+    position: relative;
+    padding: 6px 60px;
+    max-width: 220px;
+    
+    &__name {
+        margin: 0;
+    }
+    
+    &__menu {
+        background: white;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+    }
+    
+    &__element {
+        border-top: 1px solid black;
+        padding: 6px 5px;
+    }
 }
