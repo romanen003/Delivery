@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/history": "^4.7.2",
     "@types/react-addons-css-transition-group": "^15.0.5",
+    "@types/react-router": "^4.4.5",
     "body-parser": "latest",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.4.0",

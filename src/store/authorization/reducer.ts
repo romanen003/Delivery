@@ -2,13 +2,15 @@ import {AnyAction} from "redux";
 
 export interface authorizationState {
     authorization: boolean,
-    id: number | null
+    id: number | null,
+    data: {[key: string]: any}
 }
 
 
 const initialState: authorizationState = {
     authorization: false,
-    id: null
+    id: null,
+    data: {}
 };
 
 export const AuthorizationReducer = (state = initialState, action: AnyAction): authorizationState  => {

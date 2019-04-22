@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import {Button, Grid, ModalLayout, Text} from '../../elements';
 import {connect} from "react-redux";
+import classNames from "classnames";
+import {Button, Grid, ModalLayout, Text} from '../../elements';
 import {setAuthorisation, showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
 import {registerModal} from "../modals/register-modals";
+import './header.scss';
+import {Account} from '../account/account';
 
 
 const {Row, Col, Margin, T_Align} = Grid;
@@ -53,7 +56,7 @@ export class Header extends Component<Props> {
         const {authorization} = this.props;
 
         return (authorization
-        ? <div>Мой профиль</div>
+        ? <Account />
         : <Button onClick={this.handleAuthorClick}>
                 Authorisation
           </Button>)
@@ -61,10 +64,10 @@ export class Header extends Component<Props> {
 
     render() {
         return (
-            <header>
+            <header className={classNames('header')}>
                 <Grid>
                     <Row margin={Margin.X16}>
-                        <Col textAlign={T_Align.LEFT}>
+                        <Col>
                             <Text>Delivery</Text>
                         </Col>
                         <Col>
