@@ -4,19 +4,13 @@ import {connect} from "react-redux";
 import {StoreTypes} from "../../store/store-types";
 import {closeModal} from "../../store";
 import './modal-root.scss';
-import {Modal} from "../../store/modals/reducer";
-import {registeredModals} from "./register-modals";
-import {ModalConfig} from "./register-modals";
+import {ModalConfig, getModal} from "./register-modals";
+import {VIEW} from "./constants";
 
 interface Props {
-    modals?: Array<Modal>,
+    modals?: Array<string>,
     closeModal? : () => void
 }
-
-export const VIEW = {
-    LEFT: 'LEFT',
-    CENTER: 'CENTER'
-};
 
 @(connect((
     store: StoreTypes
@@ -39,17 +33,16 @@ export class ModalRoot extends Component<Props> {
     };
 
     renderModal = (modal: ModalConfig, index: number) => {
-        const classOverlay = `overlay`;
         const overlayZIndex = {zIndex: ++index};
-        const {Component, name, config, view} = modal;
-        const modalPositionStyle = classNames({
-            'modal-wrapper-left': view === VIEW.LEFT,
+        const {Component, config, view} = modal;
+        const modalPositionStyle = classNames('modal-wrapper', {
+            'modal-wrapper-right': view === VIEW.LEFT,
             'modal-wrapper-center': view === VIEW.CENTER,
         });
 
         return (
             <div
-                className={classNames(classOverlay)}
+                className={classNames(`overlay`)}
                 onClick={this.handleCloseModal}
                 style={overlayZIndex}
             >
@@ -57,7 +50,7 @@ export class ModalRoot extends Component<Props> {
                     className={modalPositionStyle}
                     onClick={this.handleModalClick}
                 >
-                    <Component {...config} onClose={this.handleModalClick} />
+                    <Component {...config} />
                 </div>
             </div>
         );
@@ -67,16 +60,13 @@ export class ModalRoot extends Component<Props> {
         const {
             modals = []
         } = this.props;
-        const modalsArray = registeredModals.filter((item) => {
-           // @ts-ignore
-            return modals.includes(item.name)
-        });
+        const modalsArray = modals.map((value: string): ModalConfig => getModal(value));
 
         return (
             <Fragment>
             {
                 modalsArray.length
-                ? modalsArray.map((modal, index) => (this.renderModal(modal, index)))
+                ? modalsArray.map((modal: ModalConfig, index: number) => (this.renderModal(modal, index)))
                 : null
             }
             </Fragment>

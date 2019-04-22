@@ -1,5 +1,3 @@
-import {modalTest} from "../header/header";
-
 export interface ModalConfig {
     name: string,
     Component: any,
@@ -7,6 +5,10 @@ export interface ModalConfig {
     view: string
 }
 
-export const registeredModals: ModalConfig[] = [
-    modalTest
-];
+export const registeredModals: {[key: string]: ModalConfig} = {};
+
+export const registerModal = (Modal: ModalConfig): any => {
+    registeredModals[Modal.name] =  Modal
+};
+
+export const getModal = (name: string): any => registeredModals[name];

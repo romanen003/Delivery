@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from "redux-devtools-extension";
+import {ConnectedRouter} from "connected-react-router";
 import {Provider} from 'react-redux';
 import {App} from './App';
-import {rootReducer} from './store/root-reducer';
 import {ModalRoot} from "./components";
+import {history} from './store/router/history';
+import {store} from "./store";
+
 
 const ROOT = 'root';
-const store = createStore(rootReducer, composeWithDevTools());
-
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
-        <ModalRoot />
+        <ConnectedRouter history={history}>
+            <App />
+            <ModalRoot />
+        </ConnectedRouter>
     </Provider>,
     document.getElementById(ROOT)
 );

@@ -19,6 +19,7 @@ export class App extends Component<Props> {
     );
 
     render () {
+
         return (
             <LayoutHome
                 headerView={this.renderView()}

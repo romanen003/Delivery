@@ -1,18 +1,24 @@
 .modal-layout {
-    background: lavender;
     box-sizing: border-box;
     height: 100%;
-    padding: 10px;
+    min-height: 200px;
+    max-height: 100vh;
     position: relative;
-    
+
+    &_header {
+        border-bottom: 2px solid deepskyblue;
+        background: white;
+        padding: 20px;
+    }
+
     &_content {
         align-items: center;
-        background: white;
+        background: rgb(247, 247, 247);
         display: flex;
         height: 100%;
+        min-height: 200px;
         justify-content: center;
-        margin: 20px;
-        
+
     }
 }
 
