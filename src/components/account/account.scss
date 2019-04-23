@@ -1,25 +1,24 @@
+@import "../../style-view/colors";
+@import "../../style-view/fonts";
+
 .account {
-    background: white;
+    background: $color-blue;
     box-sizing: border-box;
     display: inline-block;
-    position: relative;
+    max-width: 250px;
     padding: 6px 60px;
-    max-width: 220px;
-    
-    &__name {
-        margin: 0;
-    }
-    
+    position: relative;
+   
     &__menu {
-        background: white;
-        position: absolute;
+        background: $color-blue;
         left: 0;
+        position: absolute;
         top: 100%;
         width: 100%;
     }
     
     &__element {
-        border-top: 1px solid black;
+        border-top: 1px solid $color-white;
         padding: 6px 5px;
     }
 }

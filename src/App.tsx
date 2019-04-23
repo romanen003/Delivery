@@ -8,12 +8,6 @@ interface Props {
 }
 
 export class App extends Component<Props> {
-    // componentDidMount() {
-    //     fetch('/api/get-users')
-    //         .then(res => res.json())
-    //         .then(res => console.log('res', res));
-    // };
-
     renderView = () => (
         <Header/>
     );

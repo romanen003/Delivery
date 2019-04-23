@@ -1,7 +1,7 @@
 import {Authorization} from "./authorization";
 import {registerModal} from "../register-modals";
 
-export const AUTHORIZATION_URL = '/api/get-users';
+export const AUTHORIZATION_URL = '/api/check-authorize';
 
 export const AUTHORIZATION = 'Authorization';
 

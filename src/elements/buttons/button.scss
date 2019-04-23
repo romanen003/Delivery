@@ -1,15 +1,19 @@
+@import "../../style-view/colors";
+@import "../../style-view/fonts";
+
 .btn {
-    background: rgb(245, 245, 245);
+    background: $color-blue;
     border: none;
+    color: $color-white;
     cursor: pointer;
-    font-size: 16px;
-    font-style: italic;
-    padding: 8px 12px;
+    padding: 10px 16px;
     outline: 0;
     vertical-align: middle;
+    
+    @include font($button-size, $title-weight);
 
     &:hover:enabled {
-        opacity: 0.5;
+        opacity: 0.9;
     }
 
     &:disabled {
@@ -17,7 +21,7 @@
     }
 
     &_active {
-        border: 1px solid blue;;
+        border: 1px solid $color-blue;
     }
 
     &_icon {
@@ -25,9 +29,9 @@
         padding: 0;
 
         &:hover:enabled {
-            -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-            transform: scale(1.2);
+            -webkit-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
         }
     }
 }

@@ -2,30 +2,30 @@
     background: rgba(17, 19, 20, 0.16);
     bottom: 0;
     left: 0;
-    right: 0;
     position: fixed;
+    right: 0;
     top: 0;
 }
 
 .modal-wrapper {
-    box-sizing: border-box;
     box-shadow: 0 0 32px 0 rgba(13, 21, 26, 0.2), 0 0 8px 0 rgba(13, 21, 26, 0.16);
+    box-sizing: border-box;
     width: 600px;
 
     &-right {
         background: white;
         display: inline-block;
         height: 100%;
+        max-height: 100vh;
         position: absolute;
         right: 0;
-        max-height: 100vh;
     }
 
     &-center {
-        padding: 10px;
-        position: absolute;
         left: 50%;
         min-height: 200px;
+        padding: 10px;
+        position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
     }

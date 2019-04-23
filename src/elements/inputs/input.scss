@@ -1,9 +1,12 @@
-.input {
-  font-size: 16px;
-  padding: 8px 12px;
-  outline: 0;
+@import "../../style-view/fonts";
 
-  &-clear {
-    border: none;
-  }
+.input {
+    outline: 0;
+    padding: 10px 16px;
+    
+    @include font($text-size, $text-weight);
+    
+    &-clear {
+        border: none;
+    }
 }

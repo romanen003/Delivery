@@ -1,0 +1,20 @@
+//font-sizes
+$heading-size: 36px;
+$title-size: 20px;
+$button-size: 16px;
+$text-size: 14px;
+
+//font-weights
+
+$heading-weight: 700;
+$title-weight: 400;
+$text-weight: 300;
+
+//mixin for font
+@mixin font ($size, $weight){
+    font-family: 'Raleway', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+

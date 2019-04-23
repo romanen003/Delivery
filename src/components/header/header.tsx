@@ -48,7 +48,7 @@ export class Header extends Component<Props> {
                 <Grid>
                     <Row margin={Margin.X16}>
                         <Col>
-                            <Text>Delivery</Text>
+                            <Text heading>Delivery</Text>
                         </Col>
                         <Col>
                             {this.renderRightSide()}

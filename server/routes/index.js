@@ -1,8 +1,8 @@
 import express from 'express';
-import {getUsers} from './get-users';
+import {checkAuthorize} from './check-authorize';
 
 const routes = express.Router();
 
-routes.use('/get-users', getUsers);
+routes.use('/check-authorize', checkAuthorize);
 
 module.exports = routes;

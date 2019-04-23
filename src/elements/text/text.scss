@@ -1,6 +1,26 @@
+@import "../../style-view/colors";
+@import "../../style-view/fonts";
+
 .text {
+    color: $color-white;
     margin: 0;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+    
+    &-heading {
+        @include font($heading-size, $heading-weight);
+    }
+    
+    &-label {
+        @include font($title-size, $heading-weight);
+    }
+    
+    &-title {
+        @include font($title-size, $title-weight);
+    }
+    
+    &-sub {
+        @include font($text-size, $text-weight);
+    }
 }

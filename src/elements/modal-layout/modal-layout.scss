@@ -1,24 +1,26 @@
+@import "../../style-view/colors";
+
 .modal-layout {
     box-sizing: border-box;
     height: 100%;
-    min-height: 200px;
     max-height: 100vh;
+    min-height: 200px;
     position: relative;
 
     &_header {
-        border-bottom: 2px solid deepskyblue;
-        background: white;
+        background: $color-green;
+        border-bottom: 4px solid $color-blue;
         padding: 20px;
     }
 
     &_content {
         align-items: center;
-        background: rgb(247, 247, 247);
+        background: $color-white;
         display: flex;
         height: 100%;
-        min-height: 200px;
         justify-content: center;
-
+        min-height: 200px;
+        width: 100%;
     }
 }
 

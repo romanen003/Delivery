@@ -4,17 +4,25 @@ import './text.scss';
 
 interface Prop {
     children?: string,
-    style?: string
+    heading?: boolean,
+    title?: boolean,
+    sub?: boolean,
+    label?: boolean
 }
-
-const STYLE = {};
-
 
 export const Text = ({
     children,
-    style
+    heading,
+    label,
+    title,
+    sub
 }: Prop) => {
-    const styleText = classNames('text', {});
+    const styleText = classNames('text', {
+        'text-heading': heading,
+        'text-title': title,
+        'text-sub': sub,
+        'text-label': label,
+    });
 
     return (
         <p className={styleText}>

@@ -30,7 +30,7 @@ export class ModalLayout extends PureComponent<Props> {
                     <Grid>
                         <Row>
                             <Col textAlign={T_Align.LEFT} col={Col_Width.SEVENTY} sticky>
-                                <Text>{label}</Text>
+                                <Text label>{label}</Text>
                             </Col>
                             <Col textAlign={T_Align.RIGHT} col={Col_Width.THIRTY} sticky>
                                 <Button.Close onClick={closeModal}/>

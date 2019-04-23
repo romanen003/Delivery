@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import classNames from "classnames";
-import './account.scss';
 import {connect} from "react-redux";
 import {MENU_ELEMENT} from "./constants";
+import {Text} from '../../elements';
+import './account.scss';
 
 interface Props {
 
@@ -35,7 +36,7 @@ export class Account extends Component<Props, State> {
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
             >
-                <h3 className={classNames('account__name')}>Roman</h3>
+                <Text title>Roman</Text>
                 {openedMenu &&
                     <div className={classNames('account__menu')}>
                         {
@@ -44,7 +45,7 @@ export class Account extends Component<Props, State> {
                                     className={classNames('account__element')}
                                     key={index}
                                 >
-                                    {name}
+                                    <Text sub>{name}</Text>
                                 </div>
                             ))
                         }
