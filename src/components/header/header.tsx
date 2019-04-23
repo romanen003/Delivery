@@ -1,32 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import classNames from "classnames";
-import {Button, Grid, ModalLayout, Text} from '../../elements';
-import {setAuthorisation, showModal} from '../../store';
+import {Button, Grid, Text} from '../../elements';
+import {showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
-import {registerModal} from "../modals/register-modals";
 import './header.scss';
-import {Account} from '../account/account';
+import {Account} from '../';
+import {AUTHORIZATION_MODAL_CONFIG} from "../modals/authorization/constants";
 
 
 const {Row, Col, Margin} = Grid;
-
-export const Componenttest = () => (
-    <ModalLayout
-        label='fsdfsdfsdfsdfdsfsdfdssddfsdfsdfsdfsdfsdfsdfsdfsdfsdffsdfsdffsdf'
-        contentView={<div>dsfdsfdsfdsf</div>}
-    />
-);
-export const modalTest = {
-    name: 'TEST_MODAL',
-    Component: Componenttest,
-    view: "RIGHT",
-    config: {
-        onClick: () => {}
-    }
-};
-registerModal(modalTest);
-
 
 
 interface Props {
@@ -38,18 +21,15 @@ interface Props {
 @(connect((({authorization}: StoreTypes) => ({
         authorization: authorization.authorization
     })), {
-    setAuthorisation,
     showModal
 }) as any)
 export class Header extends Component<Props> {
     handleAuthorClick = () => {
         const {
-            setAuthorisation = () => {},
             showModal = () => {}
         } = this.props;
 
-        setAuthorisation(true);
-        showModal(modalTest.name)
+        showModal(AUTHORIZATION_MODAL_CONFIG.name)
     };
 
     renderRightSide = () => {

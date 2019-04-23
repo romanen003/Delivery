@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import './row.scss';
 
 export const MARGIN_TOP = {
-    X4: '8px',
+    X4: '4px',
     X8: '8px',
     X12: '12px',
     X16: '16px',
 };
 export const MARGIN = {
-    X4: '8px',
+    X4: '4px',
     X8: '8px',
     X12: '12px',
     X16: '16px',
