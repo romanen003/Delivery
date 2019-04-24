@@ -11,8 +11,10 @@ export const PLACEHOLDERS = {
     SUBMIT: 'AUTHORIZATION'
 };
 
+export const AUTHORIZATION_MODAL_NAME = 'AUTHORIZATION';
+
 export const AUTHORIZATION_MODAL_CONFIG = {
-    name: 'AUTHORIZATION',
+    name: AUTHORIZATION_MODAL_NAME,
     Component: Authorization,
     view: "RIGHT",
 };

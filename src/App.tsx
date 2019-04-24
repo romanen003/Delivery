@@ -1,23 +1,16 @@
 import React, {Component} from 'react';
-import {LayoutHome} from './elements';
-import {Header} from "./components";
+import {Route, Switch} from "react-router";
+import {Home} from './layouts';
 
+const test = () => (<div>test</div>);
 
-interface Props {
-    setAuthorisation?: (value: boolean) => void
-}
-
-export class App extends Component<Props> {
-    renderView = () => (
-        <Header/>
-    );
-
+export class App extends Component {
     render () {
-
         return (
-            <LayoutHome
-                headerView={this.renderView()}
-            />
+            <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/my-account' component={test} />
+            </Switch>
         );
     }
 }

@@ -6,7 +6,7 @@ import {showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
 import './header.scss';
 import {Account} from '../';
-import {AUTHORIZATION_MODAL_CONFIG} from "../modals/authorization/constants";
+import {AUTHORIZATION_MODAL_NAME} from "../modals/authorization/constants";
 
 
 const {Row, Col, Margin} = Grid;
@@ -29,7 +29,7 @@ export class Header extends Component<Props> {
             showModal = () => {}
         } = this.props;
 
-        showModal(AUTHORIZATION_MODAL_CONFIG.name)
+        showModal(AUTHORIZATION_MODAL_NAME)
     };
 
     renderRightSide = () => {

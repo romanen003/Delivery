@@ -17,9 +17,9 @@ export const LayoutWithSidebar = ({
     SidebarView
 }: Props ) => (
     <Grid>
-        {<Row>
+        <Row>
             <Col>{headerView}</Col>
-        </Row>}
+        </Row>
         <Row>
             <Col col={Col_Width.THIRTY}>{SidebarView}</Col>
             <Col col={Col_Width.SEVENTY}>{contentView}</Col>
