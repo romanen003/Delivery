@@ -6,6 +6,7 @@ import {closeModal} from "../../store";
 import './modal-root.scss';
 import {ModalConfig, getModal} from "./register-modals";
 import {VIEW} from "./constants";
+import {Overlay} from "../../elements";
 
 interface Props {
     modals?: Array<string>,
@@ -41,8 +42,7 @@ export class ModalRoot extends Component<Props> {
         });
 
         return (
-            <div
-                className={classNames(`overlay`)}
+            <Overlay
                 onClick={this.handleCloseModal}
                 style={overlayZIndex}
             >
@@ -52,7 +52,7 @@ export class ModalRoot extends Component<Props> {
                 >
                     <Component {...config} />
                 </div>
-            </div>
+            </Overlay>
         );
     };
 

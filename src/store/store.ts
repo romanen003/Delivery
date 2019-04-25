@@ -11,4 +11,6 @@ export const store = createStore(
         applyMiddleware(
             routerMiddleware(history),
             thunk
-)));
+        )
+    )
+);
