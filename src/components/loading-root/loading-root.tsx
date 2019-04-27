@@ -2,13 +2,14 @@ import React, {Component, Fragment} from 'react';
 import {Loading, Overlay} from "../../elements";
 import {connect} from "react-redux";
 import {StoreTypes} from "../../store/store-types";
+import {getLoadingStatus} from "../../store/loading/selectors";
 
 interface Props {
     loading?: boolean
 }
 
-@(connect((state: StoreTypes) => ({
-    loading: state.loading.loading
+@(connect((store: StoreTypes) => ({
+    loading: getLoadingStatus(store)
 })) as any)
 export class LoadingRoot extends Component<Props> {
     render() {
@@ -25,7 +26,6 @@ export class LoadingRoot extends Component<Props> {
                     </div>
                 }
             </Fragment>
-
         );
     }
 }

@@ -7,6 +7,7 @@ import {StoreTypes} from "../../store/store-types";
 import './header.scss';
 import {Account} from '../';
 import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
+import {getAuthorizationStatus} from "../../store/authorization/selectors";
 
 
 const {Row, Col, Margin} = Grid;
@@ -18,8 +19,8 @@ interface Props {
     showModal?: (p: string) => void
 }
 
-@(connect((({authorization}: StoreTypes) => ({
-        authorization: authorization.authorization
+@(connect(((store: StoreTypes) => ({
+        authorization: getAuthorizationStatus(store)
     })), {
     showModal
 }) as any)
