@@ -7,3 +7,4 @@ export {LayoutWithSidebar} from './layouts/page-with-sidebar/page-with-sidebar';
 export {Text} from './text/text';
 export {ModalLayout} from './modal-layout/modal-layout';
 export {Overlay} from './overlay/overlay';
+export {Loading} from './loading/loading';

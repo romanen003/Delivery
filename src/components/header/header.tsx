@@ -6,7 +6,7 @@ import {showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
 import './header.scss';
 import {Account} from '../';
-import {AUTHORIZATION_MODAL_NAME} from "../modals/authorization/constants";
+import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
 
 
 const {Row, Col, Margin} = Grid;

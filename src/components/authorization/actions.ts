@@ -1,10 +1,17 @@
-import {closeModal, setAuthorisation} from "../../../store";
-import {AUTHORIZATION_URL} from "./constants";
 import {Dispatch} from "redux";
 import {push} from "connected-react-router";
+import {
+    closeModal,
+    offLoading,
+    onLoading,
+    setAuthorisation
+} from "../../store";
+import {AUTHORIZATION_URL} from "./constants";
+
 
 
 export const checkAuthorization = (login: string, password: string) => (dispatch: Dispatch) => {
+    dispatch(onLoading());
     fetch(AUTHORIZATION_URL, {
         method: 'POST',
         headers: {
@@ -23,6 +30,7 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
                 dispatch(push('/my-account'));
             }
         })
-        .catch(res => console.log(res));
+        .catch(res => console.log(res))
+        .then(() => dispatch(offLoading()))
 };
 
