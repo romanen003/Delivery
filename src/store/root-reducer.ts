@@ -4,10 +4,12 @@ import {AuthorizationReducer} from "./authorization/reducer";
 import {ModalsReducer} from "./modals/reducer";
 import {history} from './router/history';
 import {LoadingReducer} from "./loading/reducer";
+import {NotificationReducer} from './notification/reducer';
 
 export const rootReducer = combineReducers({
     authorization: AuthorizationReducer,
     modals: ModalsReducer,
     router: connectRouter(history),
-    loading: LoadingReducer
+    loading: LoadingReducer,
+    notification: NotificationReducer
 });

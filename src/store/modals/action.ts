@@ -1,5 +1,4 @@
 import {MODAL_ACTION} from "./constants";
-import {ReactNode} from "react";
 
 interface showModalProps {
     name: string

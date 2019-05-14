@@ -1,8 +1,12 @@
 import React, {Component, Fragment} from 'react';
-import {Route, Switch} from "react-router";
+import {Route} from "react-router";
 import {Home, MyAccountPage} from './layouts';
-import {LoadingRoot, ModalRoot} from "./components";
-import {Header} from "./components";
+import {
+    LoadingRoot,
+    ModalRoot,
+    Header,
+    NotificationRoot
+} from "./components";
 
 export class App extends Component {
     render () {
@@ -13,6 +17,7 @@ export class App extends Component {
                 <Route exact path='/my-account' component={MyAccountPage} />
                 <ModalRoot />
                 <LoadingRoot />
+                <NotificationRoot />
             </Fragment>
         );
     }
