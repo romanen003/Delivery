@@ -4,17 +4,25 @@ import {
     DELETE_NOTIFICATION
 } from "./constants";
 
-export interface Notification {
+export interface NotificationType {
     type: string,
     title: string,
-    description: string
+    description: string,
+    lifeTime: number
 }
 
-const InitialState: Array<Notification> = [
+const InitialState: Array<NotificationType> = [
     {
         type: 'warning',
         title: 'test notification',
-        description: 'this is test description for test notification'
+        description: 'this is test description for test notification',
+        lifeTime: 5000
+    },
+    {
+        type: 'success',
+        title: 'test notification',
+        description: 'this is test description for test notification',
+        lifeTime: 5000
     }
 ];
 

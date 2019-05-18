@@ -1,0 +1,15 @@
+@import "../../style-view/colors";
+
+.notification {
+  background: $color-blue;
+  display: block;
+  padding: 20px;
+  position: relative;
+  width: 350px;
+
+  &__close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+}

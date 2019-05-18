@@ -8,3 +8,4 @@ export {Text} from './text/text';
 export {ModalLayout} from './modal-layout/modal-layout';
 export {Overlay} from './overlay/overlay';
 export {Loading} from './loading/loading';
+export {Notification} from './notification/notification';
