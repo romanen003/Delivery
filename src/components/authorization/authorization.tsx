@@ -58,7 +58,7 @@ export class Authorization extends Component<Props> {
                     </Row>
                     <Row marginTop={Margin.X12}>
                         <Col>
-                            <Input.Clear
+                            <Input.Password
                                 value={password}
                                 onChange={this.handleChangePassword}
                                 placeholder={PLACEHOLDERS.PASSWORD}

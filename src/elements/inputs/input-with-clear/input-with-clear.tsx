@@ -6,13 +6,13 @@ import './input-with-clear.scss';
 
 const DEFAULT_VALUE = '';
 
-interface Props extends InputProps {
+export interface InputWithClearProps extends InputProps {
     onClear?: () => void,
     value?: string
 }
 
 
-export class InputWithClear extends Component<Props> {
+export class InputWithClear extends Component<InputWithClearProps> {
     handleClear = () => {
         const {
             onChange = () => {},
