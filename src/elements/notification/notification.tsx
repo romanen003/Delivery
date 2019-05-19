@@ -1,26 +1,50 @@
 import React, {Component} from 'react';
 import {Grid, Text, Button} from '../';
 import classNames from 'classnames';
+import {TYPES} from './constants';
 import './notification.scss';
 
 const {Row, Col, T_Align, Margin_Top} = Grid;
 
 interface Props {
-    id?: number | null,
+    id?: number,
     type: string,
     title: string,
-    description: string,
+    description?: string,
     lifeTime: number,
-    onClose?: (id: number | null) => void
+    onClose: (id: number) => void
 }
 
-export class Notification extends Component<Props> {
-    handleCloseClick = () => {
-        const {onClose, id = null} = this.props;
 
-        if (onClose) {
+export class Notification extends Component<Props> {
+    constructor(props: Props){
+        super(props);
+
+        this.lifeCycle = props.lifeTime;
+    }
+
+    lifeCycle: any;
+
+    static TypesNotification = TYPES;
+
+    componentDidMount(): void {
+        const {
+            lifeTime,
+            id = -1,
+            onClose
+        } = this.props;
+        this.lifeCycle = setTimeout(() => {
             onClose(id)
-        }
+        }, lifeTime)
+    }
+
+    handleCloseClick = () => {
+        const {
+            onClose,
+            id = -1
+        } = this.props;
+        clearTimeout(this.lifeCycle);
+        onClose(id);
     };
 
     render () {
@@ -29,9 +53,14 @@ export class Notification extends Component<Props> {
             title,
             description
         } = this.props;
+        const StyleNotification = classNames('notification', {
+            'notification-success': type === TYPES.SUCCESS,
+            'notification-warning': type === TYPES.WARNING,
+            'notification-error': type === TYPES.ERROR
+        });
 
         return (
-            <div className={classNames('notification')}>
+            <div className={StyleNotification}>
                 <Grid>
                     <Row>
                         <Col textAlign={T_Align.LEFT}>

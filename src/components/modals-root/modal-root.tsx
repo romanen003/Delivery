@@ -45,12 +45,13 @@ export class ModalRoot extends Component<Props> {
             <Overlay
                 onClick={this.handleCloseModal}
                 style={overlayZIndex}
+                key={index}
             >
                 <div
                     className={modalPositionStyle}
                     onClick={this.handleModalClick}
                 >
-                    <Component {...config} />
+                    <Component {...config} key={index} />
                 </div>
             </Overlay>
         );

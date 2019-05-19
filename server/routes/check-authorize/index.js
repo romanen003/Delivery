@@ -16,5 +16,5 @@ checkAuthorize.post('/', (request, response) => {
             return response.json(Data);
         }
         return response.status(401).send('incorrect login or password')
-    }, 5000);
+    }, 2000);
 });

@@ -7,35 +7,30 @@ import {
 export interface NotificationType {
     type: string,
     title: string,
-    description: string,
-    lifeTime: number
+    description?: string,
+    lifeTime: number,
+    id: number
 }
 
-const InitialState: Array<NotificationType> = [
-    {
-        type: 'warning',
-        title: 'test notification',
-        description: 'this is test description for test notification',
-        lifeTime: 5000
-    },
-    {
-        type: 'success',
-        title: 'test notification',
-        description: 'this is test description for test notification',
-        lifeTime: 5000
-    }
-];
+let ID: number = 1;
+
+const InitialState: Array<NotificationType> = [];
 
 export const NotificationReducer = (state = InitialState, action: AnyAction) => {
     switch(action.type) {
         case (ADD_NOTIFICATION):
             return [
                 ...state,
-                action.payload
+                {
+                    description: '',
+                    lifeTime: 5000,
+                    ...action.payload,
+                    id: ++ID,
+                }
             ];
         case (DELETE_NOTIFICATION):
             return [
-                ...state
+                ...state.filter(item => item.id !== action.payload.id)
             ];
         default:
             return state

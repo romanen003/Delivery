@@ -5,22 +5,34 @@ import {Notification} from '../../elements';
 import {StoreTypes} from "../../store/store-types";
 import {notificationSelector} from '../../store/notification/selectors';
 import {NotificationType} from '../../store/notification/reducer';
+import {deleteNotification} from '../../store';
 import './notification-root.scss';
 
 interface Props {
-    notifications?: Array<NotificationType>
+    notifications?: Array<NotificationType>,
+    deleteNotification?: (id: number) => void
 }
 
 @(connect((state: StoreTypes) => ({
     notifications: notificationSelector(state)
-})) as any)
+}), {
+    deleteNotification
+}) as any)
 export class NotificationRoot extends Component<Props> {
+    handleCloseNotification = (id: number) => {
+        const {
+            deleteNotification = () => {}
+        } = this.props;
+
+        deleteNotification(id)
+    };
+
     render () {
         const {notifications = []} = this.props;
-        console.log(this.props.notifications);
+
         return (
             <div className={classNames('notification-root')}>
-                {notifications.map(({type, description, title, lifeTime}, index) => (
+                {notifications.map(({type, description, title, lifeTime, id}, index) => (
                     <div className={classNames('notification-root__item-wrapper')} key={index}>
                         <Notification
                             key={index}
@@ -28,6 +40,8 @@ export class NotificationRoot extends Component<Props> {
                             description={description}
                             title={title}
                             lifeTime={lifeTime}
+                            id={id}
+                            onClose={this.handleCloseNotification}
                         />
                     </div>
                 ))}

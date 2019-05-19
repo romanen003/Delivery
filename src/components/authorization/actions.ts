@@ -4,10 +4,34 @@ import {
     closeModal,
     offLoading,
     onLoading,
-    setAuthorisation
+    setAuthorisation,
+    addNotification
 } from "../../store";
 import {AUTHORIZATION_URL} from "./constants";
+import {TYPES} from "../../elements/notification/constants";
 
+const successAuthorization = () => (dispatch: Dispatch) => {
+    dispatch(setAuthorisation(true));
+    dispatch(offLoading());
+    dispatch(addNotification({
+        type: TYPES.SUCCESS,
+        title: 'Успешная авторизация',
+        lifeTime: 5000,
+        id: 1
+    }));
+    dispatch(closeModal());
+};
+
+const failureAuthorization = () => (dispatch: Dispatch) => {
+    dispatch(offLoading());
+    dispatch(addNotification({
+        type: TYPES.ERROR,
+        title: 'Ошибка авторизации',
+        description: 'Ошибка авторизации',
+        lifeTime: 5000,
+        id: 1
+    }));
+};
 
 
 export const checkAuthorization = (login: string, password: string) => (dispatch: Dispatch) => {
@@ -25,12 +49,15 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
     })
         .then(response => {
             if (response.status === 200) {
-                dispatch(setAuthorisation(true));
-                dispatch(closeModal());
-                dispatch(push('/my-account'));
+                successAuthorization();
+                return dispatch(push('/my-account'));
             }
+
+            failureAuthorization()(dispatch);
         })
-        .catch(res => console.log(res))
-        .then(() => dispatch(offLoading()))
+        .catch(() => {
+            failureAuthorization()(dispatch);
+        })
+
 };
 
