@@ -6,7 +6,7 @@ import {
     ModalRoot,
     Header,
     NotificationRoot
-} from "./components";
+} from "./modules";
 
 export class App extends Component {
     render () {

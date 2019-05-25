@@ -1,9 +1,9 @@
 import {createSelector} from "reselect";
 import {StoreTypes} from "../store-types";
 
-const getLoadingStore = (store: StoreTypes) => store.loading;
+const getLoadingFromStore = (store: StoreTypes) => store.loading;
 
 export const getLoadingStatus = createSelector(
-    getLoadingStore,
+    getLoadingFromStore,
         getLoadingStore => getLoadingStore.loading
 );

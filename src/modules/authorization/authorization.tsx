@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import classNames from "classnames";
-import './authorization.scss';
 import {Button, Grid, Input, ModalLayout} from "../../elements";
 import {AUTHORIZATION, PLACEHOLDERS} from "./constants";
 import {connect} from "react-redux";
 import {checkAuthorization} from "./actions";
+import './authorization.scss';
 
 const {Row, Col, Margin} = Grid;
-
 
 interface Props {
     auth: (login: string, password: string) => any

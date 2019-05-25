@@ -49,7 +49,7 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
     })
         .then(response => {
             if (response.status === 200) {
-                successAuthorization();
+                successAuthorization()(dispatch);
                 return dispatch(push('/my-account'));
             }
 

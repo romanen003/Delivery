@@ -35,11 +35,14 @@ export class InputWithClear extends Component<InputWithClearProps> {
                     clear
                     {...this.props}
                 />
-                {!disabled && value &&
-                    <Button.Clear
-                    onClick={this.handleClear}
-                    />
-                }
+                <div className={classNames('input-wrapper__button')}>
+                    {
+                        !disabled && value &&
+                        <Button.Clear
+                            onClick={this.handleClear}
+                        />
+                    }
+                </div>
             </div>
         )
     }

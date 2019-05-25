@@ -3,10 +3,11 @@ import classNames from "classnames";
 import {connect} from "react-redux";
 import {StoreTypes} from "../../store/store-types";
 import {closeModal} from "../../store";
-import './modal-root.scss';
 import {ModalConfig, getModal} from "./register-modals";
 import {VIEW} from "./constants";
 import {Overlay} from "../../elements";
+import {getModals} from '../../store/modals/selectors';
+import './modal-root.scss';
 
 interface Props {
     modals?: Array<string>,
@@ -16,7 +17,7 @@ interface Props {
 @(connect((
     store: StoreTypes
 ) => ({
-    modals: store.modals
+    modals: getModals(store)
 }), {
     closeModal
 }) as any)
@@ -37,7 +38,7 @@ export class ModalRoot extends Component<Props> {
         const overlayZIndex = {zIndex: ++index};
         const {Component, config, view} = modal;
         const modalPositionStyle = classNames('modal-wrapper', {
-            'modal-wrapper-right': view === VIEW.LEFT,
+            'modal-wrapper-right': view === VIEW.RIGHT,
             'modal-wrapper-center': view === VIEW.CENTER,
         });
 

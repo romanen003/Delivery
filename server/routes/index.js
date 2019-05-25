@@ -3,6 +3,6 @@ import {checkAuthorize} from './check-authorize';
 
 const routes = express.Router();
 
-routes.use('/check-authorize', checkAuthorize);
+routes.use('/auth', checkAuthorize);
 
 module.exports = routes;

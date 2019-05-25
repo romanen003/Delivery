@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import classNames from "classnames";
+import {TransitionGroup} from 'react-transition-group'
 import {Notification} from '../../elements';
 import {StoreTypes} from "../../store/store-types";
 import {notificationSelector} from '../../store/notification/selectors';
@@ -33,17 +34,21 @@ export class NotificationRoot extends Component<Props> {
         return (
             <div className={classNames('notification-root')}>
                 {notifications.map(({type, description, title, lifeTime, id}, index) => (
-                    <div className={classNames('notification-root__item-wrapper')} key={index}>
-                        <Notification
-                            key={index}
-                            type={type}
-                            description={description}
-                            title={title}
-                            lifeTime={lifeTime}
-                            id={id}
-                            onClose={this.handleCloseNotification}
-                        />
-                    </div>
+                    <TransitionGroup
+                        transitionName="anim" transitionAppear={true} transitionAppearTimeout={5000} transitionEnter={true} transitionLeave={true}
+                    >
+						<div className={classNames('notification-root__item-wrapper')} key={index}>
+							<Notification
+								key={index}
+								type={type}
+								description={description}
+								title={title}
+								lifeTime={lifeTime}
+								id={id}
+								onClose={this.handleCloseNotification}
+							/>
+						</div>
+                    </TransitionGroup>
                 ))}
             </div>
         )

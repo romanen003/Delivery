@@ -1,4 +1,4 @@
 export const VIEW = {
-    LEFT: 'RIGHT',
+    RIGHT: 'RIGHT',
     CENTER: 'CENTER'
 };

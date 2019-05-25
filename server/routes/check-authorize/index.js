@@ -5,7 +5,7 @@ const LOGIN = 'roman';
 const PASSWORD = "1";
 
 
-checkAuthorize.post('/', (request, response) => {
+checkAuthorize.post('/check-auth', (request, response) => {
     const {login, password} = request.body;
     setTimeout(() => {
         if (login === LOGIN && password === PASSWORD){
