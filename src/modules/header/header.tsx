@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import {NavLink } from "react-router-dom";
 import classNames from "classnames";
 import {Button, Grid, Text} from '../../elements';
 import {showModal} from '../../store';
@@ -9,9 +10,7 @@ import {Account} from '../';
 import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
 import {getAuthorizationStatus} from "../../store/authorization/selectors";
 
-
 const {Row, Col, Margin} = Grid;
-
 
 interface Props {
     authorization?: boolean,
@@ -49,8 +48,11 @@ export class Header extends Component<Props> {
                 <Grid>
                     <Row margin={Margin.X16}>
                         <Col>
-
-                            <Text heading>Delivery</Text>
+                            <NavLink  to="/" style={{textDecoration: 'none'}}>
+                                <Text heading>
+                                    Delivery
+                                </Text>
+                            </NavLink >
                         </Col>
                         <Col>
                             {this.renderRightSide()}
