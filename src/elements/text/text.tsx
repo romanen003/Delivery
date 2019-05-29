@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './text.scss';
 
 interface Prop {
-    children?: string,
+    children?: string | number,
     heading?: boolean,
     title?: boolean,
     sub?: boolean,

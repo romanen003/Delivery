@@ -10,7 +10,7 @@ import {
 import {AUTHORIZATION_URL} from "./constants";
 import {TYPES} from "../../elements/notification/constants";
 
-const successAuthorization = () => (dispatch: Dispatch) => {
+const successAuthorization = (dispatch: Dispatch) => {
     dispatch(setAuthorisation(true));
     dispatch(offLoading());
     dispatch(addNotification({
@@ -22,7 +22,7 @@ const successAuthorization = () => (dispatch: Dispatch) => {
     dispatch(closeModal());
 };
 
-const failureAuthorization = () => (dispatch: Dispatch) => {
+const failureAuthorization = (dispatch: Dispatch) => {
     dispatch(offLoading());
     dispatch(addNotification({
         type: TYPES.ERROR,
@@ -49,14 +49,14 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
     })
         .then(response => {
             if (response.status === 200) {
-                successAuthorization()(dispatch);
+                successAuthorization(dispatch);
                 return dispatch(push('/my-account'));
             }
 
-            failureAuthorization()(dispatch);
+            failureAuthorization(dispatch);
         })
         .catch(() => {
-            failureAuthorization()(dispatch);
+            failureAuthorization(dispatch);
         })
 
 };

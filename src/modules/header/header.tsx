@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {NavLink } from "react-router-dom";
 import classNames from "classnames";
-import {Button, Grid, Text} from '../../elements';
+import {Button, Grid, Text, Watch} from '../../elements';
 import {showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
-import './header.scss';
 import {Account} from '../';
 import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
 import {getAuthorizationStatus} from "../../store/authorization/selectors";
+import './header.scss';
 
 const {Row, Col, Margin} = Grid;
 
@@ -55,6 +55,7 @@ export class Header extends Component<Props> {
                             </NavLink >
                         </Col>
                         <Col>
+                            <Watch />
                             {this.renderRightSide()}
                         </Col>
                     </Row>

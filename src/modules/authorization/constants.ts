@@ -6,8 +6,8 @@ export const AUTHORIZATION_URL = '/api/auth/check-auth';
 export const AUTHORIZATION = 'Authorization';
 
 export const PLACEHOLDERS = {
-    LOGIN: 'ENTER LOGIN',
-    PASSWORD: 'ENTER PASSWORD',
+    LOGIN: 'enter login',
+    PASSWORD: 'enter password',
     SUBMIT: 'AUTHORIZATION'
 };
 

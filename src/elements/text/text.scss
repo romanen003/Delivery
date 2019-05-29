@@ -2,6 +2,7 @@
 @import "../../style-view/fonts";
 
 .text {
+    display: inline-block;
     color: $color-white;
     margin: 0;
     overflow: hidden;
