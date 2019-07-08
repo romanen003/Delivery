@@ -10,7 +10,7 @@ import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
 import {getAuthorizationStatus} from "../../store/authorization/selectors";
 import './header.scss';
 
-const {Row, Col, Margin} = Grid;
+const {Row, Col, Margin, Col_Width} = Grid;
 
 interface Props {
     authorization?: boolean,
@@ -35,11 +35,13 @@ export class Header extends Component<Props> {
     renderRightSide = () => {
         const {authorization} = this.props;
 
-        return (authorization
-        ? <Account />
-        : <Button onClick={this.handleAuthorClick}>
-                Authorisation
-          </Button>)
+        return (
+            authorization
+            ? <Account />
+            : <Button onClick={this.handleAuthorClick}>
+                    Authorisation
+              </Button>
+        )
     };
 
     render() {
@@ -47,14 +49,14 @@ export class Header extends Component<Props> {
             <header className={classNames('header')}>
                 <Grid>
                     <Row margin={Margin.X16}>
-                        <Col>
+                        <Col col={Col_Width.HALF}>
                             <NavLink  to="/" style={{textDecoration: 'none'}}>
                                 <Text heading>
                                     Delivery
                                 </Text>
                             </NavLink >
                         </Col>
-                        <Col>
+                        <Col col={Col_Width.HALF}>
                             <Watch />
                             {this.renderRightSide()}
                         </Col>
