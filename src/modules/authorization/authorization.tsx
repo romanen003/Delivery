@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {checkAuthorization} from "./actions";
 import './authorization.scss';
 
-const {Row, Col, Margin} = Grid;
+const {Row, Col, Margin, Col_Width} = Grid;
 
 interface Props {
     auth: (login: string, password: string) => any
@@ -65,7 +65,7 @@ export class Authorization extends Component<Props> {
                         </Col>
                     </Row>
                     <Row marginTop={Margin.X16}>
-                        <Col>
+                        <Col col={Col_Width.HALF}>
                             <Button
                                 onClick={this.handleCheckAuthorization}
                             >

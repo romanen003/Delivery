@@ -46,7 +46,7 @@ export class Header extends Component<Props> {
 
     render() {
         return (
-            <header className={classNames('header')}>
+            <div className={classNames('header')}>
                 <Grid>
                     <Row margin={Margin.X16}>
                         <Col col={Col_Width.HALF}>
@@ -62,7 +62,7 @@ export class Header extends Component<Props> {
                         </Col>
                     </Row>
                 </Grid>
-            </header>
+            </div>
         )
     }
 }

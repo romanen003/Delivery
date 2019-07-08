@@ -1,14 +1,14 @@
 import {Authorization} from "./authorization";
-import {registerModal} from "../modals-root/register-modals";
+import {registerModal} from '../modals-root/register-modals';
 
 export const AUTHORIZATION_URL = '/api/auth/check-auth';
 
 export const AUTHORIZATION = 'Authorization';
 
 export const PLACEHOLDERS = {
-    LOGIN: 'enter login',
-    PASSWORD: 'enter password',
-    SUBMIT: 'AUTHORIZATION'
+    LOGIN: 'Enter login',
+    PASSWORD: 'Enter password',
+    SUBMIT: 'Authorization'
 };
 
 export const AUTHORIZATION_MODAL_NAME = 'AUTHORIZATION';

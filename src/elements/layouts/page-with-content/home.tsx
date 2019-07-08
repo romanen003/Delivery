@@ -14,14 +14,14 @@ export const LayoutHome = ({
    footerView
 }: Props ) => (
     <div className={classNames('page')}>
-        <div className={classNames('page-header')}>
+        <header className={classNames('page-header')}>
             {headerView}
-        </div>
-        <div className={classNames('page-content')}>
+        </header>
+        <main className={classNames('page-content')}>
             {contentView}
-        </div>
-        <div className={classNames('page-footer')}>
+        </main>
+        <footer className={classNames('page-footer')}>
             {footerView}
-        </div>
+        </footer>
     </div>
 );

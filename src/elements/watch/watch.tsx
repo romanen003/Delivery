@@ -46,18 +46,13 @@ export class Watch extends Component<Props, State> {
             <div className={classNames('watch')}>
                 <Grid>
                     <Row>
-                        <Col>
-                            <Text sub> City</Text>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col textAlign={T_Align.RIGHT}>
+                        <Col textAlign={T_Align.RIGHT} sticky>
                             <Text label>{hours}</Text>
                         </Col>
                         <Col>
                             <Text label>:</Text>
                         </Col>
-                        <Col textAlign={T_Align.LEFT}>
+                        <Col textAlign={T_Align.LEFT} sticky>
                             <Text label>{minutes}</Text>
                         </Col>
                     </Row>
