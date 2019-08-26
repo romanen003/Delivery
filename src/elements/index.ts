@@ -8,3 +8,5 @@ export {Overlay} from './overlay/overlay';
 export {Loading} from './loading/loading';
 export {Notification} from './notification/notification';
 export {Watch} from './watch/watch';
+export {Tooltip} from './tooltip/tooltip';
+export {createTooltipHOC} from './tooltip/create-tooltip-hoc';

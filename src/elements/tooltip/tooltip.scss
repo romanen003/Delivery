@@ -1,0 +1,17 @@
+@import "../../style-view/colors";
+
+.tooltip {
+    background: $color-red;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    left: 20%;
+    top: 110%;
+    padding: 2px 8px;
+    position: absolute;
+    min-width: 50px;
+}
+
+.component-with-tooltip {
+    display: inline-block;
+    position: relative;
+}
