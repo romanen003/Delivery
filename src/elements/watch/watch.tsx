@@ -41,19 +41,21 @@ export class Watch extends Component<Props, State> {
 
     render(){
         const {hours, minutes} = this.state;
+        const correctHours = hours > 9 ? hours : `0${hours}`;
+        const correctMinutes = minutes > 9 ? minutes : `0${minutes}`;
 
         return (
             <div className={classNames('watch')}>
                 <Grid>
                     <Row>
                         <Col textAlign={T_Align.RIGHT} sticky>
-                            <Text label>{hours}</Text>
+                            <Text label>{correctHours}</Text>
                         </Col>
                         <Col>
                             <Text label>:</Text>
                         </Col>
                         <Col textAlign={T_Align.LEFT} sticky>
-                            <Text label>{minutes}</Text>
+                            <Text label>{correctMinutes}</Text>
                         </Col>
                     </Row>
                 </Grid>

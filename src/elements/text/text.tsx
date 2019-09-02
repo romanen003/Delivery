@@ -7,7 +7,8 @@ interface Prop {
     heading?: boolean,
     title?: boolean,
     sub?: boolean,
-    label?: boolean
+    label?: boolean,
+    black?: boolean
 }
 
 export const Text = ({
@@ -15,13 +16,15 @@ export const Text = ({
     heading,
     label,
     title,
-    sub
+    sub,
+    black
 }: Prop) => {
     const styleText = classNames('text', {
         'text-heading': heading,
         'text-title': title,
         'text-sub': sub,
         'text-label': label,
+        'text-black': black
     });
 
     return (

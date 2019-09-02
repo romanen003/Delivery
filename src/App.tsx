@@ -9,7 +9,7 @@ export class App extends Component {
             <Fragment>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/my-account' component={Home} />
-                <Route exact path='/test-page' component={TestPage} />
+                <Route exact path='/test' component={TestPage} />
                 <ModalRoot />
                 <LoadingRoot />
                 <NotificationRoot />

@@ -1,0 +1,19 @@
+@import "../../style-view/colors";
+
+.restaurant-box {
+    background: $color-white;
+    border-radius: 5%;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 200px;
+    overflow: hidden;
+    width: 350px;
+
+        &__img {
+            height: 120px;
+        }
+
+        &__info {
+            padding: 10px 0;
+        }
+}

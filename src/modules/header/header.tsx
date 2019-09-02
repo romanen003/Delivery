@@ -10,7 +10,7 @@ import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
 import {getAuthorizationStatus} from "../../store/authorization/selectors";
 import './header.scss';
 
-const {Row, Col, Margin, Col_Width} = Grid;
+const {Row, Col, Margin, Col_Width, T_Align} = Grid;
 
 interface Props {
     authorization?: boolean,
@@ -49,14 +49,12 @@ export class Header extends Component<Props> {
             <div className={classNames('header')}>
                 <Grid>
                     <Row margin={Margin.X16}>
-                        <Col col={Col_Width.HALF}>
+                        <Col col={Col_Width.THIRTY} textAlign={T_Align.LEFT}>
                             <NavLink  to="/" style={{textDecoration: 'none'}}>
-                                <Text heading>
-                                    Delivery
-                                </Text>
+                                <Text heading>Delivery</Text>
                             </NavLink >
                         </Col>
-                        <Col col={Col_Width.HALF}>
+                        <Col col={Col_Width.SEVENTY} textAlign={T_Align.RIGHT}>
                             <Watch />
                             {this.renderRightSide()}
                         </Col>

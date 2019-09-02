@@ -1,7 +1,7 @@
 import express from 'express';
 export const checkAuthorize = express.Router();
 
-const LOGIN = 'roman';
+const LOGIN = '1';
 const PASSWORD = "1";
 
 

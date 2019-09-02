@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "nameEn": "McDonalds",
+      "nameRu": "Макдоналдс",
+      "Rating": "4.7",
+      "onlinePay": true,
+      "minOrder": "300",
+      "coverImg": "static/img/mcdonalds.jpg"
+    }
+  ]
+}

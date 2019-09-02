@@ -13,7 +13,7 @@ const listenCallback = error => error
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(fileUpload());
-app.use('/static', express.static(`${__dirname}/public`));
+app.use('/static', express.static(`public`));
 app.use('/api', routes);
 
 const appServer = app.listen(PORT, HOST, listenCallback);

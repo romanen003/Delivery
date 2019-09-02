@@ -1,0 +1,22 @@
+.rating {
+    box-sizing: border-box;
+    text-align: left;
+
+    &__star {
+        background: no-repeat url("./star.jpg");
+        background-size: cover;
+        display: inline-block;
+        height: 25px;
+        margin-left: -5px;
+        vertical-align: middle;
+        width: 25px;
+    }
+
+    &__number {
+        color: #FECD00;
+        display: inline-block;
+        font-weight: 700;
+        margin: 0;
+        vertical-align: middle;
+    }
+}

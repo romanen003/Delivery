@@ -8,20 +8,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    
+
     &-heading {
         @include font($heading-size, $heading-weight);
     }
-    
+
     &-label {
         @include font($title-size, $heading-weight);
     }
-    
+
     &-title {
         @include font($title-size, $title-weight);
     }
-    
+
     &-sub {
         @include font($text-size, $text-weight);
+    }
+
+    &-black {
+        color: black;
     }
 }
