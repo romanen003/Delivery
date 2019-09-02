@@ -13,6 +13,7 @@ export interface InputProps {
     clear?: boolean,
     onChange?: (value: string) => void,
     onFocus?: (event: React.SyntheticEvent) => void,
+    onBlur?: (event: React.SyntheticEvent) => void,
     onMouseEnter?: (event: React.SyntheticEvent) => void,
     onMouseLeave?: (event: React.SyntheticEvent) => void
 }
@@ -39,6 +40,7 @@ export class Input extends Component<InputProps> {
             placeholder,
             value,
             onFocus,
+            onBlur,
             onMouseEnter,
             onMouseLeave,
             clear
@@ -56,6 +58,7 @@ export class Input extends Component<InputProps> {
                 value={value}
                 onChange={this.handleChange}
                 onFocus={onFocus}
+                onBlur={onBlur}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 className={CssStyle}

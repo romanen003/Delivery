@@ -11,8 +11,11 @@ export interface InputWithClearProps extends InputProps {
     value?: string
 }
 
+export class InputWithClear extends Component<InputWithClearProps, {focus: boolean}> {
+    state = {
+        focus: false
+    };
 
-export class InputWithClear extends Component<InputWithClearProps> {
     handleClear = () => {
         const {
             onChange = () => {},
@@ -22,22 +25,26 @@ export class InputWithClear extends Component<InputWithClearProps> {
         onClear();
     };
 
+    handleFocus = () => this.setState({focus: true});
+
+    handleBlur = () => this.setState({focus: false});
+
     render () {
         const wrapperStyle = classNames("input-wrapper");
-        const {
-            disabled,
-            value
-        } = this.props;
+        const {disabled, value} = this.props;
+        const {focus} = this.state;
 
         return (
             <div className={wrapperStyle}>
                 <Input
+                    onMouseEnter={this.handleFocus}
+                    onMouseLeave={this.handleBlur}
                     clear
                     {...this.props}
                 />
                 <div className={classNames('input-wrapper__button')}>
                     {
-                        !disabled && value &&
+                        !disabled && value && focus &&
                         <Button.Clear
                             onClick={this.handleClear}
                         />
