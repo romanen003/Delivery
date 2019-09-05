@@ -5,11 +5,13 @@ import {ModalsReducer} from "./modals/reducer";
 import {history} from './router/history';
 import {LoadingReducer} from "./loading/reducer";
 import {NotificationReducer} from './notification/reducer';
+import {RestaurantReducer} from "./restaurant/reducer";
 
 export const rootReducer = combineReducers({
     authorization: AuthorizationReducer,
     modals: ModalsReducer,
     router: connectRouter(history),
     loading: LoadingReducer,
-    notification: NotificationReducer
+    notification: NotificationReducer,
+    restaurant: RestaurantReducer
 });

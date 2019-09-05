@@ -9,23 +9,25 @@ const {Row, Col, T_Align, Col_Width} = Grid;
 
 interface Props {
     name: string,
-    src: string,
+    coverImg: string,
     rating: number | string,
     delivery: number | string,
     category: string,
-    deliveryTime: string
+    deliveryTime: string,
+    logoImg: string
 }
 
 export const RestaurantBox = ({
-    src,
+    coverImg,
     name,
     rating,
     delivery,
     category,
-    deliveryTime
+    deliveryTime,
+    logoImg
 }: Props) => {
     const currentStyle = {
-        background: `url(${src}) 50%`,
+        background: `url(${coverImg}) 50%`,
         backgroundSize: '100%'
     };
 
@@ -34,7 +36,11 @@ export const RestaurantBox = ({
             <div
                 style={currentStyle}
                 className={classNames('restaurant-box__img')}
-            />
+            >
+                <span className={classNames('restaurant-box__box-logo')}>
+                    <img className={classNames('restaurant-box__logo-img')} src={logoImg} alt={name}/>
+                </span>
+            </div>
             <div className={classNames('restaurant-box__info')}>
                 <Grid>
                     <Row>

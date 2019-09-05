@@ -11,9 +11,27 @@
 
         &__img {
             height: 120px;
+            position: relative;
         }
 
         &__info {
             padding: 10px 0;
+        }
+
+        &__box-logo {
+            background: #FFFFFF;
+            border-radius: 4px;
+            bottom: 5px;
+            height: 42px;
+            left: 5px;
+            position: absolute;
+            width: 48px;
+        }
+
+        &__logo-img {
+            border-radius: 4px;
+            height: 32px;
+            padding: 4px 0 0 4px;
+            width: 40px;
         }
 }
