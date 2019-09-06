@@ -3,20 +3,26 @@ interface requestType {
     url: string,
     method: string,
     params?: {[key: string]: any},
-    useFormData?: boolean
+    useFormData?: boolean,
+    body?: any
 }
 
-const requestData = ({url, method, params, useFormData}: requestType) => {
+const requestData = ({url, method, params, useFormData, body}: requestType) => {
     let nextUrl = url;
+    let nextBody = body;
 
     if (method === request.method.GET && params) {
-        nextUrl += parseQueryParams(params)
+        nextUrl += parseQueryParams(params);
+    }
+
+    if (useFormData) {
+        nextBody = parseFormData(body)
     }
 
     return fetch(nextUrl, {
-        method
-    }).then(response => response.json())
-        .catch(error => error)
+        method,
+        body: nextBody
+    })
 };
 
 
@@ -24,18 +30,40 @@ function parseQueryParams (params: {[key: string]: any}) {
     let queryString: string = '?';
 
     for (let par in params) {
-        if (typeof params[par] === ('string' || 'number')){
-            queryString += `${par}=${params[par]}&`
+        if (isNumberOrString(params[par])){
+            queryString += `${par}=${params[par]}&`;
         }
         if (Array.isArray(params[par])){
             params[par].forEach((item: string) => {
-                queryString += `${par}=${item}&`
+                queryString += `${par}=${item}&`;
             })
         }
     }
 
     return queryString.substr( 0, queryString.length - 1);
 }
+
+function parseFormData (params: {[key: string]: any}) {
+    const formData = new FormData();
+
+    for (let par in params) {
+        if (isNumberOrString(params[par])){
+            formData.append(par, params[par]);
+        }
+        if (Array.isArray(params[par])){
+            params[par].forEach((item: string) => {
+                formData.append(par, item);
+            })
+        }
+    }
+    console.log('params', params);
+    return formData;
+}
+
+function isNumberOrString(params: any) {
+    return typeof params === 'string' || typeof params === 'number';
+}
+
 export const request = {
     request: requestData,
     method: {

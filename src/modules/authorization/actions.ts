@@ -9,6 +9,7 @@ import {
 } from "../../store";
 import {AUTHORIZATION_URL} from "./constants";
 import {TYPES} from "../../elements/notification/constants";
+import {request} from '../../utils/request';
 
 const successAuthorization = (dispatch: Dispatch) => {
     dispatch(setAuthorisation(true));
@@ -36,16 +37,12 @@ const failureAuthorization = (dispatch: Dispatch) => {
 
 export const checkAuthorization = (login: string, password: string) => (dispatch: Dispatch) => {
     dispatch(onLoading());
-    fetch(AUTHORIZATION_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            login,
-            password
-        })
 
+    request.request({
+        url: AUTHORIZATION_URL,
+        method: request.method.POST,
+        useFormData: true,
+        body: {login, password}
     })
         .then(response => {
             if (response.status === 200) {
@@ -58,6 +55,5 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
         .catch(() => {
             failureAuthorization(dispatch);
         })
-
 };
 

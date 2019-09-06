@@ -9,5 +9,7 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
         url: RESTAURANT_URL,
         method: request.method.GET,
         params
-    }).then(({data}) => dispatch(setData(data)))
+    })
+        .then(response => response.json())
+        .then(({data}) => dispatch(setData(data)))
 };

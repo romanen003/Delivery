@@ -31,7 +31,7 @@ export class RestaurantContainerComponent extends Component<Props> {
             pagination = {}
         } = this.props;
 
-        getRestaurantData({filters, pagination})
+        getRestaurantData({...filters, ...pagination, 'fdsfdsf': 132131})
     }
 
     render(){
