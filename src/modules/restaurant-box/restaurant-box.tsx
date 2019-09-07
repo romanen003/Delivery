@@ -7,14 +7,15 @@ import './restaurant-box.scss';
 
 const {Row, Col, T_Align, Col_Width} = Grid;
 
-interface Props {
+export interface Props {
     name: string,
     coverImg: string,
     rating: number | string,
     delivery: number | string,
     category: string,
     deliveryTime: string,
-    logoImg: string
+    logoImg: string,
+    nameEn: string
 }
 
 export const RestaurantBox = ({

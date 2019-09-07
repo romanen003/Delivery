@@ -4,12 +4,12 @@ import {connect} from "react-redux";
 import {Grid, Text} from '../../elements';
 import {getRestaurantData} from './actions';
 import {StoreTypes} from "../../store/store-types";
+import {restaurantBoxWithRouting as RestaurantBoxWithRouting} from '../restaurant-box/restaurant-box-routing';
 import {
     RestaurantDataSelector,
     RestaurantFiltersSelector,
     RestaurantPaginationSelector
 } from "../../store/restaurant/selectors";
-import {RestaurantBox} from "..";
 import './restaurant-container.scss';
 
 const {Row, Col, Margin_Top, Col_Width} = Grid;
@@ -46,9 +46,9 @@ export class RestaurantContainerComponent extends Component<Props> {
                         </Col>
                     </Row>
                     <Row marginTop={Margin_Top.X16}>
-                            {data.map(({nameRu, rating, id, coverImg, category, logoImg}) =>
+                            {data.map(({nameRu, rating, id, coverImg, category, logoImg, nameEn}) =>
                                 <Col col={Col_Width.QUARTER}>
-                                    <RestaurantBox
+                                    <RestaurantBoxWithRouting
                                         name={nameRu}
                                         coverImg={coverImg}
                                         logoImg={logoImg}
@@ -57,6 +57,7 @@ export class RestaurantContainerComponent extends Component<Props> {
                                         category={category}
                                         deliveryTime={'30'}
                                         key={id}
+                                        nameEn={nameEn}
                                     />
                                 </Col>
                             )}

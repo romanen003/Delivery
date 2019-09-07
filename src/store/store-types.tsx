@@ -8,5 +8,6 @@ export interface StoreTypes {
     modals: Array<string>,
     loading: LoadingState,
     notification: Array<NotificationType>,
-    restaurant: RestaurantStoreType
+    restaurant: RestaurantStoreType,
+    router: {[key: string]: any}
 }
