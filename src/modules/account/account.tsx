@@ -13,8 +13,7 @@ interface State {
     openedMenu: boolean
 }
 
-@(connect(null, {}) as any)
-export class Account extends Component<Props, State> {
+class AccountComponent extends Component<Props, State> {
     state = {
         openedMenu: false
     };
@@ -55,3 +54,5 @@ export class Account extends Component<Props, State> {
         );
     }
 }
+
+export const Account = connect()(AccountComponent);

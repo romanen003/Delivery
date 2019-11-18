@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {Grid, Text} from '../../elements';
 import {getRestaurantData} from './actions';
 import {StoreTypes} from "../../store/store-types";
-import {restaurantBoxWithRouting as RestaurantBoxWithRouting} from '../restaurant-box/restaurant-box-routing';
+import {RestaurantBoxWithRouting} from '../restaurant-box/restaurant-box-routing';
 import {
     RestaurantDataSelector,
     RestaurantFiltersSelector,
@@ -23,7 +23,7 @@ interface Props {
     pagination?: Data
 }
 
-export class RestaurantContainerComponent extends Component<Props> {
+class RestaurantContainerComponent extends Component<Props> {
     componentDidMount(): void {
         const {
             getRestaurantData = () => {},

@@ -6,7 +6,7 @@ import {closeModal} from "../../store";
 import {ModalConfig, getModal} from "./register-modals";
 import {VIEW} from "./constants";
 import {Overlay} from "../../elements";
-import {getModals} from '../../store/modals/selectors';
+import {getModalsSelector} from '../../store/modals/selectors';
 import './modal-root.scss';
 
 interface Props {
@@ -14,14 +14,7 @@ interface Props {
     closeModal? : () => void
 }
 
-@(connect((
-    store: StoreTypes
-) => ({
-    modals: getModals(store)
-}), {
-    closeModal
-}) as any)
-export class ModalRoot extends Component<Props> {
+class ModalRootContainer extends Component<Props> {
     handleCloseModal = () => {
         const {
             closeModal = () => {}
@@ -75,3 +68,11 @@ export class ModalRoot extends Component<Props> {
         );
     }
 }
+
+export const ModalRoot = connect((
+    store: StoreTypes
+) => ({
+    modals: getModalsSelector(store)
+}), {
+    closeModal
+})(ModalRootContainer);

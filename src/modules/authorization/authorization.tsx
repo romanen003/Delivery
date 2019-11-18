@@ -12,10 +12,7 @@ interface Props {
     auth: (login: string, password: string) => any
 }
 
-@(connect(null, {
-    auth: checkAuthorization
-}) as any)
-export class Authorization extends Component<Props> {
+class AuthorizationContainer extends Component<Props> {
     state = {
         login: '',
         password: '',
@@ -87,3 +84,7 @@ export class Authorization extends Component<Props> {
         );
     }
 }
+
+export const Authorization = connect(null,{
+    auth: checkAuthorization
+})(AuthorizationContainer);

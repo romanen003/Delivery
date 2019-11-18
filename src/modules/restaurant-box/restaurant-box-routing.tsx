@@ -6,7 +6,7 @@ import {StoreTypes} from "../../store/store-types";
 import {Props} from './restaurant-box';
 import {RouterPathSelector} from "../../store/router/selector";
 
-export const restaurantBoxWithRouting = connect((state: StoreTypes) => ({
+export const RestaurantBoxWithRouting = connect((state: StoreTypes) => ({
     path: RouterPathSelector(state)
 }), {push})((props: Props & {push: (value: string) => any, path: string}) => {
     const handleClick = () => props.push(`restaurant=${props.nameEn}`);

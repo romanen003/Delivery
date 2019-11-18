@@ -3,7 +3,7 @@ import {StoreTypes} from "../store-types";
 
 const getAuthorizationStore = (state: StoreTypes) => state.authorization;
 
-export const getAuthorizationStatus = createSelector(
+export const getAuthorizationStatusSelector = createSelector(
     getAuthorizationStore,
     (getAuthorizationStore) => getAuthorizationStore.authorization
 );

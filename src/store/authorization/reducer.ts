@@ -1,4 +1,5 @@
 import {AnyAction} from "redux";
+import {AUTHORIZATION} from "./constants";
 
 export interface authorizationState {
     authorization: boolean,
@@ -15,7 +16,7 @@ const initialState: authorizationState = {
 
 export const AuthorizationReducer = (state = initialState, action: AnyAction): authorizationState  => {
     switch (action.type) {
-        case ('AUTH'):
+        case AUTHORIZATION:
             return {
                 ...state,
                 authorization: action.payload

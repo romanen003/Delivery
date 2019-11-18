@@ -1,5 +1,6 @@
+import {AUTHORIZATION} from "./constants";
 
 export const setAuthorisation = (payload: boolean) => ({
-    type: 'AUTH',
+    type: AUTHORIZATION,
     payload
 });

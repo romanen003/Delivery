@@ -1,10 +1,6 @@
 import {MODAL_ACTION} from "./constants";
 
-interface showModalProps {
-    name: string
-}
-
-export const showModal = (payload: showModalProps) => ({
+export const showModal = (payload: string) => ({
     type: MODAL_ACTION.SHOW,
     payload
 });

@@ -7,7 +7,7 @@ import {showModal} from '../../store';
 import {StoreTypes} from "../../store/store-types";
 import {Account} from '../';
 import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
-import {getAuthorizationStatus} from "../../store/authorization/selectors";
+import {getAuthorizationStatusSelector} from "../../store/authorization/selectors";
 import './header.scss';
 
 const {Row, Col, Margin, Col_Width, T_Align} = Grid;
@@ -15,15 +15,10 @@ const {Row, Col, Margin, Col_Width, T_Align} = Grid;
 interface Props {
     authorization?: boolean,
     setAuthorisation?: (value: boolean) => void,
-    showModal?: (p: string) => void
+    showModal?: (name: string) => void
 }
 
-@(connect(((store: StoreTypes) => ({
-        authorization: getAuthorizationStatus(store)
-    })), {
-    showModal
-}) as any)
-export class Header extends Component<Props> {
+class HeaderContainer extends Component<Props> {
     handleAuthorClick = () => {
         const {
             showModal = () => {}
@@ -64,3 +59,9 @@ export class Header extends Component<Props> {
         )
     }
 }
+
+export const Header = connect((store: StoreTypes) => ({
+    authorization: getAuthorizationStatusSelector(store)
+}), {
+    showModal
+})(HeaderContainer);

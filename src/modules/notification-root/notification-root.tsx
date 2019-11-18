@@ -13,12 +13,7 @@ interface Props {
     deleteNotification?: (id: number) => void
 }
 
-@(connect((state: StoreTypes) => ({
-    notifications: notificationSelector(state)
-}), {
-    deleteNotification
-}) as any)
-export class NotificationRoot extends Component<Props> {
+class NotificationRootContainer extends Component<Props> {
     handleCloseNotification = (id: number) => {
         const {
             deleteNotification = () => {}
@@ -49,3 +44,9 @@ export class NotificationRoot extends Component<Props> {
         )
     }
 }
+
+export const NotificationRoot = connect((state: StoreTypes) => ({
+    notifications: notificationSelector(state)
+}), {
+    deleteNotification
+})(NotificationRootContainer);
