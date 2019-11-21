@@ -1,7 +1,4 @@
-import {
-    ADD_NOTIFICATION,
-    DELETE_NOTIFICATION
-} from './constants';
+import {ADD_NOTIFICATION, DELETE_NOTIFICATION} from './constants';
 import {NotificationType} from './reducer';
 
 export const addNotification  = (payload: NotificationType) => ({
@@ -9,8 +6,8 @@ export const addNotification  = (payload: NotificationType) => ({
     payload
 });
 export const deleteNotification = (id: number) => ({
-   type: DELETE_NOTIFICATION,
+    type: DELETE_NOTIFICATION,
     payload: {
-       id
+        id
     }
 });

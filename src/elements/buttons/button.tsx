@@ -1,6 +1,6 @@
 import React, {Component, ReactNode} from 'react';
 import classNames from 'classnames';
-import {BUTTONS_WITH_ICONS} from "./button-icon";
+import {BUTTONS_WITH_ICONS} from './button-icon';
 import './button.scss';
 
 export interface ButtonProps {
@@ -49,7 +49,7 @@ export class Button extends Component<ButtonProps> {
         event.stopPropagation();
 
         if (this.props.onClick){
-            this.props.onClick(event)
+            this.props.onClick(event);
         }
     };
 
@@ -67,7 +67,6 @@ export class Button extends Component<ButtonProps> {
             children,
             icon
         } = this.props;
-
         const buttonClassMame = classNames(
             'btn', {
                 'btn_edit': edit,
@@ -90,5 +89,5 @@ export class Button extends Component<ButtonProps> {
                 {children}
             </button>
         );
-    };
+    }
 }

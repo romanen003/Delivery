@@ -12,7 +12,7 @@ export const Loading = ({
 }: Props) => {
     return (
         <div className={classNames('loading')}>
-                {pan && <Pan />}
+            {pan && <Pan />}
         </div>
     );
 };

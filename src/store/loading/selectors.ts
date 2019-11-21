@@ -5,5 +5,5 @@ const loadingRootSelector = (store: StoreTypes) => store.loading;
 
 export const getLoadingStatusSelector = createSelector(
     loadingRootSelector,
-        getLoadingStore => getLoadingStore.loading
+    getLoadingStore => getLoadingStore.loading
 );

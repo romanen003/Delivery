@@ -15,5 +15,5 @@ export const RestaurantBoxWithRouting = connect((state: StoreTypes) => ({
         <div onClick={handleClick} style={{cursor: "pointer"}}>
             <RestaurantBox {...props}/>
         </div>
-        )
+    )
 });

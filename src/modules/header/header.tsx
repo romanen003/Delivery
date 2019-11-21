@@ -32,10 +32,10 @@ class HeaderContainer extends Component<Props> {
 
         return (
             authorization
-            ? <Account />
-            : <Button onClick={this.handleAuthorClick}>
+                ? <Account />
+                : <Button onClick={this.handleAuthorClick}>
                     Authorisation
-              </Button>
+                </Button>
         )
     };
 

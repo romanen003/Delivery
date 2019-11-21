@@ -11,7 +11,7 @@ const requestData = ({url, method, params, useFormData, body}: requestType) => {
     let nextUrl = url;
     let nextBody = body;
 
-    if (method === request.method.GET && params) {
+    if (method === 'GET' && params) {
         nextUrl += parseQueryParams(params);
     }
 

@@ -31,8 +31,8 @@ export const createTooltipHOC = (wrappedComponent: any) => {
             return (
                 <div className={classNames('component-with-tooltip')}>
                     <NextComponent {...this.props}
-                           onMouseEnter={this.handleMouseEnter}
-                           onMouseLeave={this.handleMouseLeave}
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}
                     />
                     {this.state.show && <Tooltip text={'fdsfdsf'}/>}
                 </div>

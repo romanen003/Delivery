@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
-import {Text} from '../text/text';
+import {Text} from '../';
 import './tooltip.scss';
 
 interface Props {

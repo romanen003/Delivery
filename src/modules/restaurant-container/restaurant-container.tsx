@@ -46,21 +46,20 @@ class RestaurantContainerComponent extends Component<Props> {
                         </Col>
                     </Row>
                     <Row marginTop={Margin_Top.X16}>
-                            {data.map(({nameRu, rating, id, coverImg, category, logoImg, nameEn}) =>
-                                <Col col={Col_Width.QUARTER}>
-                                    <RestaurantBoxWithRouting
-                                        name={nameRu}
-                                        coverImg={coverImg}
-                                        logoImg={logoImg}
-                                        rating={rating}
-                                        delivery={'от 300р'}
-                                        category={category}
-                                        deliveryTime={'30'}
-                                        key={id}
-                                        nameEn={nameEn}
-                                    />
-                                </Col>
-                            )}
+                        {data.map(({nameRu, rating, id, coverImg, category, logoImg, nameEn}) =>
+                            <Col col={Col_Width.QUARTER}>
+                                <RestaurantBoxWithRouting
+                                    name={nameRu}
+                                    coverImg={coverImg}
+                                    logoImg={logoImg}
+                                    rating={rating}
+                                    delivery={'от 300р'}
+                                    category={category}
+                                    deliveryTime={'30'}
+                                    key={id}
+                                    nameEn={nameEn}
+                                />
+                            </Col>)}
                     </Row>
                 </Grid>
             </div>

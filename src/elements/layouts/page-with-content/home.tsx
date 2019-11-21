@@ -9,9 +9,9 @@ interface Props {
 }
 
 export const LayoutHome = ({
-   headerView,
-   contentView,
-   footerView
+    headerView,
+    contentView,
+    footerView
 }: Props ) => (
     <div className={classNames('page')}>
         <header className={classNames('page-header')}>

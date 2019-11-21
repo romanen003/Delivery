@@ -32,7 +32,7 @@ class ModalRootContainer extends Component<Props> {
         const {Component, config, view} = modal;
         const modalPositionStyle = classNames('modal-wrapper', {
             'modal-wrapper-right': view === VIEW.RIGHT,
-            'modal-wrapper-center': view === VIEW.CENTER,
+            'modal-wrapper-center': view === VIEW.CENTER
         });
 
         return (
@@ -59,11 +59,11 @@ class ModalRootContainer extends Component<Props> {
 
         return (
             <Fragment>
-            {
-                modalsArray.length
-                ? modalsArray.map((modal: ModalConfig, index: number) => (this.renderModal(modal, index)))
-                : null
-            }
+                {
+                    modalsArray.length
+                        ? modalsArray.map((modal: ModalConfig, index: number) => (this.renderModal(modal, index)))
+                        : null
+                }
             </Fragment>
         );
     }

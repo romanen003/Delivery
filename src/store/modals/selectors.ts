@@ -3,4 +3,7 @@ import {StoreTypes} from "../store-types";
 
 const modalsRootSelector = (store: StoreTypes) => store.modals;
 
-export const getModalsSelector = createSelector(modalsRootSelector, (modalState) => modalState);
+export const getModalsSelector = createSelector(
+    modalsRootSelector,
+    (modalState) => modalState
+);

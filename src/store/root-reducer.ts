@@ -7,9 +7,11 @@ import {LoadingReducer} from "./loading/reducer";
 import {NotificationReducer} from './notification/reducer';
 import {RestaurantReducer} from "./restaurant/reducer";
 
+
 export const rootReducer = combineReducers({
     authorization: AuthorizationReducer,
     modals: ModalsReducer,
+    // @ts-ignore
     router: connectRouter(history),
     loading: LoadingReducer,
     notification: NotificationReducer,
