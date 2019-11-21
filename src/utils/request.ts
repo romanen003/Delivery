@@ -23,6 +23,8 @@ const requestData = ({url, method, params, useFormData, body}: requestType) => {
         method,
         body: nextBody
     })
+        .then(response => response.json())
+        .catch(error => error);
 };
 
 

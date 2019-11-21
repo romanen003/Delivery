@@ -3,7 +3,8 @@ import {
     DOWNLOAD_STATUS,
     SET_FILTERS,
     SET_DATA,
-    SET_PAGINATION
+    SET_PAGINATION,
+    SHOW_ERROR
 } from './constants';
 
 export interface RestaurantType {
@@ -28,7 +29,8 @@ const InitialState = {
     data: [],
     filters: [],
     pagination: [],
-    loading: false
+    loading: false,
+    error: false
 };
 
 export const RestaurantReducer = (state: RestaurantStoreType  = InitialState, action: AnyAction) => {
@@ -52,6 +54,11 @@ export const RestaurantReducer = (state: RestaurantStoreType  = InitialState, ac
             return ({
                 ...state,
                 data: [...action.payload]
+            });
+        case (SHOW_ERROR):
+            return ({
+                ...state,
+                error: action.payload
             });
         default:
             return state

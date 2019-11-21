@@ -2,7 +2,8 @@ import {
     DOWNLOAD_STATUS,
     SET_FILTERS,
     SET_DATA,
-    SET_PAGINATION
+    SET_PAGINATION,
+    SHOW_ERROR
 } from './constants';
 
 export const setFilters = (payload: {[key: string]: any}) => ({
@@ -22,5 +23,10 @@ export const setPagination = (payload: {[key: string]: any}) => ({
 
 export const downloadStatus = (payload: boolean) => ({
     type: DOWNLOAD_STATUS,
+    payload
+});
+
+export const showError = (payload: boolean) => ({
+    type: SHOW_ERROR,
     payload
 });
