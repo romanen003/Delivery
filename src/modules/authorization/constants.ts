@@ -1,5 +1,5 @@
 import {Authorization} from "./authorization";
-import {registerModal} from '../';
+import {registerModal} from '../modals-root/register-modals';
 
 export const AUTHORIZATION_URL = '/api/auth/check-auth';
 
