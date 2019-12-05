@@ -5,5 +5,5 @@ const getAuthorizationStore = (state: StoreTypes) => state.authorization;
 
 export const getAuthorizationStatusSelector = createSelector(
     getAuthorizationStore,
-    (getAuthorizationStore) => getAuthorizationStore.authorization
+    getAuthorizationStore => getAuthorizationStore.authorization
 );

@@ -58,7 +58,7 @@ function parseFormData (params: {[key: string]: any}) {
             })
         }
     }
-    console.log('params', params);
+
     return formData;
 }
 

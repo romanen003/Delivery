@@ -1,4 +1,4 @@
-import {LOADING} from "./constants";
+import { LOADING } from "./constants";
 
 export const  onLoading = () => ({
     type: LOADING.ACTIVE

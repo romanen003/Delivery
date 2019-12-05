@@ -1,7 +1,6 @@
 import {AnyAction} from "redux";
 import {LOADING} from "./constants";
 
-
 export interface LoadingState {
     loading: boolean
 }

@@ -1,40 +1,26 @@
-import React, {Component, ReactNode} from 'react';
+import React, { Component, ReactNode } from 'react';
 import classNames from 'classnames';
 import './col.scss';
+import { COL, MARGIN_TOP, T_ALIGN, V_ALIGN } from "../constants";
 
 interface Props {
     children?: ReactNode,
     textAlign?: string,
     vertAlign?: string,
     col?: string,
-    sticky?: boolean
+    sticky?: boolean,
+    marginT?: string
 }
-
-export const T_ALIGN = {
-    LEFT: 'left',
-    RIGHT: 'right'
-};
-
-export const V_ALIGN = {
-    TOP: 'top',
-    BOTTOM: 'bottom'
-};
-
-export const COL = {
-    QUARTER: "25",
-    THIRTY: "30",
-    HALF: "50",
-    SEVENTY: "70",
-};
 
 export class Col extends Component<Props> {
     render() {
-        const {
+        let {
             children,
             textAlign,
             vertAlign,
             col,
-            sticky = false
+            sticky = false,
+            marginT
         } = this.props;
         const rowClassName = classNames(
             'col', {
@@ -46,7 +32,9 @@ export class Col extends Component<Props> {
                 'col_col-seventy': col === COL.SEVENTY,
                 'col_col-thirty': col === COL.THIRTY,
                 'col_col-half': col === COL.HALF,
-                'col-no-padding': sticky
+                'col_no-padding': sticky,
+                'col_margin-t8': marginT === MARGIN_TOP.X8,
+                'col_margin-t16': marginT === MARGIN_TOP.X16
             }
         );
 

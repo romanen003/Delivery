@@ -7,7 +7,6 @@ export interface authorizationState {
     data: {[key: string]: any}
 }
 
-
 const initialState: authorizationState = {
     authorization: false,
     id: null,

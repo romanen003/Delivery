@@ -1,23 +1,7 @@
-import React, {Component, ReactNode} from 'react';
+import React, { Component, ReactNode } from 'react';
 import classNames from 'classnames';
 import './row.scss';
-
-export const MARGIN_TOP = {
-    X4: '4px',
-    X8: '8px',
-    X12: '12px',
-    X16: '16px',
-};
-export const MARGIN = {
-    X4: '4px',
-    X8: '8px',
-    X12: '12px',
-    X16: '16px',
-};
-const V_ALIGN = {
-    TOP: 'top',
-    BOTTOM: 'bottom'
-};
+import { MARGIN, MARGIN_TOP, V_ALIGN } from "../constants";
 
 interface Props {
     children?: ReactNode,

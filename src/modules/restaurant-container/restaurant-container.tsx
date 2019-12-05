@@ -47,7 +47,7 @@ class RestaurantContainerComponent extends Component<Props> {
                     </Row>
                     <Row marginTop={Margin_Top.X16}>
                         {data.map(({nameRu, rating, id, coverImg, category, logoImg, nameEn}) =>
-                            <Col col={Col_Width.QUARTER}>
+                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16}>
                                 <RestaurantBoxWithRouting
                                     name={nameRu}
                                     coverImg={coverImg}

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
-import {MARGIN_TOP, MARGIN, Row} from "./row/row";
-import {Col, T_ALIGN, V_ALIGN, COL} from "./col/col";
+import { Row } from "./row/row";
+import { Col } from "./col/col";
 import './grid.scss';
+import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN } from "./constants";
 
 interface Props {
     children: React.ReactNode,

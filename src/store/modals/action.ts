@@ -1,4 +1,4 @@
-import {MODAL_ACTION} from "./constants";
+import { MODAL_ACTION } from "./constants";
 
 export const showModal = (payload: string) => ({
     type: MODAL_ACTION.SHOW,

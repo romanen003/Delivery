@@ -47,4 +47,14 @@
             flex-basis: 30%;
         }
     }
+
+    &_margin {
+        &-t8 {
+            margin-top: 8px;
+        }
+
+        &-t16 {
+            margin-top: 16px;
+        }
+    }
 }
