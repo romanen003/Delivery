@@ -1,12 +1,13 @@
 import React from "react";
 import {LayoutHome, createTooltipHOC, Input} from "../elements";
-import {Header, RestaurantContainer} from "../modules";
+import {Header, RestaurantContainer, FilterComponent} from "../modules";
 
 const InputWithTooltip = createTooltipHOC(Input.Password);
 
 const TestView = () => (
     <div style={{width: '1000px', padding: '20px'}}>
         <InputWithTooltip/>
+        <FilterComponent />
         <RestaurantContainer/>
     </div>
 );

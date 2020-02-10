@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0 12px;
     flex-grow: 0;
+    flex-basis: 100%;
 
     &__no-padding {
         padding: 0;

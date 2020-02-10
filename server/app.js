@@ -7,8 +7,8 @@ import routes from './routes';
 const app = express();
 const {PORT, HOST} = ServerParams;
 const listenCallback = error => error
-  ? console.log('something bad happened', error)
-  : console.log(`Listening on port ${PORT}!`);
+    ? console.log('something bad happened', error)
+    : console.log(`Listening on port ${PORT}!`);
 
 app.use(bodyParser.json());
 app.use(bodyParser.text());

@@ -3,9 +3,10 @@
 .input {
     outline: 0;
     padding: 10px 2px;
-    
+    width: 100%;
+
     @include font($text-size, $text-weight);
-    
+
     &-clear {
         border: none;
     }

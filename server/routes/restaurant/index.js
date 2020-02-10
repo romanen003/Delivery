@@ -5,8 +5,10 @@ export const Restaurant = express.Router();
 
 Restaurant.get('', (request, response) => {
     const {data} = RestaurantData;
-    return response.json({
-        data,
-        total: data.length
-    })
+    setTimeout(() => {
+        return response.json({
+            data,
+            total: data.length
+        })
+    }, 3000)
 });

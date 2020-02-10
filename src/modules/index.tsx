@@ -7,3 +7,4 @@ export {LoadingRoot} from './loading-root/loading-root';
 export {NotificationRoot} from './notification-root/notification-root';
 export {RestaurantBox} from './restaurant-box/restaurant-box';
 export {RestaurantContainer} from './restaurant-container/restaurant-container';
+export {FilterComponent} from './filters/filters';

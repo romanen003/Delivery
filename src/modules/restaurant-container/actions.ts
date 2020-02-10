@@ -1,12 +1,15 @@
 import {Dispatch} from "redux";
 import {request} from '../../utils/request';
-import {setData} from "../../store";
+import {setData, onLoading, offLoading} from "../../store";
 import { showError } from "../../store/restaurant/action";
 
 const RESTAURANT_URL = '/api/restaurant';
 
 export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Dispatch) => {
     const data = Object.entries(params);
+
+    dispatch(onLoading());
+    dispatch(setData([]));
 
     return new Promise((resolve, reject) => {
         let fetchCount = 0;
@@ -44,5 +47,6 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
     })
         .then((response) => dispatch(setData(response)))
         .catch(() => dispatch(showError(true)))
+        .finally(() => dispatch(offLoading()))
 
 };
