@@ -7,7 +7,13 @@ interface requestType {
     body?: any
 }
 
-const requestData = ({url, method, params, useFormData, body}: requestType) => {
+const requestData = ({
+    url,
+    method,
+    params,
+    useFormData,
+    body
+}: requestType) => {
     let nextUrl = url;
     let nextBody = body;
 
