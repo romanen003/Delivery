@@ -4,7 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    &-vert-align {
+    &__vert-align {
         &-top {
             align-items: flex-start;
         }
@@ -14,7 +14,7 @@
         }
     }
 
-    &-margin {
+    &__margin {
 
         &-4 {
             margin: 4px 0;

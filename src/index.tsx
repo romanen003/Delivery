@@ -6,8 +6,8 @@ import {App} from './App';
 import {history} from './store/router/history';
 import {store} from "./store";
 
-
 const ROOT = 'root';
+const RootElement = document.getElementById(ROOT);
 
 ReactDOM.render(
     <Provider store={store}>
@@ -15,6 +15,6 @@ ReactDOM.render(
             <App/>
         </ConnectedRouter>
     </Provider>,
-    document.getElementById(ROOT)
+    RootElement
 );
 

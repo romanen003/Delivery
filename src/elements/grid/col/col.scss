@@ -3,11 +3,11 @@
     padding: 0 12px;
     flex-grow: 0;
 
-    &-no-padding {
+    &__no-padding {
         padding: 0;
     }
 
-    &_t-align {
+    &__t-align {
 
         &-left {
             text-align: left;
@@ -18,7 +18,7 @@
         }
     }
 
-    &_v-align {
+    &__v-align {
 
         &-top {
 
@@ -29,26 +29,24 @@
         }
     }
 
-    &_col {
-
-        &-half {
-            flex-basis: 50%;
-        }
-
-        &-quarter {
-            flex-basis: 25%;
-        }
-
-        &-seventy {
-            flex-basis: 70%;
-        }
-
-        &-thirty {
-            flex-basis: 30%;
-        }
+    &__half {
+        flex-basis: 50%;
     }
 
-    &_margin {
+    &__quarter {
+        flex-basis: 25%;
+    }
+
+    &__seventy {
+        flex-basis: 70%;
+    }
+
+    &__thirty {
+        flex-basis: 30%;
+    }
+
+
+    &__margin {
         &-t8 {
             margin-top: 8px;
         }

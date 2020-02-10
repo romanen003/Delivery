@@ -51,7 +51,7 @@ export class Watch extends Component<Props, State> {
                         <Col textAlign={T_Align.RIGHT} sticky>
                             <Text label>{correctHours}</Text>
                         </Col>
-                        <Col>
+                        <Col sticky>
                             <Text label>:</Text>
                         </Col>
                         <Col textAlign={T_Align.LEFT} sticky>

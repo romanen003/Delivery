@@ -1,4 +1,3 @@
-
 interface requestType {
     url: string,
     method: string,

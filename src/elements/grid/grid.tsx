@@ -6,8 +6,7 @@ import './grid.scss';
 import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN } from "./constants";
 
 interface Props {
-    children: React.ReactNode,
-    sticky?: boolean
+    children: React.ReactNode
 }
 
 export class Grid extends Component<Props> {
@@ -21,8 +20,7 @@ export class Grid extends Component<Props> {
 
     render() {
         const {
-            children,
-            sticky = false
+            children
         } = this.props;
         const StyleGrid = classNames('grid');
 

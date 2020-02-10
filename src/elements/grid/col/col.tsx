@@ -24,17 +24,17 @@ export class Col extends Component<Props> {
         } = this.props;
         const rowClassName = classNames(
             'col', {
-                'col_t-align-left': textAlign === T_ALIGN.LEFT,
-                'col_t-align-right': textAlign === T_ALIGN.RIGHT,
-                'col_v-align-top': vertAlign === V_ALIGN.TOP,
-                'col_v-align-bottom': vertAlign === V_ALIGN.BOTTOM,
-                'col_col-quarter': col === COL.QUARTER,
-                'col_col-seventy': col === COL.SEVENTY,
-                'col_col-thirty': col === COL.THIRTY,
-                'col_col-half': col === COL.HALF,
-                'col_no-padding': sticky,
-                'col_margin-t8': marginT === MARGIN_TOP.X8,
-                'col_margin-t16': marginT === MARGIN_TOP.X16
+                'col__t-align-left': textAlign === T_ALIGN.LEFT,
+                'col__t-align-right': textAlign === T_ALIGN.RIGHT,
+                'col__v-align-top': vertAlign === V_ALIGN.TOP,
+                'col__v-align-bottom': vertAlign === V_ALIGN.BOTTOM,
+                'col__quarter': col === COL.QUARTER,
+                'col__seventy': col === COL.SEVENTY,
+                'col__thirty': col === COL.THIRTY,
+                'col__half': col === COL.HALF,
+                'col__no-padding': sticky,
+                'col__margin-t8': marginT === MARGIN_TOP.X8,
+                'col__margin-t16': marginT === MARGIN_TOP.X16
             }
         );
 

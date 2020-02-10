@@ -1,0 +1,24 @@
+@import "../style-view/colors";
+@import "../style-view/fonts";
+
+.mainLayout {
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: flex-start;
+	margin: 0 auto;
+	width: 95%;
+
+	&__wrapper-btn {
+		display: inline-block;
+		margin-left: 40px;
+		vertical-align: middle;
+	}
+
+	&__title {
+		display: inline-block;
+		font-size: 60px;
+		margin: 0;
+		vertical-align: middle;
+	}
+}

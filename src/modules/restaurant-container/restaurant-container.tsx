@@ -15,7 +15,6 @@ import './restaurant-container.scss';
 const {Row, Col, Margin_Top, Col_Width} = Grid;
 
 interface Data {[key: string]: any}
-
 interface Props {
     getRestaurantData?: (params?: Data) => void,
     data?: Array<Data>,
@@ -46,7 +45,15 @@ class RestaurantContainerComponent extends Component<Props> {
                         </Col>
                     </Row>
                     <Row marginTop={Margin_Top.X16}>
-                        {data.map(({nameRu, rating, id, coverImg, category, logoImg, nameEn}) =>
+                        {data.map(({
+                            nameRu,
+                            rating,
+                            id,
+                            coverImg,
+                            category,
+                            logoImg,
+                            nameEn
+                        }) =>
                             <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16}>
                                 <RestaurantBoxWithRouting
                                     name={nameRu}
