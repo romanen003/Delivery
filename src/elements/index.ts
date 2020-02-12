@@ -10,3 +10,4 @@ export {Notification} from './notification/notification';
 export {Watch} from './watch/watch';
 export {Tooltip} from './tooltip/tooltip';
 export {createTooltipHOC} from './tooltip/create-tooltip-hoc';
+export {Select} from './select/select';

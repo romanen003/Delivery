@@ -23,15 +23,11 @@ export class InputWithClear extends Component<InputWithClearProps, {focus: boole
     };
 
     render () {
-        const wrapperStyle = classNames("input-wrapper");
         const {disabled, value} = this.props;
 
         return (
-            <div className={wrapperStyle}>
-                <Input
-                    clear
-                    {...this.props}
-                />
+            <div className={classNames("input-wrapper")}>
+                <Input clear{...this.props}/>
                 <div className={classNames('input-wrapper__button')}>
                     {
                         !disabled && value &&

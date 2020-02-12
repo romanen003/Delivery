@@ -17,7 +17,7 @@ const  createButtonIcon = (typeIcon: string) => (props: ButtonProps) =>
     </Button>
 ;
 
-const ICON = {
+export const ICON = {
     EDIT: edit,
     CONFIRM: confirm,
     CLOSE: close,

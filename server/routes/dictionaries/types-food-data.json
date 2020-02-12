@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "nameEn": "burgers",
+      "nameRu": "Бургеры"
+    },{
+      "id": 2,
+      "nameEn": "Sushi",
+      "nameRu": "Суши"
+    }
+  ]
+}

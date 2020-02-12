@@ -1,9 +1,9 @@
 import express from 'express';
 import RestaurantData from './data.json';
 
-export const Restaurant = express.Router();
+export const restaurant = express.Router();
 
-Restaurant.get('', (request, response) => {
+restaurant.get('', (request, response) => {
     const {data} = RestaurantData;
     setTimeout(() => {
         return response.json({

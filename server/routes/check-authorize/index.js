@@ -4,7 +4,6 @@ export const checkAuthorize = express.Router();
 const LOGIN = "1";
 const PASSWORD = "1";
 
-
 checkAuthorize.post('/check-auth', (request, response) => {
     const {login, password} = request.body;
     console.log('request', request.body.login);

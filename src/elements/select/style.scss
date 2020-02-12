@@ -1,0 +1,60 @@
+@import "../../style-view/colors";
+
+.select {
+	background: #FFFFFF;
+	border-color: rgb(204, 204, 204);
+	border-radius: 4px;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 0;
+	min-width: 150px;
+	position: relative;
+	text-align: left;
+
+	&__value {
+		box-sizing: border-box;
+		display: inline-block;
+		font-size: 18px;
+		height: 38px;
+		overflow: hidden;
+		padding: 10px;
+		text-overflow: clip;
+		vertical-align: middle;
+		width: 80%;
+	}
+
+	&__icon {
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		width: 20%;
+	}
+
+	&__dropdown {
+		background: #FFFFFF;
+		border-color: rgb(204, 204, 204);
+		border-radius: 4px;
+		border-style: solid;
+		border-width: 1px;
+		left: -1px;
+		margin-top: 2px;
+		position: absolute;
+		width: 100%;
+		max-height: 102px;
+		overflow: scroll;
+	}
+
+	&__item {
+		padding: 10px;
+		font-size: 12px;
+		text-align: left;
+
+		&:hover {
+			background-color: rgba(38, 132, 255, 0.08);
+		}
+
+		&_selected {
+			background-color: $color-blue;
+		}
+	}
+}

@@ -8,7 +8,7 @@ export const FilterComponent = () => {
         <Grid>
             <Row>
                 <Col textAlign={T_Align.LEFT}>
-                    <Text sub black>Address</Text>
+                    <Text sub black>City</Text>
                     <Input/>
                 </Col>
                 <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>

@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import fileUpload from 'express-fileupload';
 import {ServerParams, KEEP_ALIVE_TIMEOUT} from './constants';
-import routes from './routes';
+import {routes} from './routes';
 
 const app = express();
 const {PORT, HOST} = ServerParams;

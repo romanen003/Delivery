@@ -1,10 +1,10 @@
 import express from 'express';
 import {checkAuthorize} from './check-authorize';
-import {Restaurant} from './restaurant';
+import {restaurant} from './restaurant';
+import {dictionaries} from './dictionaries/dictionaries';
 
-const routes = express.Router();
+export const routes = express.Router();
 
 routes.use('/auth', checkAuthorize);
-routes.use('/restaurant', Restaurant);
-
-module.exports = routes;
+routes.use('/restaurant', restaurant);
+routes.use('/dictionary', dictionaries);
