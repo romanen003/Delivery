@@ -6,6 +6,7 @@ import {history} from './router/history';
 import {LoadingReducer} from "./loading/reducer";
 import {NotificationReducer} from './notification/reducer';
 import {RestaurantReducer} from "./restaurant/reducer";
+import {DictionariesReducer} from "./dictionaries/reducer";
 
 
 export const rootReducer = combineReducers({
@@ -15,5 +16,6 @@ export const rootReducer = combineReducers({
     router: connectRouter(history),
     loading: LoadingReducer,
     notification: NotificationReducer,
-    restaurant: RestaurantReducer
+    restaurant: RestaurantReducer,
+    dictionaries: DictionariesReducer
 });

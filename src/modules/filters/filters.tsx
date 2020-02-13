@@ -1,7 +1,17 @@
 import React from "react";
-import {Grid, Input, Text} from "../../elements";
+import {Grid, Select, Text} from "../../elements";
 
 const {Row, Col,Col_Width, T_Align} = Grid;
+
+const options = [{
+    id: '1', value: 'value1'
+}, {
+    id: '2', value: 'value2'
+}, {
+    id: '3', value: 'value3'
+}, {
+    id: '4', value: 'value4'
+}];
 
 export const FilterComponent = () => {
     return (
@@ -9,23 +19,23 @@ export const FilterComponent = () => {
             <Row>
                 <Col textAlign={T_Align.LEFT}>
                     <Text sub black>City</Text>
-                    <Input/>
+                    <Select options={options} />
                 </Col>
                 <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                     <Text sub black>Type food</Text>
-                    <Input/>
+                    <Select options={options} />
                 </Col>
                 <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                     <Text sub black>Stars</Text>
-                    <Input/>
+                    <Select options={options} />
                 </Col>
                 <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                     <Text sub black>Price</Text>
-                    <Input/>
+                    <Select options={options} />
                 </Col>
                 <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                     <Text sub black>Time to delivery</Text>
-                    <Input/>
+                    <Select options={options} />
                 </Col>
             </Row>
         </Grid>
