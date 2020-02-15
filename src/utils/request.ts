@@ -78,3 +78,39 @@ export const request = {
         POST: 'POST'
     }
 };
+
+export const customPromiseAll = (requests: Array<any>) => {
+    return new Promise((resolve, reject) => {
+        let fetchCount: number = 0;
+        let errorCount: number = 0;
+        let result: Array<any> = [];
+
+        const checkFinally = () => {
+            if (errorCount && errorCount === requests.length){
+                return reject(new Error('ошибочка'));
+            }
+            if (fetchCount === requests.length) {
+                return resolve(result)
+            }
+        };
+
+        requests.forEach(item => {
+
+            return item
+                // @ts-ignore
+                .then(({data}) => {
+                    result = [...result,...data];
+                })
+                .catch(() => {
+                    ++errorCount
+                })
+                .finally(() => {
+                    ++fetchCount;
+                    checkFinally();
+                })
+        })
+    });
+
+
+
+};

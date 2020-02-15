@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {request} from '../../utils/request';
+import {customPromiseAll, request} from '../../utils/request';
 import {setData, onLoading, offLoading} from "../../store";
 import { showError } from "../../store/restaurant/action";
 
@@ -11,40 +11,13 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
     dispatch(onLoading());
     dispatch(setData([]));
 
-    return new Promise((resolve, reject) => {
-        let fetchCount = 0;
-        let errorCount = 0;
-        // @ts-ignore
-        let result = [];
-        const checkFinally = () => {
-            if (errorCount && errorCount === data.length){
-                return reject(new Error('ошибочка'));
-            }
-            if (fetchCount === data.length) {
-                // @ts-ignore
-                return resolve(result)
-            }
-        };
+    const requests = data.map(item => request.request({
+        url: RESTAURANT_URL,
+        method: request.method.GET,
+        params: item
+    }));
 
-        data.forEach(item => {
-            request.request({
-                url: RESTAURANT_URL,
-                method: request.method.GET,
-                params: item
-            })
-                .then(({data}) => {
-                    // @ts-ignore
-                    result = [...result,...data];
-                })
-                .catch(() => {
-                    ++errorCount
-                })
-                .finally(() => {
-                    ++fetchCount;
-                    checkFinally();
-                })
-        })
-    })
+    customPromiseAll(requests)
         .then((response) => dispatch(setData(response)))
         .catch(() => dispatch(showError(true)))
         .finally(() => dispatch(offLoading()))

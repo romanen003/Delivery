@@ -1,28 +1,43 @@
-import { request } from "../../utils/request";
+import { customPromiseAll, request } from "../../utils/request";
 import {
     DICTIONARIES_FETCH_SUCCESS,
     DICTIONARIES_FETCH_FAIL,
     DICTIONARY_URL
 } from "./constants";
 
-export const fetchDictionariesSuccess = (payload: Object) => ({
+const fetchDictionariesSuccess = (payload: Object) => ({
     type: DICTIONARIES_FETCH_SUCCESS,
     payload
 });
-export const fetchDictionariesFail = (payload: Array<string>) => ({
+const fetchDictionariesFail = (payload: Array<string>) => ({
     type: DICTIONARIES_FETCH_FAIL,
     payload
 });
 
-export const fetchCitiesDictionary = () => {
+const fetchCitiesDictionary = () => {
     return request.request({
         url: DICTIONARY_URL.CITIES,
         method: request.method.GET
     })
 };
-export const fetchTypesFoodDictionary = () => {
+const fetchTypesFoodDictionary = () => {
     return request.request({
         url: DICTIONARY_URL.TYPES_FOOD,
         method: request.method.GET
     })
 };
+
+
+export const fetchingAllDictionaries = () =>
+    (dispatch: { (arg0: { type: string; payload: Object; }): void;
+    (arg0: { type: string; payload: string[]; }): void; }) => {
+        const requests = [
+            fetchCitiesDictionary(),
+            fetchTypesFoodDictionary()
+        ];
+
+        customPromiseAll(requests)
+            .then(data => dispatch(fetchDictionariesSuccess(data)))
+            .catch(error => dispatch(fetchDictionariesFail(error)))
+            .finally()
+    };
