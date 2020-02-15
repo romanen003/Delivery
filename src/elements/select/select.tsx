@@ -42,14 +42,14 @@ export const Select = ({
         if (showDropdown) {
             setState((state) => ({
                 ...state,
-                showDropdown: false
+                showDropdown: true
             }))
         }
     };
 
     return (
         <div className={classNames('select')} onMouseLeave={handleSelectBlur}>
-            <div className={classNames('select__value')}>{selectedValue.value}</div>
+            <input className={classNames('select__value')} disabled value={selectedValue.value} />
             <div className={classNames('select__icon')} onClick={handleIconClick}>
                 <img src={ICON.LIST} alt={ICON.LIST} />
             </div>

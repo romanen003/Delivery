@@ -10,5 +10,5 @@ restaurant.get('', (request, response) => {
             data,
             total: data.length
         })
-    }, 3000)
+    }, 1000)
 });
