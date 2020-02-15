@@ -14,7 +14,7 @@ checkAuthorize.post('/check-auth', (request, response) => {
                 name: 'Roman',
                 last_name: 'Gusev'
             };
-            return response.json(Data);
+            return response.status(200).json(Data);
         }
         return response.status(401).send('incorrect login or password')
     }, 2000, login, password);

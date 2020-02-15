@@ -6,7 +6,7 @@ export const restaurant = express.Router();
 restaurant.get('', (request, response) => {
     const {data} = RestaurantData;
     setTimeout(() => {
-        return response.json({
+        return response.status(200).json({
             data,
             total: data.length
         })

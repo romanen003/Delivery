@@ -28,8 +28,6 @@ const requestData = ({
         method,
         body: nextBody
     })
-        .then(response => response.json())
-        .catch(error => error);
 };
 
 
@@ -97,6 +95,8 @@ export const customPromiseAll = (requests: Array<any>) => {
         requests.forEach(item => {
 
             return item
+                // @ts-ignore
+                .then((response) => response.json())
                 // @ts-ignore
                 .then(({data}) => {
                     result = [...result,...data];
