@@ -1,10 +1,10 @@
 export const T_ALIGN = {
-    LEFT: 'left',
-    RIGHT: 'right'
+    LEFT: 'LEFT',
+    RIGHT: 'RIGHT'
 };
 export const V_ALIGN = {
-    TOP: 'top',
-    BOTTOM: 'bottom'
+    TOP: 'TOP',
+    BOTTOM: 'BOTTOM'
 };
 export const COL = {
     QUARTER: "25",

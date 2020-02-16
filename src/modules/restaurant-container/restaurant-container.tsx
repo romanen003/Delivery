@@ -1,10 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
-import {connect} from "react-redux";
-import {Grid, Text} from '../../elements';
-import {getRestaurantData} from './actions';
-import {StoreTypes} from "../../store/store-types";
-import {RestaurantBoxWithRouting} from '../restaurant-box/restaurant-box-routing';
+import { connect } from "react-redux";
+import { Grid, Text } from '../../elements';
+import { getRestaurantData } from './actions';
+import { StoreTypes } from "../../store/store-types";
+import { RestaurantBoxWithRouting } from '../restaurant-box/restaurant-box-routing';
+import { FilterComponent } from "..";
 import {
     RestaurantDataSelector,
     RestaurantFiltersSelector,
@@ -12,7 +13,7 @@ import {
 } from "../../store/restaurant/selectors";
 import './restaurant-container.scss';
 
-const {Row, Col, Margin_Top, Col_Width} = Grid;
+const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
 
 interface Data {[key: string]: any}
 interface Props {
@@ -38,9 +39,10 @@ class RestaurantContainerComponent extends Component<Props> {
 
         return (
             <div className={classNames('restaurant-container')}>
+                <FilterComponent />
                 <Grid>
                     <Row marginTop={Margin_Top.X16}>
-                        <Col>
+                        <Col textAlign={T_Align.LEFT}>
                             <Text black heading> Рестораны :</Text>
                         </Col>
                     </Row>

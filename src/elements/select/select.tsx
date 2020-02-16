@@ -1,75 +1,107 @@
-import React, { useState } from "react";
+import React, {Component, RefObject, FocusEvent } from "react";
 import classNames from "classnames";
 import { ICON } from "../buttons/button-icon";
 import './style.scss';
 
-const EMPTY_ITEM = {id: '0', value: ''};
+export const EMPTY_ITEM: Value = {id: '0', value: ''};
+
+type Value = {
+    id: string,
+    value: string
+};
 
 interface Props {
-    value?: {id: string, value: string},
-    options?: Array<{id: string, value: string}>,
+    value?: Value,
+    options?: Array<Value>,
     withEmptyItem?: boolean
 }
+type State = {
+    selectedValue: Value,
+    opened: boolean
+}
 
-export const Select = ({
-    options = [],
-    value = EMPTY_ITEM,
-    withEmptyItem = false
-}: Props) => {
-    let option = options && options.length ? options : [EMPTY_ITEM];
-    if (withEmptyItem && options && options.length) {
-        option = [EMPTY_ITEM, ...option];
+export class Select extends Component<Props, State> {
+    static defaultProps = {
+        options: [EMPTY_ITEM],
+        value: EMPTY_ITEM,
+        withEmptyItem: false
+    };
+    IconRef: RefObject<HTMLButtonElement>;
+    inputRef: RefObject<HTMLInputElement>;
+
+    constructor(props: Props) {
+        super(props);
+
+        this.state = {
+            selectedValue: props.value || EMPTY_ITEM,
+            opened: false
+        };
+        this.IconRef = React.createRef();
+        this.inputRef = React.createRef();
     }
 
-    const [{
-        selectedValue,
-        showDropdown
-    }, setState] = useState({
-        selectedValue: value,
-        showDropdown: false
-    });
+    handleSelectBlur = (event: FocusEvent): void => {
+        const { relatedTarget } = event;
 
-    const handleIconClick = (): void => setState(
-        (state) => ({...state, showDropdown: !showDropdown})
-    );
-    const handleItemClick = (selectedValue: {id: string, value: string}): void => {
-        setState(() => ({
-            selectedValue: selectedValue,
-            showDropdown: false
-        }))
-    };
-    const handleSelectBlur = (): void => {
-        if (showDropdown) {
-            setState((state) => ({
-                ...state,
-                showDropdown: true
-            }))
+        if (
+            !(relatedTarget === this.inputRef.current || relatedTarget === this.IconRef.current)
+            && this.state.opened
+        ){
+            this.setState(() => ({ opened: false }))
         }
     };
+    handleIconClick = () => this.setState(
+        ({opened}) => ({ opened: !opened})
+    );
 
-    return (
-        <div className={classNames('select')} onMouseLeave={handleSelectBlur}>
-            <input className={classNames('select__value')} disabled value={selectedValue.value} />
-            <div className={classNames('select__icon')} onClick={handleIconClick}>
-                <img src={ICON.LIST} alt={ICON.LIST} />
-            </div>
-            {showDropdown &&
-                <div className={classNames('select__dropdown')}>
-                    {showDropdown &&
-                        option.map(({value, id}) => (
-                            <div
+    handleItemClick = (selectedValue: Value): void => {
+        this.setState(() => ({
+            selectedValue: selectedValue,
+            opened: false
+        }))
+    };
+
+    render() {
+        const { options = [] } = this.props;
+        const { opened, selectedValue } = this.state;
+
+        return (
+            <div className={classNames('select')}>
+                <input
+                    className={classNames('select__value')}
+                    readOnly
+                    value={selectedValue.value}
+                    onClick={this.handleIconClick}
+                    onBlur={this.handleSelectBlur}
+                    ref={this.inputRef}
+                />
+                <button
+                    className={classNames('select__icon')}
+                    onClick={this.handleIconClick}
+                    onBlur={this.handleSelectBlur}
+                    ref={this.IconRef}
+                >
+                    <img src={ICON.LIST} alt={ICON.LIST} />
+                </button>
+                {opened &&
+                <ul className={classNames('select__dropdown')} tabIndex={1}>
+                    {opened &&
+                    options.map(({value, id}) => (
+                        <li
+                            key={`${id}-select`}
+                            onClick={() => this.handleItemClick({value, id})}
+                        >
+                            <button
                                 className={classNames('select__item', {
                                     'select__item_selected' : selectedValue.id === id
                                 })}
-                                key={`${id}-select`}
-                                onClick={() => handleItemClick({value, id})}
-                            >
-                                {value}
-                            </div>
-                        ))
+                            >{value}</button>
+                        </li>
+                    ))
                     }
-                </div>
-            }
-        </div>
-    )
-};
+                </ul>
+                }
+            </div>
+        )
+    }
+}

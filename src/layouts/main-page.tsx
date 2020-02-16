@@ -1,8 +1,8 @@
 import React from "react";
-import {connect} from "react-redux";
-import {push} from "connected-react-router";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
 import classNames from "classnames";
-import {Button} from "../elements";
+import { Button } from "../elements";
 import './style.scss';
 
 interface Props {
@@ -27,5 +27,5 @@ const MainPage = (props: Props) => {
 
 export const MainPageConnected = connect(
     () => ({}),
-    {push}
+    { push }
 )(MainPage);
