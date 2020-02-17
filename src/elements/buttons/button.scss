@@ -8,12 +8,8 @@
     cursor: pointer;
     padding: 10px 16px;
     outline: 0;
-    
-    @include font($button-size, $title-weight);
 
-    &:hover:enabled {
-        opacity: 0.9;
-    }
+    @include font($button-size, $title-weight);
 
     &:disabled {
         color: #ffffff;

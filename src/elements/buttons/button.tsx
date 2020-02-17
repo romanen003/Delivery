@@ -1,4 +1,4 @@
-import React, {Component, ReactNode} from 'react';
+import React, {Component, FocusEvent, ReactNode, RefObject} from 'react';
 import classNames from 'classnames';
 import {BUTTONS_WITH_ICONS} from './button-icon';
 import './button.scss';
@@ -14,7 +14,9 @@ export interface ButtonProps {
     disabled?: boolean,
     children?: string | ReactNode,
     icon?: boolean,
-    onClick?: (event: React.SyntheticEvent) => void
+    onClick?: (event: React.SyntheticEvent) => void,
+    onBlur?: (event: FocusEvent) => void,
+    buttonRef?: RefObject<HTMLButtonElement>
 }
 
 const {
@@ -46,13 +48,22 @@ export class Button extends Component<ButtonProps> {
     };
 
     handleOnClick = (event: React.SyntheticEvent) => {
+        const { onClick } = this.props;
+
         event.stopPropagation();
 
-        if (this.props.onClick){
-            this.props.onClick(event);
+        if (onClick){
+            onClick(event);
         }
     };
 
+    handleButtonBlur = (event: FocusEvent) => {
+        const { onBlur } = this.props;
+
+        if (onBlur){
+            onBlur(event)
+        }
+    };
 
     render () {
         const {
@@ -65,7 +76,8 @@ export class Button extends Component<ButtonProps> {
             transfer,
             disabled,
             children,
-            icon
+            icon,
+            buttonRef
         } = this.props;
         const buttonClassMame = classNames(
             'btn', {
@@ -84,7 +96,9 @@ export class Button extends Component<ButtonProps> {
                 type={type}
                 className={buttonClassMame}
                 onClick={this.handleOnClick}
+                onBlur={this.handleButtonBlur}
                 disabled={disabled}
+                ref={buttonRef}
             >
                 {children}
             </button>

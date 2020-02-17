@@ -1,7 +1,7 @@
 import React, {Component, RefObject, FocusEvent } from "react";
 import classNames from "classnames";
-import { ICON } from "../buttons/button-icon";
 import './style.scss';
+import { Button } from "..";
 
 export const EMPTY_ITEM: Value = {id: '0', value: ''};
 
@@ -50,7 +50,7 @@ export class Select extends Component<Props, State> {
             this.setState(() => ({ opened: false }))
         }
     };
-    handleIconClick = () => this.setState(
+    handleIconClick = (): void => this.setState(
         ({opened}) => ({ opened: !opened})
     );
 
@@ -64,6 +64,7 @@ export class Select extends Component<Props, State> {
     render() {
         const { options = [] } = this.props;
         const { opened, selectedValue } = this.state;
+        const IconBtn = opened ? Button.Top : Button.List;
 
         return (
             <div className={classNames('select')}>
@@ -75,14 +76,16 @@ export class Select extends Component<Props, State> {
                     onBlur={this.handleSelectBlur}
                     ref={this.inputRef}
                 />
-                <button
+                <div
                     className={classNames('select__icon')}
-                    onClick={this.handleIconClick}
-                    onBlur={this.handleSelectBlur}
-                    ref={this.IconRef}
+
                 >
-                    <img src={ICON.LIST} alt={ICON.LIST} />
-                </button>
+                    <IconBtn
+                        onClick={this.handleIconClick}
+                        onBlur={this.handleSelectBlur}
+                        buttonRef={this.IconRef}
+                    />
+                </div>
                 {opened &&
                 <ul className={classNames('select__dropdown')} tabIndex={1}>
                     {opened &&
