@@ -50,9 +50,7 @@ export class Select extends Component<Props, State> {
             this.setState(() => ({ opened: false }))
         }
     };
-    handleIconClick = (): void => this.setState(
-        ({opened}) => ({ opened: !opened})
-    );
+    handleIconClick = (): void => this.setState(({opened}) => ({ opened: !opened}));
 
     handleItemClick = (selectedValue: Value): void => {
         this.setState(() => ({
@@ -64,7 +62,6 @@ export class Select extends Component<Props, State> {
     render() {
         const { options = [] } = this.props;
         const { opened, selectedValue } = this.state;
-        const IconBtn = opened ? Button.Top : Button.List;
 
         return (
             <div className={classNames('select')}>
@@ -80,7 +77,7 @@ export class Select extends Component<Props, State> {
                     className={classNames('select__icon')}
 
                 >
-                    <IconBtn
+                    <Button.List
                         onClick={this.handleIconClick}
                         onBlur={this.handleSelectBlur}
                         buttonRef={this.IconRef}
@@ -98,7 +95,9 @@ export class Select extends Component<Props, State> {
                                 className={classNames('select__item', {
                                     'select__item_selected' : selectedValue.id === id
                                 })}
-                            >{value}</button>
+                            >
+                                {value}
+                            </button>
                         </li>
                     ))
                     }

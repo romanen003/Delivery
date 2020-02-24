@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import classNames from 'classnames';
 import { Row } from "./row/row";
 import { Col } from "./col/col";
-import './grid.scss';
 import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN } from "./constants";
+import './grid.scss';
 
 interface Props {
     children: React.ReactNode
@@ -19,13 +19,10 @@ export class Grid extends Component<Props> {
     static Col_Width = COL;
 
     render() {
-        const {
-            children
-        } = this.props;
-        const StyleGrid = classNames('grid');
+        const { children } = this.props;
 
         return (
-            <div className={StyleGrid}>
+            <div className={classNames('grid')}>
                 {children}
             </div>
         )
