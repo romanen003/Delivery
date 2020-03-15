@@ -14,16 +14,18 @@ import {
 export const App = () => (
     <>
         <Route exact path='/' component={MainPageConnected} />
-        <LayoutHome
-            headerView={<Header />}
-            contentView={
-                <>
-                    <Route exact path='/restaurant' component={RestaurantContainer} />
-                    <Route exact path='/my-account' component={RestaurantContainer} />
-                    <Route exact path='/test' component={TestView} />
-                </>
-            }
-        />
+        <Route exact path={['/restaurant', '/my-account', '/test']} render={() => (
+            <LayoutHome
+                headerView={<Header />}
+                contentView={
+                    <>
+                        <Route exact path='/restaurant' component={RestaurantContainer} />
+                        <Route exact path='/my-account' component={RestaurantContainer} />
+                        <Route exact path='/test' component={TestView} />
+                    </>
+                }
+            />
+        )} />
         <ModalRoot />
         <LoadingRoot />
         <NotificationRoot />
