@@ -19,8 +19,7 @@ export const App = () => (
                 headerView={<Header />}
                 contentView={
                     <>
-                        <Route exact path='/restaurant' component={RestaurantContainer} />
-                        <Route exact path='/my-account' component={RestaurantContainer} />
+                        <Route exact path={['/restaurant', '/my-account']} component={RestaurantContainer} />
                         <Route exact path='/test' component={TestView} />
                     </>
                 }

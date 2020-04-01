@@ -12,6 +12,7 @@ import {
     RestaurantPaginationSelector
 } from "../../store/restaurant/selectors";
 import './restaurant-container.scss';
+import {fetchingAllDictionaries} from "../../store/dictionaries/actions";
 
 const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
 
@@ -31,7 +32,8 @@ class RestaurantContainerComponent extends Component<Props> {
             pagination = {}
         } = this.props;
 
-        getRestaurantData({...filters, ...pagination, 'city': 'moscow', 'gender': 'm'})
+        getRestaurantData({...filters, ...pagination, 'city': 'moscow', 'gender': 'm'});
+        fetchingAllDictionaries()
     }
 
     render(){
@@ -82,6 +84,7 @@ export const RestaurantContainer = connect((state: StoreTypes) => ({
     filters: RestaurantFiltersSelector(state),
     pagination: RestaurantPaginationSelector(state)
 }), {
-    getRestaurantData
+    getRestaurantData,
+    fetchingAllDictionaries
     // @ts-ignore
 })(RestaurantContainerComponent);
