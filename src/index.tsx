@@ -11,6 +11,7 @@ import { LoadingRoot } from "./modules/loading-root/loading-root";
 import { NotificationRoot } from "./modules/notification-root/notification-root";
 import { LayoutHome } from './elements';
 import { Header } from './modules';
+import './style.scss';
 
 const ROOT = 'root';
 const RootElement = document.getElementById(ROOT);
