@@ -1,6 +1,6 @@
-import React, {Component, FocusEvent, ReactNode, RefObject} from 'react';
+import React, { Component, FocusEvent, ReactNode, RefObject } from 'react';
 import classNames from 'classnames';
-import {BUTTONS_WITH_ICONS} from './button-icon';
+import { BUTTONS_WITH_ICONS } from './button-icon';
 import './button.scss';
 
 export interface ButtonProps {
@@ -79,17 +79,15 @@ export class Button extends Component<ButtonProps> {
             icon,
             buttonRef
         } = this.props;
-        const buttonClassMame = classNames(
-            'btn', {
-                'btn_edit': edit,
-                'btn_confirm': confirm,
-                'btn_close': close,
-                'btn_delete': del,
-                'btn_transfer': transfer,
-                'btn_icon': icon,
-                'btn_active': active
-            }
-        );
+        const buttonClassMame = classNames('btn', {
+            'btn_edit': edit,
+            'btn_confirm': confirm,
+            'btn_close': close,
+            'btn_delete': del,
+            'btn_transfer': transfer,
+            'btn_icon': icon,
+            'btn_active': active
+        });
 
         return (
             <button

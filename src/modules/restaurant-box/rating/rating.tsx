@@ -6,7 +6,7 @@ interface Props {
     rating: string | number
 }
 
-export const Rating = ({rating}: Props) => (
+export const Rating = ({ rating }: Props) => (
     <div className={classNames('rating')}>
         <span className={classNames('rating__star')} />
         <span className={classNames('rating__number')}>{rating}</span>

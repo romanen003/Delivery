@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import classNames from 'classnames';
 import './input.scss';
-import {InputWithClear} from './input-with-clear/input-with-clear'
-import {InputPassword} from './input-password';
+import { InputWithClear } from './input-with-clear/input-with-clear'
+import { InputPassword } from './input-password';
 
 export interface InputProps {
     type?: string,

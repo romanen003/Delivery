@@ -14,12 +14,12 @@ import {
 export const App = () => (
     <>
         <Route exact path='/' component={MainPageConnected} />
-        <Route exact path={['/restaurant', '/my-account', '/test']} render={() => (
+        <Route exact path={[ '/restaurant', '/my-account', '/test' ]} render={() => (
             <LayoutHome
                 headerView={<Header />}
                 contentView={
                     <>
-                        <Route exact path={['/restaurant', '/my-account']} component={RestaurantContainer} />
+                        <Route exact path={[ '/restaurant', '/my-account' ]} component={RestaurantContainer} />
                         <Route exact path='/test' component={TestView} />
                     </>
                 }

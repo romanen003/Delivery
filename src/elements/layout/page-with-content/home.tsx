@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, { ReactElement } from "react";
 import classNames from 'classnames';
 import './home.scss';
 

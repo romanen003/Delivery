@@ -1,5 +1,5 @@
-import {AnyAction} from "redux";
-import {AUTHORIZATION} from "./constants";
+import { AnyAction } from "redux";
+import { AUTHORIZATION } from "./constants";
 
 export interface authorizationState {
     authorization: boolean,

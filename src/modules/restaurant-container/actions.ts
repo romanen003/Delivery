@@ -1,6 +1,6 @@
-import {Dispatch} from "redux";
-import {customPromiseAll, request} from '../../utils/request';
-import {setData, onLoading, offLoading} from "../../store";
+import { Dispatch } from "redux";
+import { customPromiseAll, request } from '../../utils/request';
+import { setData, onLoading, offLoading } from "../../store";
 import { showError } from "../../store/restaurant/action";
 
 const RESTAURANT_URL = '/api/restaurant';
@@ -18,7 +18,7 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
     }));
 
     customPromiseAll(requests)
-        .then((response) => dispatch(setData(response)))
+        .then(response => dispatch(setData(response)))
         .catch(() => dispatch(showError(true)))
         .finally(() => dispatch(offLoading()))
 

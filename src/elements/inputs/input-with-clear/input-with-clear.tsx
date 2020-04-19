@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import classNames from 'classnames';
-import {Input, Button} from '../../';
-import {InputProps} from '../input';
+import { Input, Button } from '../../';
+import { InputProps } from '../input';
 import './input-with-clear.scss';
 
 const DEFAULT_VALUE = '';
@@ -23,7 +23,7 @@ export class InputWithClear extends Component<InputWithClearProps, {focus: boole
     };
 
     render () {
-        const {disabled, value} = this.props;
+        const { disabled, value } = this.props;
 
         return (
             <div className={classNames("input-wrapper")}>

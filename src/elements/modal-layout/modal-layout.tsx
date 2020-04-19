@@ -1,11 +1,11 @@
-import React, {PureComponent, ReactElement} from 'react';
+import React, { PureComponent, ReactElement } from 'react';
 import classNames from 'classnames';
-import {Button, Text, Grid} from '..';
+import { Button, Text, Grid } from '..';
 import './modal-layout.scss';
-import {connect} from "react-redux";
-import {closeModal} from "../../store";
+import { connect } from "react-redux";
+import { closeModal } from "../../store";
 
-const {Row, Col, T_Align, Col_Width} = Grid;
+const { Row, Col, T_Align, Col_Width } = Grid;
 
 interface Props {
     label?: string,
@@ -14,10 +14,7 @@ interface Props {
 }
 
 
-@(connect(null, {
-    closeModal
-}) as any)
-export class ModalLayout extends PureComponent<Props> {
+export class ModalLayoutC extends PureComponent<Props> {
     render() {
         const {
             label,
@@ -47,3 +44,4 @@ export class ModalLayout extends PureComponent<Props> {
         );
     }
 }
+export const ModalLayout = connect(null, { closeModal })(ModalLayoutC);

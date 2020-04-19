@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from "classnames";
-import {Text, Grid} from "../../elements";
-import {Rating} from './rating/rating';
-import {DeliveryTime} from './delivery-time/delivery-time';
+import { Text, Grid } from "../../elements";
+import { Rating } from './rating/rating';
+import { DeliveryTime } from './delivery-time/delivery-time';
 import './restaurant-box.scss';
 
-const {Row, Col, T_Align, Col_Width} = Grid;
+const { Row, Col, T_Align, Col_Width } = Grid;
 
 export interface Props {
     name: string,

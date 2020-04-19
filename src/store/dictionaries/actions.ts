@@ -14,18 +14,14 @@ const fetchDictionariesFail = (payload: Array<string>) => ({
     payload
 });
 
-const fetchCitiesDictionary = () => {
-    return request.request({
-        url: DICTIONARY_URL.CITIES,
-        method: request.method.GET
-    })
-};
-const fetchTypesFoodDictionary = () => {
-    return request.request({
-        url: DICTIONARY_URL.TYPES_FOOD,
-        method: request.method.GET
-    })
-};
+const fetchCitiesDictionary = () => request.request({
+    url: DICTIONARY_URL.CITIES,
+    method: request.method.GET
+});
+const fetchTypesFoodDictionary = () => request.request({
+    url: DICTIONARY_URL.TYPES_FOOD,
+    method: request.method.GET
+});
 
 
 export const fetchingAllDictionaries = () =>
@@ -37,7 +33,7 @@ export const fetchingAllDictionaries = () =>
         ];
 
         customPromiseAll(requests)
-            .then(data => dispatch(fetchDictionariesSuccess(data)))
+            .then((data: any) => dispatch(fetchDictionariesSuccess(data)))
             .catch(error => dispatch(fetchDictionariesFail(error)))
             .finally()
     };

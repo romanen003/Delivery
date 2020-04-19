@@ -40,7 +40,7 @@ export class Watch extends Component<Props, State> {
     currentDate: Data;
 
     render(){
-        const {hours, minutes} = this.state;
+        const { hours, minutes } = this.state;
         const correctHours = hours > 9 ? hours : `0${hours}`;
         const correctMinutes = minutes > 9 ? minutes : `0${minutes}`;
 

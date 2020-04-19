@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 import classNames from "classnames";
-import {Notification} from '../../elements';
-import {StoreTypes} from "../../store/store-types";
-import {notificationSelector} from '../../store/notification/selectors';
-import {NotificationType} from '../../store/notification/reducer';
-import {deleteNotification} from '../../store';
+import { Notification } from '../../elements';
+import { StoreTypes } from "../../store/store-types";
+import { notificationSelector } from '../../store/notification/selectors';
+import { NotificationType } from '../../store/notification/reducer';
+import { deleteNotification } from '../../store';
 import './notification-root.scss';
 
 interface Props {
@@ -23,14 +23,13 @@ class NotificationRootContainer extends Component<Props> {
     };
 
     render () {
-        const {notifications = []} = this.props;
+        const { notifications = [] } = this.props;
 
         return (
             <div className={classNames('notification-root')}>
-                {notifications.map(({type, description, title, lifeTime, id}, index) => (
-                    <div className={classNames('notification-root__item-wrapper')} key={index}>
+                {notifications.map(({ type, description, title, lifeTime, id }) => (
+                    <div className={classNames('notification-root__item-wrapper')} key={id}>
                         <Notification
-                            key={index}
                             type={type}
                             description={description}
                             title={title}

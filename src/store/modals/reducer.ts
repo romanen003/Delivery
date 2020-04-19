@@ -1,5 +1,5 @@
-import {AnyAction} from "redux";
-import {MODAL_ACTION} from "./constants";
+import { AnyAction } from "redux";
+import { MODAL_ACTION } from "./constants";
 
 export interface Modal {
     name: string
@@ -15,7 +15,8 @@ export const ModalsReducer = (state = initialState, action: AnyAction) => {
                 action.payload
             ];
         case (MODAL_ACTION.CLOSE):
-            let nextState = [...state];
+            // eslint-disable-next-line no-case-declarations
+            let nextState = [ ...state ];
 
             if (nextState.length > 0) {
                 nextState.pop();

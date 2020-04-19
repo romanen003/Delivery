@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import classNames from "classnames";
-import {Button, Grid, Text, Watch} from '../../elements';
-import {showModal} from '../../store';
-import {StoreTypes} from "../../store/store-types";
-import {Account} from '../';
-import {AUTHORIZATION_MODAL_NAME} from "../authorization/constants";
-import {getAuthorizationStatusSelector} from "../../store/authorization/selectors";
+import { Button, Grid, Text, Watch } from '../../elements';
+import { showModal } from '../../store';
+import { StoreTypes } from "../../store/store-types";
+import { Account } from '../';
+import { AUTHORIZATION_MODAL_NAME } from "../authorization/constants";
+import { getAuthorizationStatusSelector } from "../../store/authorization/selectors";
 import './header.scss';
 
-const {Row, Col, Margin, Col_Width, T_Align} = Grid;
+const { Row, Col, Margin, Col_Width, T_Align } = Grid;
 
 interface Props {
     authorization?: boolean,
@@ -28,7 +28,7 @@ class HeaderContainer extends Component<Props> {
     };
 
     renderRightSide = () => {
-        const {authorization} = this.props;
+        const { authorization } = this.props;
 
         return (
             authorization
@@ -45,7 +45,7 @@ class HeaderContainer extends Component<Props> {
                 <Grid>
                     <Row margin={Margin.X16}>
                         <Col col={Col_Width.THIRTY} textAlign={T_Align.LEFT}>
-                            <NavLink  to="/" style={{textDecoration: 'none'}}>
+                            <NavLink  to="/" style={{ textDecoration: 'none' }}>
                                 <Text heading>Delivery</Text>
                             </NavLink >
                         </Col>

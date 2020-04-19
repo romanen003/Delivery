@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from "classnames";
-import {connect} from "react-redux";
-import {MENU_ELEMENT} from "./constants";
-import {Text} from '../../elements';
+import { connect } from "react-redux";
+import { MENU_ELEMENT } from "./constants";
+import { Text } from '../../elements';
 import './account.scss';
 
 interface Props {
@@ -19,15 +19,15 @@ class AccountComponent extends Component<Props, State> {
     };
 
     handleMouseEnter = () => {
-        this.setState(()=>({openedMenu: true}))
+        this.setState(()=>({ openedMenu: true }))
     };
 
     handleMouseLeave = () => {
-        this.setState(()=>({openedMenu: false}))
+        this.setState(()=>({ openedMenu: false }))
     };
 
     render() {
-        const {openedMenu} = this.state;
+        const { openedMenu } = this.state;
 
         return (
             <div
@@ -39,10 +39,10 @@ class AccountComponent extends Component<Props, State> {
                 {openedMenu &&
                     <div className={classNames('account__menu')}>
                         {
-                            MENU_ELEMENT.map((name, index) => (
+                            MENU_ELEMENT.map(name => (
                                 <div
                                     className={classNames('account__element')}
-                                    key={index}
+                                    key={name}
                                 >
                                     <Text sub>{name}</Text>
                                 </div>

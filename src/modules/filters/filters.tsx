@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Grid, Select, Text } from "../../elements";
 import { EMPTY_ITEM } from "../../elements/select/select";
 
-const {Row, Col,Col_Width, T_Align} = Grid;
+const { Row, Col,Col_Width, T_Align } = Grid;
 
-const options = [{
+const options = [ {
     id: '1', value: 'value1'
 }, {
     id: '2', value: 'value2'
@@ -12,7 +12,7 @@ const options = [{
     id: '3', value: 'value3'
 }, {
     id: '4', value: 'value4'
-}];
+} ];
 
 export class FilterComponent extends Component {
     state = {

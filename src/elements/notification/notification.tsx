@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Grid, Text, Button} from '../';
+import React, { Component } from 'react';
+import { Grid, Text, Button } from '../';
 import classNames from 'classnames';
-import {TYPES} from './constants';
+import { TYPES } from './constants';
 import './notification.scss';
 
-const {Row, Col, T_Align, Margin_Top} = Grid;
+const { Row, Col, T_Align, Margin_Top } = Grid;
 
 interface Props {
     id?: number,

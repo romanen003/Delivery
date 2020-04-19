@@ -1,12 +1,12 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import classNames from "classnames";
-import {connect} from "react-redux";
-import {StoreTypes} from "../../store/store-types";
-import {closeModal} from "../../store";
-import {ModalConfig, getModal} from "./register-modals";
-import {VIEW} from "./constants";
-import {Overlay} from "../../elements";
-import {getModalsSelector} from '../../store/modals/selectors';
+import { connect } from "react-redux";
+import { StoreTypes } from "../../store/store-types";
+import { closeModal } from "../../store";
+import { ModalConfig, getModal } from "./register-modals";
+import { VIEW } from "./constants";
+import { Overlay } from "../../elements";
+import { getModalsSelector } from '../../store/modals/selectors';
 import './modal-root.scss';
 
 interface Props {
@@ -28,8 +28,8 @@ class ModalRootContainer extends Component<Props> {
     };
 
     renderModal = (modal: ModalConfig, index: number) => {
-        const overlayZIndex = {zIndex: ++index};
-        const {Component, config, view} = modal;
+        const overlayZIndex = { zIndex: ++index };
+        const { Component, config, view } = modal;
         const modalPositionStyle = classNames('modal-wrapper', {
             'modal-wrapper-right': view === VIEW.RIGHT,
             'modal-wrapper-center': view === VIEW.CENTER
@@ -69,9 +69,7 @@ class ModalRootContainer extends Component<Props> {
     }
 }
 
-export const ModalRoot = connect((
-    store: StoreTypes
-) => ({
+export const ModalRoot = connect((store: StoreTypes) => ({
     modals: getModalsSelector(store)
 }), {
     closeModal

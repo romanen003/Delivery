@@ -12,7 +12,7 @@ import {
     RestaurantPaginationSelector
 } from "../../store/restaurant/selectors";
 import './restaurant-container.scss';
-import {fetchingAllDictionaries} from "../../store/dictionaries/actions";
+import { fetchingAllDictionaries } from "../../store/dictionaries/actions";
 
 const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
 
@@ -32,12 +32,12 @@ class RestaurantContainerComponent extends Component<Props> {
             pagination = {}
         } = this.props;
 
-        getRestaurantData({...filters, ...pagination, 'city': 'moscow', 'gender': 'm'});
+        getRestaurantData({ ...filters, ...pagination, 'city': 'moscow', 'gender': 'm' });
         fetchingAllDictionaries()
     }
 
     render(){
-        const {data = []} = this.props;
+        const { data = [] } = this.props;
 
         return (
             <div className={classNames('restaurant-container')}>
@@ -58,7 +58,7 @@ class RestaurantContainerComponent extends Component<Props> {
                             logoImg,
                             nameEn
                         }) =>
-                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16}>
+                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16} key={id}>
                                 <RestaurantBoxWithRouting
                                     name={nameRu}
                                     coverImg={coverImg}

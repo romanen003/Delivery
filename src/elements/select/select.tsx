@@ -1,14 +1,15 @@
-import React, {Component, RefObject, FocusEvent } from "react";
+import React, { Component, RefObject, FocusEvent } from "react";
 import classNames from "classnames";
 import './style.scss';
 import { Button } from "..";
-
-export const EMPTY_ITEM: Value = {id: '0', value: ''};
 
 type Value = {
     id: string,
     value: string
 };
+
+export const EMPTY_ITEM: Value = { id: '0', value: '' };
+
 
 interface Props {
     value?: Value,
@@ -22,7 +23,7 @@ type State = {
 
 export class Select extends Component<Props, State> {
     static defaultProps = {
-        options: [EMPTY_ITEM],
+        options: [ EMPTY_ITEM ],
         value: EMPTY_ITEM,
         withEmptyItem: false
     };
@@ -50,7 +51,7 @@ export class Select extends Component<Props, State> {
             this.setState(() => ({ opened: false }))
         }
     };
-    handleIconClick = (): void => this.setState(({opened}) => ({ opened: !opened}));
+    handleIconClick = (): void => this.setState(({ opened }) => ({ opened: !opened }));
 
     handleItemClick = (selectedValue: Value): void => {
         this.setState(() => ({
@@ -86,10 +87,10 @@ export class Select extends Component<Props, State> {
                 {opened &&
                 <ul className={classNames('select__dropdown')} tabIndex={1}>
                     {opened &&
-                    options.map(({value, id}) => (
+                    options.map(({ value, id }) => (
                         <li
                             key={`${id}-select`}
-                            onClick={() => this.handleItemClick({value, id})}
+                            onClick={() => this.handleItemClick({ value, id })}
                         >
                             <button
                                 className={classNames('select__item', {

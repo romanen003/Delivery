@@ -12,10 +12,8 @@ export const Overlay = ({
     children,
     onClick,
     style
-}: Props) => {
-    return (
-        <div className={classNames('overlay')} onClick={onClick} style={style}>
-            {children}
-        </div>
-    );
-};
+}: Props) => (
+    <div className={classNames('overlay')} onClick={onClick} style={style}>
+        {children}
+    </div>
+);

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Row } from "./row/row";
 import { Col } from "./col/col";
