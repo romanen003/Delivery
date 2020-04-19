@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classNames from "classnames";
+import { connect } from "react-redux";
 import { Button, Grid, Input, ModalLayout } from "../../elements";
 import { AUTHORIZATION, PLACEHOLDERS } from "./constants";
-import { connect } from "react-redux";
 import { checkAuthorization } from "./actions";
 import './authorization.scss';
 

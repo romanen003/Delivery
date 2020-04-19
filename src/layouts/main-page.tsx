@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
 import classNames from "classnames";
 import { Button } from "../elements";
 import style from './style.scss';
@@ -26,5 +25,4 @@ const MainPage = (props: Props) => {
     );
 };
 
-export const MainPageConnected = connect(() => ({}),
-    { push })(MainPage);
+export const MainPageConnected = connect(null)(MainPage);

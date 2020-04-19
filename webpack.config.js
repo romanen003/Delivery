@@ -20,10 +20,12 @@ const getCssLoaders = () => ([
                 mode: 'local',
                 localIdentName: '[local]--[hash:base64:5]',
                 hashPrefix: 'my-custom-hash',
-            }
+            },
+            sourceMap: true
         }
-    },
-    'sass-loader'
+    }, {
+        loader: 'sass-loader'
+    }
 ]);
 const getJsLoaders = () => {
     const loaders = ['babel-loader'];
@@ -38,7 +40,7 @@ const getPlugins = () => {
     const plugins = [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: '../index.html',
+            template: './index.html',
             title: 'Roman\'s app',
             minify: {
                 collapseWhitespace: isProd
@@ -79,7 +81,7 @@ const getRules = () => ([
         loader: 'file-loader'
     }
 ]);
-const getOptimization = () => ({ // обьект оптимизаций
+const getOptimization = () => ({
     splitChunks: {
         chunks: "all"
     },
@@ -91,26 +93,27 @@ const getOptimization = () => ({ // обьект оптимизаций
 });
 
 module.exports = {
-    context: path.resolve(__dirname, 'src'), //контекст для конфига
-    entry: ['@babel/polyfill', './index.tsx'], // исходный файл + полифилы для новых фич js
-    output: { // обьект для настройка бандла
-        path: path.resolve(__dirname, 'dist'), // куда положить бандл
-        filename: getFileName('js') // имя - маска  бандла
+    context: path.resolve(__dirname, 'src'),
+    entry: ['@babel/polyfill', './index.tsx'],
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: getFileName('js')
     },
     resolve: {
         extensions: ['.js', '.tsx', '.ts', '.jpeg', '.jpg'],
         alias: {
-            '@src': path.resolve(__dirname, 'src') // относительный путь в импортах
+            '@src': path.resolve(__dirname, 'src')
         }
     },
-    plugins: getPlugins(), // массив вспомогательных плагинов
-    optimization: getOptimization(), // обьект оптимизаций
+    plugins: getPlugins(),
+    optimization: getOptimization(),
     module: {
-        rules: getRules()  // правила обработки файлов
+        rules: getRules()
     },
-    devServer: { //настройка дев сервера
+    devServer: {
         port: 1111,
-        hot: isDev
+        hot: true,
+        historyApiFallback: true
     },
-    ...(isDev && {devtool: 'source-map'}) // сорс мапа для девелоп режима
+    ...(isDev && {devtool: 'source-map'})
 };

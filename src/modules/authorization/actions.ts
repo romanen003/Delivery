@@ -1,5 +1,4 @@
 import { Dispatch } from "redux";
-import { push } from "connected-react-router";
 import {
     closeModal,
     offLoading,
@@ -47,7 +46,7 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
         .then((response) => {
             if (response && response.status === 200) {
                 successAuthorization(dispatch);
-                return dispatch(push('/my-account'));
+                return dispatch({ type: 'fdsfdf' });
             }
 
             return failureAuthorization(dispatch);
