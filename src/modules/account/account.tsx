@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { MENU_ELEMENT } from "./constants";
 import { Text } from '../../elements';
-import './account.scss';
+import style from './account.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
 
@@ -31,17 +33,17 @@ class AccountComponent extends Component<Props, State> {
 
         return (
             <div
-                className={classNames('account')}
+                className={cn('account')}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
             >
                 <Text title>Roman</Text>
                 {openedMenu &&
-                    <div className={classNames('account__menu')}>
+                    <div className={cn('account__menu')}>
                         {
                             MENU_ELEMENT.map(name => (
                                 <div
-                                    className={classNames('account__element')}
+                                    className={cn('account__element')}
                                     key={name}
                                 >
                                     <Text sub>{name}</Text>

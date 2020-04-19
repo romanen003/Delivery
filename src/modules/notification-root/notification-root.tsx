@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { Notification } from '../../elements';
 import { StoreTypes } from "../../store/store-types";
 import { notificationSelector } from '../../store/notification/selectors';
 import { NotificationType } from '../../store/notification/reducer';
 import { deleteNotification } from '../../store';
-import './notification-root.scss';
+import style from './notification-root.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
     notifications?: Array<NotificationType>,
@@ -26,9 +28,9 @@ class NotificationRootContainer extends Component<Props> {
         const { notifications = [] } = this.props;
 
         return (
-            <div className={classNames('notification-root')}>
+            <div className={cn('notification-root')}>
                 {notifications.map(({ type, description, title, lifeTime, id }) => (
-                    <div className={classNames('notification-root__item-wrapper')} key={id}>
+                    <div className={cn('notification-root__item-wrapper')} key={id}>
                         <Notification
                             type={type}
                             description={description}

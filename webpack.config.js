@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -53,7 +54,8 @@ const getPlugins = () => {
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, 'src/favicon.ico'),
             to: path.resolve(__dirname, 'dist')
-        }])
+        }]),
+        new DashboardPlugin()
     ];
 
     if (isProd) {
@@ -82,6 +84,8 @@ const getRules = () => ([
     }
 ]);
 const getOptimization = () => ({
+    noEmitOnErrors: true,
+    namedModules: true,
     splitChunks: {
         chunks: "all"
     },
@@ -115,5 +119,6 @@ module.exports = {
         hot: true,
         historyApiFallback: true
     },
-    ...(isDev && {devtool: 'source-map'})
+    ...(isDev && {devtool: 'eval-source-map'}),
+
 };

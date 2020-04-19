@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Grid, Text, Button } from '../';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { TYPES } from './constants';
-import './notification.scss';
+import style from './notification.scss';
+
+const cn = classNames.bind(style);
 
 const { Row, Col, T_Align, Margin_Top } = Grid;
 
@@ -53,7 +55,7 @@ export class Notification extends Component<Props> {
             title,
             description
         } = this.props;
-        const StyleNotification = classNames('notification', {
+        const StyleNotification = cn('notification', {
             'notification-success': type === TYPES.SUCCESS,
             'notification-warning': type === TYPES.WARNING,
             'notification-error': type === TYPES.ERROR
@@ -73,7 +75,7 @@ export class Notification extends Component<Props> {
                         </Col>
                     </Row>
                 </Grid>
-                <div className={classNames('notification__close')}>
+                <div className={cn('notification__close')}>
                     <Button.Close onClick={this.handleCloseClick}/>
                 </div>
             </div>

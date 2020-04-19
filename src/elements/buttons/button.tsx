@@ -1,7 +1,9 @@
 import React, { Component, FocusEvent, ReactNode, RefObject } from 'react';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { BUTTONS_WITH_ICONS } from './button-icon';
-import './button.scss';
+import style from './button.scss';
+
+const cn = classNames.bind(style);
 
 export interface ButtonProps {
     type?: 'submit' | 'reset' | 'button',
@@ -79,7 +81,7 @@ export class Button extends Component<ButtonProps> {
             icon,
             buttonRef
         } = this.props;
-        const buttonClassMame = classNames('btn', {
+        const buttonClassMame = cn('btn', {
             'btn_edit': edit,
             'btn_confirm': confirm,
             'btn_close': close,

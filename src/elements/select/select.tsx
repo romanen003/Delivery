@@ -1,7 +1,9 @@
 import React, { Component, RefObject, FocusEvent } from "react";
-import classNames from "classnames";
-import './style.scss';
+import classNames from 'classnames/bind';
 import { Button } from "..";
+import style from './style.scss';
+
+const cn = classNames.bind(style);
 
 type Value = {
     id: string,
@@ -65,9 +67,9 @@ export class Select extends Component<Props, State> {
         const { opened, selectedValue } = this.state;
 
         return (
-            <div className={classNames('select')}>
+            <div className={cn('select')}>
                 <input
-                    className={classNames('select__value')}
+                    className={cn('select__value')}
                     readOnly
                     value={selectedValue.value}
                     onClick={this.handleIconClick}
@@ -75,7 +77,7 @@ export class Select extends Component<Props, State> {
                     ref={this.inputRef}
                 />
                 <div
-                    className={classNames('select__icon')}
+                    className={cn('select__icon')}
 
                 >
                     <Button.List
@@ -85,7 +87,7 @@ export class Select extends Component<Props, State> {
                     />
                 </div>
                 {opened &&
-                <ul className={classNames('select__dropdown')} tabIndex={1}>
+                <ul className={cn('select__dropdown')} tabIndex={1}>
                     {opened &&
                     options.map(({ value, id }) => (
                         <li
@@ -93,7 +95,7 @@ export class Select extends Component<Props, State> {
                             onClick={() => this.handleItemClick({ value, id })}
                         >
                             <button
-                                className={classNames('select__item', {
+                                className={cn('select__item', {
                                     'select__item_selected' : selectedValue.id === id
                                 })}
                             >

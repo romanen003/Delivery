@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { Button, Grid, Input, ModalLayout } from "../../elements";
 import { AUTHORIZATION, PLACEHOLDERS } from "./constants";
 import { checkAuthorization } from "./actions";
-import './authorization.scss';
+import style from  './authorization.scss';
+
+const cn = classNames.bind(style);
 
 const { Row, Col, Margin, Col_Width } = Grid;
 
@@ -41,7 +43,7 @@ class AuthorizationContainer extends Component<Props> {
         const { login, password } = this.state;
 
         return (
-            <div className={classNames('authorization')}>
+            <div className={cn('authorization')}>
                 <Grid>
                     <Row>
                         <Col>

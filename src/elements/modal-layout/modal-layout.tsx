@@ -1,9 +1,11 @@
 import React, { PureComponent, ReactElement } from 'react';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { Button, Text, Grid } from '..';
-import './modal-layout.scss';
+import style from './modal-layout.scss';
 import { connect } from "react-redux";
 import { closeModal } from "../../store";
+
+const cn = classNames.bind(style);
 
 const { Row, Col, T_Align, Col_Width } = Grid;
 
@@ -22,8 +24,8 @@ export class ModalLayoutC extends PureComponent<Props> {
             contentView
         } = this.props;
         return (
-            <div className={classNames('modal-layout')}>
-                <div className={classNames('modal-layout_header')}>
+            <div className={cn('modal-layout')}>
+                <div className={cn('modal-layout_header')}>
                     <Grid>
                         <Row>
                             <Col textAlign={T_Align.LEFT} col={Col_Width.SEVENTY} sticky>
@@ -35,8 +37,8 @@ export class ModalLayoutC extends PureComponent<Props> {
                         </Row>
                     </Grid>
                 </div>
-                <div className={classNames('modal-layout_content')}>
-                    <div className={classNames('modal-layout_content-box')}>
+                <div className={cn('modal-layout_content')}>
+                    <div className={cn('modal-layout_content-box')}>
                         {contentView}
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import classNames from 'classnames';
 import { Grid, Text } from "../";
-import './watch.scss';
+import style from './watch.scss';
+
+const cn = classNames.bind(style);
 
 const { Row, Col, T_Align, Col_Width } = Grid;
 
@@ -45,7 +47,7 @@ export class Watch extends Component<Props, State> {
         const correctMinutes = minutes > 9 ? minutes : `0${minutes}`;
 
         return (
-            <div className={classNames('watch')}>
+            <div className={cn('watch')}>
                 <Grid>
                     <Row>
                         <Col textAlign={T_Align.RIGHT} col={Col_Width.THIRTY} sticky>

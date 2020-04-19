@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import classNames from "classnames";
+import classNames from 'classnames/bind';
 import { Button } from "../elements";
 import style from './style.scss';
 
@@ -17,7 +17,7 @@ const MainPage = (props: Props) => {
         <div className={cn('mainLayout')}>
             <div className={cn('mainLayout__wrapper')}>
                 <p className={cn('mainLayout__title')}>Delivery Food</p>
-                <div className={cn('mainLayout__wrapper-btn')}>
+                <div className={cn('mainLayout__wrapper_btn')}>
                     <Button onClick={handleButtonClick}>to order</Button>
                 </div>
             </div>

@@ -1,7 +1,9 @@
 import React from 'react';
-import classNames from 'classnames';
-import './loading.scss';
+import classNames from 'classnames/bind';
 import { Pan } from "./pan/pan";
+import style from './loading.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
     pan?: boolean
@@ -10,7 +12,7 @@ interface Props {
 export const Loading = ({
     pan = true
 }: Props) => (
-    <div className={classNames('loading')}>
+    <div className={cn('loading')}>
         {pan && <Pan />}
     </div>
 );

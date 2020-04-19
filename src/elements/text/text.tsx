@@ -1,6 +1,8 @@
 import React from 'react';
-import classNames from 'classnames';
-import './text.scss';
+import classNames from 'classnames/bind';
+import style from './text.scss';
+
+const cn = classNames.bind(style);
 
 interface Prop {
     children?: string | number,
@@ -19,7 +21,7 @@ export const Text = ({
     sub,
     black
 }: Prop) => {
-    const styleText = classNames('text', {
+    const styleText = cn('text', {
         'text-heading': heading,
         'text-title': title,
         'text-sub': sub,

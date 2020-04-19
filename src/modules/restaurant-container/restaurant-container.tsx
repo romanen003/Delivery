@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { Grid, Text } from '../../elements';
 import { getRestaurantData } from './actions';
@@ -11,8 +11,10 @@ import {
     RestaurantFiltersSelector,
     RestaurantPaginationSelector
 } from "../../store/restaurant/selectors";
-import './restaurant-container.scss';
 import { fetchingAllDictionaries } from "../../store/dictionaries/actions";
+import style from './restaurant-container.scss';
+
+const cn = classNames.bind(style);
 
 const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
 
@@ -40,7 +42,7 @@ class RestaurantContainerComponent extends Component<Props> {
         const { data = [] } = this.props;
 
         return (
-            <div className={classNames('restaurant-container')}>
+            <div className={cn('restaurant-container')}>
                 <FilterComponent />
                 <Grid>
                     <Row marginTop={Margin_Top.X16}>

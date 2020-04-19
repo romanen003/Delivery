@@ -1,7 +1,9 @@
 import React, { Component, ReactNode } from 'react';
-import classNames from 'classnames';
-import './col.scss';
+import classNames from 'classnames/bind';
+import style from './col.scss';
 import { COL, MARGIN_TOP, T_ALIGN, V_ALIGN } from "../constants";
+
+const cn = classNames.bind(style);
 
 interface Props {
     children?: ReactNode,
@@ -22,7 +24,7 @@ export class Col extends Component<Props> {
             sticky = false,
             marginT
         } = this.props;
-        const rowClassName = classNames('col', {
+        const rowClassName = cn('col', {
             'col__t-align-left': textAlign === T_ALIGN.LEFT,
             'col__t-align-right': textAlign === T_ALIGN.RIGHT,
             'col__v-align-top': vertAlign === V_ALIGN.TOP,

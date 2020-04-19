@@ -1,6 +1,8 @@
 import React from 'react';
-import classNames from 'classnames';
-import './overlay.scss';
+import classNames from 'classnames/bind';
+import style from './overlay.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
     children?: any,
@@ -13,7 +15,7 @@ export const Overlay = ({
     onClick,
     style
 }: Props) => (
-    <div className={classNames('overlay')} onClick={onClick} style={style}>
+    <div className={cn('overlay')} onClick={onClick} style={style}>
         {children}
     </div>
 );
