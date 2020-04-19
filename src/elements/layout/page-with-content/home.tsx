@@ -1,6 +1,8 @@
-import React, {ReactElement} from "react";
-import classNames from 'classnames';
-import './home.scss';
+import React, { ReactElement } from "react";
+import classNames from 'classnames/bind';
+import style from './home.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
     headerView?: ReactElement,
@@ -13,14 +15,14 @@ export const LayoutHome = ({
     contentView,
     footerView
 }: Props ) => (
-    <div className={classNames('page')}>
-        <header className={classNames('page-header')}>
+    <div className={cn('page')}>
+        <header className={cn('page-header')}>
             {headerView}
         </header>
-        <main className={classNames('page-content')}>
+        <main className={cn('page-content')}>
             {contentView}
         </main>
-        <footer className={classNames('page-footer')}>
+        <footer className={cn('page-footer')}>
             {footerView}
         </footer>
     </div>

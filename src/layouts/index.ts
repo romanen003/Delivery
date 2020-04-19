@@ -1,1 +1,1 @@
-export {MainPageConnected} from './main-page';
+export { MainPageConnected } from './main-page';

@@ -1,11 +1,13 @@
 import React from 'react';
-import classNames from "classnames";
-import {Text, Grid} from "../../elements";
-import {Rating} from './rating/rating';
-import {DeliveryTime} from './delivery-time/delivery-time';
-import './restaurant-box.scss';
+import classNames from "classnames/bind";
+import { Text, Grid } from "../../elements";
+import { Rating } from './rating/rating';
+import { DeliveryTime } from './delivery-time/delivery-time';
+import style from './restaurant-box.scss';
 
-const {Row, Col, T_Align, Col_Width} = Grid;
+const cn = classNames.bind(style);
+
+const { Row, Col, T_Align, Col_Width } = Grid;
 
 export interface Props {
     name: string,
@@ -33,16 +35,16 @@ export const RestaurantBox = ({
     };
 
     return (
-        <div className={classNames('restaurant-box')}>
+        <div className={cn('restaurant-box')}>
             <div
                 style={currentStyle}
-                className={classNames('restaurant-box__img')}
+                className={cn('restaurant-box__img')}
             >
-                <span className={classNames('restaurant-box__box-logo')}>
-                    <img className={classNames('restaurant-box__logo-img')} src={logoImg} alt={name}/>
+                <span className={cn('restaurant-box__box-logo')}>
+                    <img className={cn('restaurant-box__logo-img')} src={logoImg} alt={name}/>
                 </span>
             </div>
-            <div className={classNames('restaurant-box__info')}>
+            <div className={cn('restaurant-box__info')}>
                 <Grid>
                     <Row>
                         <Col col={Col_Width.HALF} textAlign={T_Align.LEFT}>

@@ -1,31 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
-import classNames from "classnames";
+import classNames from 'classnames/bind';
 import { Button } from "../elements";
-import './style.scss';
+import style from './style.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
-    push: (value: string) => any
+    push: (value: string) => void
 }
 
 const MainPage = (props: Props) => {
     const handleButtonClick = () => props.push('restaurant');
 
     return (
-        <div className={classNames('mainLayout')}>
-            <div className={classNames('mainLayout__wrapper')}>
-                <p className={classNames('mainLayout__title')}>Delivery Food</p>
-                <div className={classNames('mainLayout__wrapper-btn')}>
+        <div className={cn('mainLayout')}>
+            <div className={cn('mainLayout__wrapper')}>
+                <p className={cn('mainLayout__title')}>Delivery Food</p>
+                <div className={cn('mainLayout__wrapper_btn')}>
                     <Button onClick={handleButtonClick}>to order</Button>
                 </div>
-
             </div>
         </div>
     );
 };
 
-export const MainPageConnected = connect(
-    () => ({}),
-    { push }
-)(MainPage);
+export const MainPageConnected = connect(null)(MainPage);

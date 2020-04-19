@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from './button';
+import { Button, ButtonProps } from './button';
 import edit from './svg/edit.svg';
 import confirm from './svg/confirm.svg';
 import close from './svg/close.svg';
@@ -9,7 +9,6 @@ import add from './svg/add.svg';
 import clear from './svg/clear.svg';
 import list from './svg/list.svg';
 import top from './svg/top.svg';
-import {ButtonProps} from './button';
 
 const  createButtonIcon = (typeIcon: string) => (props: ButtonProps) =>
     <Button {...props} icon>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { Grid, Text } from '../../elements';
 import { getRestaurantData } from './actions';
@@ -11,8 +11,10 @@ import {
     RestaurantFiltersSelector,
     RestaurantPaginationSelector
 } from "../../store/restaurant/selectors";
-import './restaurant-container.scss';
-import {fetchingAllDictionaries} from "../../store/dictionaries/actions";
+import { fetchingAllDictionaries } from "../../store/dictionaries/actions";
+import style from './restaurant-container.scss';
+
+const cn = classNames.bind(style);
 
 const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
 
@@ -32,15 +34,15 @@ class RestaurantContainerComponent extends Component<Props> {
             pagination = {}
         } = this.props;
 
-        getRestaurantData({...filters, ...pagination, 'city': 'moscow', 'gender': 'm'});
+        getRestaurantData({ ...filters, ...pagination, 'city': 'moscow', 'gender': 'm' });
         fetchingAllDictionaries()
     }
 
     render(){
-        const {data = []} = this.props;
+        const { data = [] } = this.props;
 
         return (
-            <div className={classNames('restaurant-container')}>
+            <div className={cn('restaurant-container')}>
                 <FilterComponent />
                 <Grid>
                     <Row marginTop={Margin_Top.X16}>
@@ -58,7 +60,7 @@ class RestaurantContainerComponent extends Component<Props> {
                             logoImg,
                             nameEn
                         }) =>
-                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16}>
+                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16} key={id}>
                                 <RestaurantBoxWithRouting
                                     name={nameRu}
                                     coverImg={coverImg}

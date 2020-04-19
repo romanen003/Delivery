@@ -1,14 +1,17 @@
-import React, {Component, RefObject, FocusEvent } from "react";
-import classNames from "classnames";
-import './style.scss';
+import React, { Component, RefObject, FocusEvent } from "react";
+import classNames from 'classnames/bind';
 import { Button } from "..";
+import style from './style.scss';
 
-export const EMPTY_ITEM: Value = {id: '0', value: ''};
+const cn = classNames.bind(style);
 
 type Value = {
     id: string,
     value: string
 };
+
+export const EMPTY_ITEM: Value = { id: '0', value: '' };
+
 
 interface Props {
     value?: Value,
@@ -22,7 +25,7 @@ type State = {
 
 export class Select extends Component<Props, State> {
     static defaultProps = {
-        options: [EMPTY_ITEM],
+        options: [ EMPTY_ITEM ],
         value: EMPTY_ITEM,
         withEmptyItem: false
     };
@@ -50,7 +53,7 @@ export class Select extends Component<Props, State> {
             this.setState(() => ({ opened: false }))
         }
     };
-    handleIconClick = (): void => this.setState(({opened}) => ({ opened: !opened}));
+    handleIconClick = (): void => this.setState(({ opened }) => ({ opened: !opened }));
 
     handleItemClick = (selectedValue: Value): void => {
         this.setState(() => ({
@@ -64,9 +67,9 @@ export class Select extends Component<Props, State> {
         const { opened, selectedValue } = this.state;
 
         return (
-            <div className={classNames('select')}>
+            <div className={cn('select')}>
                 <input
-                    className={classNames('select__value')}
+                    className={cn('select__value')}
                     readOnly
                     value={selectedValue.value}
                     onClick={this.handleIconClick}
@@ -74,7 +77,7 @@ export class Select extends Component<Props, State> {
                     ref={this.inputRef}
                 />
                 <div
-                    className={classNames('select__icon')}
+                    className={cn('select__icon')}
 
                 >
                     <Button.List
@@ -84,15 +87,15 @@ export class Select extends Component<Props, State> {
                     />
                 </div>
                 {opened &&
-                <ul className={classNames('select__dropdown')} tabIndex={1}>
+                <ul className={cn('select__dropdown')} tabIndex={1}>
                     {opened &&
-                    options.map(({value, id}) => (
+                    options.map(({ value, id }) => (
                         <li
                             key={`${id}-select`}
-                            onClick={() => this.handleItemClick({value, id})}
+                            onClick={() => this.handleItemClick({ value, id })}
                         >
                             <button
-                                className={classNames('select__item', {
+                                className={cn('select__item', {
                                     'select__item_selected' : selectedValue.id === id
                                 })}
                             >

@@ -1,8 +1,10 @@
-import React, {Component} from 'react'
-import classNames from 'classnames';
-import './input.scss';
-import {InputWithClear} from './input-with-clear/input-with-clear'
-import {InputPassword} from './input-password';
+import React, { Component } from 'react'
+import classNames from 'classnames/bind';
+import style from './input.scss';
+import { InputWithClear } from './input-with-clear/input-with-clear'
+import { InputPassword } from './input-password';
+
+const cn = classNames.bind(style);
 
 export interface InputProps {
     type?: string,
@@ -45,7 +47,7 @@ export class Input extends Component<InputProps> {
             onMouseLeave,
             clear
         } = this.props;
-        const CssStyle = classNames('input', {
+        const CssStyle = cn('input', {
             'input-clear': clear
         });
 

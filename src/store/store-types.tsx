@@ -1,7 +1,7 @@
-import {authorizationState} from "./authorization/reducer";
-import {LoadingState} from "./loading/reducer";
-import {NotificationType} from './notification/reducer';
-import {RestaurantStoreType} from "./restaurant/reducer";
+import { authorizationState } from "./authorization/reducer";
+import { LoadingState } from "./loading/reducer";
+import { NotificationType } from './notification/reducer';
+import { RestaurantStoreType } from "./restaurant/reducer";
 
 export interface StoreTypes {
     authorization: authorizationState,

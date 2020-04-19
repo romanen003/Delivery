@@ -1,5 +1,4 @@
-import {Dispatch} from "redux";
-import {push} from "connected-react-router";
+import { Dispatch } from "redux";
 import {
     closeModal,
     offLoading,
@@ -7,9 +6,9 @@ import {
     setAuthorisation,
     addNotification
 } from "../../store";
-import {AUTHORIZATION_URL} from "./constants";
-import {TYPES} from "../../elements/notification/constants";
-import {request} from '../../utils/request';
+import { AUTHORIZATION_URL } from "./constants";
+import { TYPES } from "../../elements/notification/constants";
+import { request } from '../../utils/request';
 
 const successAuthorization = (dispatch: Dispatch) => {
     dispatch(setAuthorisation(true));
@@ -42,15 +41,15 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
         url: AUTHORIZATION_URL,
         method: request.method.POST,
         useFormData: true,
-        body: {login, password}
+        body: { login, password }
     })
-        .then(response => {
-            if (response.status === 200) {
+        .then((response) => {
+            if (response && response.status === 200) {
                 successAuthorization(dispatch);
-                return dispatch(push('/my-account'));
+                return dispatch({ type: 'fdsfdf' });
             }
 
-            failureAuthorization(dispatch);
+            return failureAuthorization(dispatch);
         })
         .catch(() => {
             failureAuthorization(dispatch);

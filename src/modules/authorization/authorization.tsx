@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
-import classNames from "classnames";
-import {Button, Grid, Input, ModalLayout} from "../../elements";
-import {AUTHORIZATION, PLACEHOLDERS} from "./constants";
-import {connect} from "react-redux";
-import {checkAuthorization} from "./actions";
-import './authorization.scss';
+import React, { Component } from 'react';
+import classNames from "classnames/bind";
+import { connect } from "react-redux";
+import { Button, Grid, Input, ModalLayout } from "../../elements";
+import { AUTHORIZATION, PLACEHOLDERS } from "./constants";
+import { checkAuthorization } from "./actions";
+import style from  './authorization.scss';
 
-const {Row, Col, Margin, Col_Width} = Grid;
+const cn = classNames.bind(style);
+
+const { Row, Col, Margin, Col_Width } = Grid;
 
 interface Props {
     auth: (login: string, password: string) => any
@@ -32,16 +34,16 @@ class AuthorizationContainer extends Component<Props> {
     };
 
     handleCheckAuthorization = () => {
-        const {login, password} = this.state;
+        const { login, password } = this.state;
         this.props.auth(login, password);
     };
 
 
     renderContentView = () => {
-        const {login, password} = this.state;
+        const { login, password } = this.state;
 
         return (
-            <div className={classNames('authorization')}>
+            <div className={cn('authorization')}>
                 <Grid>
                     <Row>
                         <Col>

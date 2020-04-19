@@ -1,4 +1,4 @@
-import {AnyAction} from "redux";
+import { AnyAction } from "redux";
 import {
     DOWNLOAD_STATUS,
     SET_FILTERS,
@@ -43,17 +43,17 @@ export const RestaurantReducer = (state: RestaurantStoreType  = InitialState, ac
         case (SET_PAGINATION):
             return ({
                 ...state,
-                pagination: {...action.payload}
+                pagination: { ...action.payload }
             });
         case (SET_FILTERS):
             return ({
                 ...state,
-                filters: {...action.payload}
+                filters: { ...action.payload }
             });
         case (SET_DATA):
             return ({
                 ...state,
-                data: [...action.payload]
+                data: [ ...action.payload ]
             });
         case (SHOW_ERROR):
             return ({

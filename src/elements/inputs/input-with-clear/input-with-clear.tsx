@@ -1,8 +1,10 @@
-import React, {Component} from 'react'
-import classNames from 'classnames';
-import {Input, Button} from '../../';
-import {InputProps} from '../input';
-import './input-with-clear.scss';
+import React, { Component } from 'react'
+import classNames from 'classnames/bind';
+import { Input, Button } from '../../';
+import { InputProps } from '../input';
+import style from './input-with-clear.scss';
+
+const cn = classNames.bind(style);
 
 const DEFAULT_VALUE = '';
 
@@ -23,12 +25,12 @@ export class InputWithClear extends Component<InputWithClearProps, {focus: boole
     };
 
     render () {
-        const {disabled, value} = this.props;
+        const { disabled, value } = this.props;
 
         return (
-            <div className={classNames("input-wrapper")}>
+            <div className={cn("input-wrapper")}>
                 <Input clear{...this.props}/>
-                <div className={classNames('input-wrapper__button')}>
+                <div className={cn('input-wrapper__button')}>
                     {
                         !disabled && value &&
                         <Button.Clear

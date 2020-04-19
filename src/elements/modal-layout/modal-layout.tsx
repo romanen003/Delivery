@@ -1,11 +1,13 @@
-import React, {PureComponent, ReactElement} from 'react';
-import classNames from 'classnames';
-import {Button, Text, Grid} from '..';
-import './modal-layout.scss';
-import {connect} from "react-redux";
-import {closeModal} from "../../store";
+import React, { PureComponent, ReactElement } from 'react';
+import classNames from 'classnames/bind';
+import { Button, Text, Grid } from '..';
+import style from './modal-layout.scss';
+import { connect } from "react-redux";
+import { closeModal } from "../../store";
 
-const {Row, Col, T_Align, Col_Width} = Grid;
+const cn = classNames.bind(style);
+
+const { Row, Col, T_Align, Col_Width } = Grid;
 
 interface Props {
     label?: string,
@@ -14,10 +16,7 @@ interface Props {
 }
 
 
-@(connect(null, {
-    closeModal
-}) as any)
-export class ModalLayout extends PureComponent<Props> {
+export class ModalLayoutC extends PureComponent<Props> {
     render() {
         const {
             label,
@@ -25,8 +24,8 @@ export class ModalLayout extends PureComponent<Props> {
             contentView
         } = this.props;
         return (
-            <div className={classNames('modal-layout')}>
-                <div className={classNames('modal-layout_header')}>
+            <div className={cn('modal-layout')}>
+                <div className={cn('modal-layout_header')}>
                     <Grid>
                         <Row>
                             <Col textAlign={T_Align.LEFT} col={Col_Width.SEVENTY} sticky>
@@ -38,8 +37,8 @@ export class ModalLayout extends PureComponent<Props> {
                         </Row>
                     </Grid>
                 </div>
-                <div className={classNames('modal-layout_content')}>
-                    <div className={classNames('modal-layout_content-box')}>
+                <div className={cn('modal-layout_content')}>
+                    <div className={cn('modal-layout_content-box')}>
                         {contentView}
                     </div>
                 </div>
@@ -47,3 +46,4 @@ export class ModalLayout extends PureComponent<Props> {
         );
     }
 }
+export const ModalLayout = connect(null, { closeModal })(ModalLayoutC);

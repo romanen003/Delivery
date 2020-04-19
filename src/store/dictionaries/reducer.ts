@@ -1,5 +1,5 @@
-import {AnyAction} from "redux";
-import {DICTIONARIES_FETCH_FAIL, DICTIONARIES_FETCH_SUCCESS} from "./constants";
+import { AnyAction } from "redux";
+import { DICTIONARIES_FETCH_FAIL, DICTIONARIES_FETCH_SUCCESS } from "./constants";
 
 interface DictionariesType {
     id: number,
@@ -25,7 +25,7 @@ const initialState: dictionariesState = {
     }
 };
 
-export const DictionariesReducer = (state = initialState, {type, payload}: AnyAction) => {
+export const DictionariesReducer = (state = initialState, { type, payload }: AnyAction) => {
     switch (type) {
         case DICTIONARIES_FETCH_FAIL:
             return {

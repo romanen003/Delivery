@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
-import classNames from 'classnames';
+import React, { Component } from 'react';
+import classNames from 'classnames/bind';
 import { Row } from "./row/row";
 import { Col } from "./col/col";
 import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN } from "./constants";
-import './grid.scss';
+import style from './grid.scss';
+
+const cn = classNames.bind(style);
 
 interface Props {
     children: React.ReactNode
@@ -22,7 +24,7 @@ export class Grid extends Component<Props> {
         const { children } = this.props;
 
         return (
-            <div className={classNames('grid')}>
+            <div className={cn('grid')}>
                 {children}
             </div>
         )

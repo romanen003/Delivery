@@ -1,4 +1,4 @@
-import {AnyAction} from "redux";
+import { AnyAction } from "redux";
 import {
     ADD_NOTIFICATION,
     DELETE_NOTIFICATION
@@ -25,7 +25,7 @@ export const NotificationReducer = (state = InitialState, action: AnyAction) => 
                     description: '',
                     lifeTime: 5000,
                     ...action.payload,
-                    id: ++ID,
+                    id: ++ID
                 }
             ];
         case (DELETE_NOTIFICATION):

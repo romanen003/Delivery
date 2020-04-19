@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
-import './tooltip.scss';
-import {Tooltip} from "./tooltip";
-import {Text} from "..";
+import { Tooltip } from "./tooltip";
+import { Text } from "..";
+import style from './tooltip.scss';
 
-interface Props {
+const cn = classNames.bind(style);
 
-}
+interface Props {}
 
 interface State {
     show: boolean
@@ -20,16 +20,16 @@ export const createTooltipHOC = (wrappedComponent: any) => {
 
         handleMouseEnter = (event: any) => {
             console.log('event', event.target.getBoundingClientRect());
-            this.setState({show: true})
+            this.setState({ show: true })
         };
 
-        handleMouseLeave = () => this.setState({show: false});
+        handleMouseLeave = () => this.setState({ show: false });
 
         render() {
             const NextComponent = wrappedComponent;
 
             return (
-                <div className={classNames('component-with-tooltip')}>
+                <div className={cn('component-with-tooltip')}>
                     <NextComponent {...this.props}
                         onMouseEnter={this.handleMouseEnter}
                         onMouseLeave={this.handleMouseLeave}
