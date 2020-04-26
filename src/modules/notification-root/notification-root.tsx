@@ -46,8 +46,11 @@ class NotificationRootContainer extends Component<Props> {
     }
 }
 
-export const NotificationRoot = connect((state: StoreTypes) => ({
+const mapStateToProps = (state: StoreTypes) => ({
     notifications: notificationSelector(state)
-}), {
+});
+const mapDispatchToProps = {
     deleteNotification
-})(NotificationRootContainer);
+}
+
+export const NotificationRoot = connect(mapStateToProps, mapDispatchToProps)(NotificationRootContainer);

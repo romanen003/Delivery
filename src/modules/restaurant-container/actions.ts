@@ -2,6 +2,7 @@ import { Dispatch } from "redux";
 import { customPromiseAll, request } from '../../utils/request';
 import { setData, onLoading, offLoading } from "../../store";
 import { showError } from "../../store/restaurant/action";
+import { RestaurantType } from "../../store/restaurant/reducer";
 
 const RESTAURANT_URL = '/api/restaurant';
 
@@ -18,8 +19,7 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
     }));
 
     customPromiseAll(requests)
-        .then((response) => {
-            console.log('response', response);
+        .then((response:Array<RestaurantType> ) => {
             dispatch(setData(response))
         })
         .catch(() => dispatch(showError(true)))

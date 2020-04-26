@@ -71,8 +71,10 @@ class ModalRootContainer extends Component<Props> {
     }
 }
 
-export const ModalRoot = connect((store: StoreTypes) => ({
+
+const mapStateToProps = (store: StoreTypes) => ({
     modals: getModalsSelector(store)
-}), {
-    closeModal
-})(ModalRootContainer);
+});
+const mapDispatchToProps = { closeModal };
+
+export const ModalRoot = connect(mapStateToProps, mapDispatchToProps)(ModalRootContainer);

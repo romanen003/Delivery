@@ -23,7 +23,10 @@ interface Props {
     getRestaurantData?: (params?: Data) => void,
     data?: Array<Data>,
     filters?: Data,
-    pagination?: Data
+    pagination?: Data,
+    history: {
+        push: (arg: string) => void
+    }
 }
 
 class RestaurantContainerComponent extends Component<Props> {
@@ -39,7 +42,7 @@ class RestaurantContainerComponent extends Component<Props> {
     }
 
     render(){
-        const { data = [] } = this.props;
+        const { data = [], history } = this.props;
 
         return (
             <div className={cn('restaurant-container')}>
@@ -71,6 +74,7 @@ class RestaurantContainerComponent extends Component<Props> {
                                     deliveryTime={'30'}
                                     key={id}
                                     nameEn={nameEn}
+                                    history={history}
                                 />
                             </Col>)}
                     </Row>

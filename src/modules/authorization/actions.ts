@@ -45,8 +45,7 @@ export const checkAuthorization = (login: string, password: string) => (dispatch
     })
         .then((response) => {
             if (response && response.status === 200) {
-                successAuthorization(dispatch);
-                return dispatch({ type: 'fdsfdf' });
+                return successAuthorization(dispatch);
             }
 
             return failureAuthorization(dispatch);

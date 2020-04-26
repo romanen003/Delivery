@@ -16,7 +16,8 @@ export const EMPTY_ITEM: Value = { id: '0', value: '' };
 interface Props {
     value?: Value,
     options?: Array<Value>,
-    withEmptyItem?: boolean
+    withEmptyItem?: boolean,
+    onSelectChange?: (value: Value) => void
 }
 type State = {
     selectedValue: Value,
@@ -56,10 +57,13 @@ export class Select extends Component<Props, State> {
     handleIconClick = (): void => this.setState(({ opened }) => ({ opened: !opened }));
 
     handleItemClick = (selectedValue: Value): void => {
+        const { onSelectChange = () => {} } = this.props;
+
         this.setState(() => ({
             selectedValue: selectedValue,
             opened: false
         }))
+        onSelectChange(selectedValue);
     };
 
     render() {

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Loading, Overlay } from "../../elements";
 import { connect } from "react-redux";
 import { StoreTypes } from "../../store/store-types";
@@ -12,21 +12,18 @@ class LoadingRootContainer extends Component<Props> {
     render() {
         const { loading } = this.props;
 
-        return (
-            <Fragment>
-                {
-                    loading &&
-                    <div>
-                        <Overlay>
-                            <Loading pan />
-                        </Overlay>
-                    </div>
-                }
-            </Fragment>
-        );
+        return loading && (
+            <div>
+                <Overlay>
+                    <Loading pan />
+                </Overlay>
+            </div>
+        )
     }
 }
 
-export const LoadingRoot = connect((store: StoreTypes) => ({
+const mapStateToProps = (store: StoreTypes) => ({
     loading: getLoadingStatusSelector(store)
-}))(LoadingRootContainer);
+})
+
+export const LoadingRoot = connect(mapStateToProps)(LoadingRootContainer);
