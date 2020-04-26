@@ -1,5 +1,6 @@
 /dist
 /node_modules
+/server
 webpack.config.js
 declarations.d.ts
 jest.config.js

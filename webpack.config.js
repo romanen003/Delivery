@@ -115,9 +115,12 @@ module.exports = {
         rules: getRules()
     },
     devServer: {
-        port: 1111,
+        port: 3000,
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: {
+            '/api': 'http://localhost:8080'
+        }
     },
     ...(isDev && {devtool: 'eval-source-map'}),
 

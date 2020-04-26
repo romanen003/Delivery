@@ -1,12 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { RestaurantBox, Props } from './restaurant-box';
-import { StoreTypes } from "../../store/store-types";
-import { RouterPathSelector } from "../../store/router/selector";
 
-export const RestaurantBoxWithRouting = connect((state: StoreTypes) => ({
-    path: RouterPathSelector(state)
-}))((props: Props & {push?: (value: string) => any, path: string}) => {
+export const RestaurantBoxWithRouting = connect()((props: Props & {push?: (value: string) => any, path: string}) => {
     const handleClick = () => props.push && props.push(`restaurant=${props.nameEn}`);
 
     return (

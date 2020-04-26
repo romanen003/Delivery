@@ -18,7 +18,10 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
     }));
 
     customPromiseAll(requests)
-        .then(response => dispatch(setData(response)))
+        .then((response) => {
+            console.log('response', response);
+            dispatch(setData(response))
+        })
         .catch(() => dispatch(showError(true)))
         .finally(() => dispatch(offLoading()))
 
