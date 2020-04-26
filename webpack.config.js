@@ -119,7 +119,8 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
         proxy: {
-            '/api': 'http://localhost:8080'
+            '/api': 'http://localhost:8080',
+            '/static': 'http://localhost:8080'
         }
     },
     ...(isDev && {devtool: 'eval-source-map'}),
