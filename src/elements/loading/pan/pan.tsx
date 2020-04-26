@@ -1,14 +1,16 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import './pan.scss';
+import style from "./pan.scss";
+
+const cn = classNames.bind(style);
 
 export const Pan = () => (
-    <div className={classNames('pan-loader')}>
-        <div className={classNames('loader')} />
-        <div className={classNames('pan-container')}>
-            <div className={classNames('pan')} />
-            <div className={classNames('handle')} />
+    <div className={cn('pan-loader')}>
+        <div className={cn('loader')} />
+        <div className={cn('pan-container')}>
+            <div className={cn('pan')} />
+            <div className={cn('handle')} />
         </div>
-        <div className={classNames('shadow')} />
+        <div className={cn('shadow')} />
     </div>
 );

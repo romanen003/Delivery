@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from "./store";
-import { MainPageConnected } from "./layouts/main-page";
-import { RestaurantContainer } from "./modules/restaurant-container/restaurant-container";
-import { TestView } from "./layouts/test-page";
-import { ModalRoot } from "./modules/modals-root/modal-root";
-import { LoadingRoot } from "./modules/loading-root/loading-root";
-import { NotificationRoot } from "./modules/notification-root/notification-root";
+import { MainPage, TestView } from "./layouts";
 import { LayoutHome } from './elements';
-import { Header } from './modules';
+import {
+    RestaurantContainer ,
+    ModalRoot ,
+    LoadingRoot ,
+    NotificationRoot ,
+    Header
+} from "./modules";
 import './style.scss';
+
 
 const ROOT = 'root';
 const RootElement = document.getElementById(ROOT);
@@ -23,8 +25,8 @@ const App = () => (
                 headerView={<Header />}
                 contentView={
                     <Switch>
-                        <Route exact path='/' component={MainPageConnected} />
-                        <Route exact path='/432424' component={MainPageConnected} />
+                        <Route exact path='/' component={MainPage} />
+                        <Route exact path='/432424' component={MainPage} />
                         <Route exact path='/restaurant' component={RestaurantContainer} />
                         <Route exact path='/test' component={TestView} />
                         <Route component={TestView} />

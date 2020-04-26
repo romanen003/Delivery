@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import classNames from 'classnames/bind';
 import { Button } from "../elements";
 import style from './style.scss';
@@ -7,11 +6,14 @@ import style from './style.scss';
 const cn = classNames.bind(style);
 
 interface Props {
-    push: (value: string) => void
+    history: {
+        push: (arg: string) => void
+    }
 }
 
-const MainPage = (props: Props) => {
-    const handleButtonClick = () => props.push('restaurant');
+export const MainPage = (props: Props) => {
+    const { history  } = props;
+    const handleButtonClick = () => history.push('restaurant');
 
     return (
         <div className={cn('mainLayout')}>
@@ -24,5 +26,3 @@ const MainPage = (props: Props) => {
         </div>
     );
 };
-
-export const MainPageConnected = connect(null)(MainPage);

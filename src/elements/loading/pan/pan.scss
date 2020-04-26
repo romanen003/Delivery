@@ -74,8 +74,8 @@ $loader-color: #FDD835;
 .pan-loader {
     width: $component-dimension;
     height: $component-dimension;
-    // border: 1px solid red;
     margin: 100px auto;
+    
     .loader {
         position: relative;
         top: 10%;
