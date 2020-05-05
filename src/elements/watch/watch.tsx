@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import classNames from 'classnames/bind';
-import { Grid, Text } from "../";
+import { Text } from "../";
 import style from './watch.scss';
 
 const cn = classNames.bind(style);
-
-const { Row, Col, T_Align, Col_Width } = Grid;
 
 interface Props {}
 interface State {
@@ -48,19 +46,9 @@ export class Watch extends Component<Props, State> {
 
         return (
             <div className={cn('watch')}>
-                <Grid>
-                    <Row>
-                        <Col textAlign={T_Align.RIGHT} col={Col_Width.THIRTY} sticky>
-                            <Text label>{correctHours}</Text>
-                        </Col>
-                        <Col sticky col={Col_Width.THIRTY}>
-                            <Text label>:</Text>
-                        </Col>
-                        <Col textAlign={T_Align.LEFT} col={Col_Width.THIRTY} sticky>
-                            <Text label>{correctMinutes}</Text>
-                        </Col>
-                    </Row>
-                </Grid>
+                <Text label>{correctHours}</Text>
+                <Text label>:</Text>
+                <Text label>{correctMinutes}</Text>
             </div>
         )
     }

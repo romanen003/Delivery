@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import { Row } from "./row/row";
 import { Col } from "./col/col";
-import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN } from "./constants";
+import { COL, MARGIN, MARGIN_TOP, T_ALIGN, V_ALIGN, POSITION } from "./constants";
 import style from './grid.scss';
 
 const cn = classNames.bind(style);
@@ -19,6 +19,7 @@ export class Grid extends Component<Props> {
     static T_Align = T_ALIGN;
     static V_Align = V_ALIGN;
     static Col_Width = COL;
+    static Position = POSITION;
 
     render() {
         const { children } = this.props;

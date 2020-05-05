@@ -1,11 +1,11 @@
-export const T_ALIGN = {
-    LEFT: 'LEFT',
-    RIGHT: 'RIGHT'
-};
-export const V_ALIGN = {
-    TOP: 'TOP',
-    BOTTOM: 'BOTTOM'
-};
+export enum T_ALIGN {
+    LEFT = 'LEFT',
+    RIGHT = 'RIGHT'
+}
+export enum V_ALIGN {
+    TOP = 'TOP',
+    BOTTOM = 'BOTTOM'
+}
 export const COL = {
     QUARTER: "25",
     THIRTY: "30",
@@ -24,3 +24,8 @@ export const MARGIN = {
     X12: '12px',
     X16: '16px'
 };
+
+export enum POSITION {
+    CENTER ='CENTER',
+    RIGHT = 'RIGHT'
+}

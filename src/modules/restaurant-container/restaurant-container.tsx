@@ -16,7 +16,7 @@ import style from './restaurant-container.scss';
 
 const cn = classNames.bind(style);
 
-const { Row, Col, Margin_Top, Col_Width, T_Align } = Grid;
+const { Row, Col, Margin_Top, Col_Width, T_Align, Position } = Grid;
 
 interface Data {[key: string]: any}
 interface Props {
@@ -53,7 +53,7 @@ class RestaurantContainerComponent extends Component<Props> {
                             <Text black heading> Рестораны :</Text>
                         </Col>
                     </Row>
-                    <Row marginTop={Margin_Top.X16}>
+                    <Row marginTop={Margin_Top.X16} position={Position.CENTER}>
                         {data.map(({
                             nameRu,
                             rating,

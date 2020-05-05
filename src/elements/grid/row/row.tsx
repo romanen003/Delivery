@@ -1,15 +1,16 @@
 import React, { Component, ReactNode } from 'react';
 import classNames from 'classnames/bind';
+import { MARGIN, MARGIN_TOP, V_ALIGN, POSITION } from "../constants";
 import style from './row.scss';
-import { MARGIN, MARGIN_TOP, V_ALIGN } from "../constants";
 
 const cn = classNames.bind(style);
 
-interface Props {
+type Props = {
     children?: ReactNode,
     marginTop?: string,
     margin?: string,
-    vertAlign?: string
+    vertAlign?: V_ALIGN,
+    position? : POSITION
 }
 
 export class Row extends Component<Props> {
@@ -18,7 +19,8 @@ export class Row extends Component<Props> {
             children,
             marginTop,
             margin,
-            vertAlign
+            vertAlign,
+            position
         } = this.props;
         const rowClassName = cn('row',{
             'row__margin-top-4': marginTop === MARGIN_TOP.X4,
@@ -30,7 +32,8 @@ export class Row extends Component<Props> {
             'row__margin-12': margin === MARGIN.X12,
             'row__margin-16': margin === MARGIN.X16,
             'row__vert-align-top': vertAlign === V_ALIGN.TOP,
-            'row__vert-align-bottom': vertAlign === V_ALIGN.BOTTOM
+            'row__vert-align-bottom': vertAlign === V_ALIGN.BOTTOM,
+            'row__center': position === POSITION.CENTER
         });
 
         return (
