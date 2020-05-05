@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Grid, Select, Text } from "../../elements";
-import { EMPTY_ITEM } from "../../elements/select/select";
+import { EMPTY_ITEM, SelectValue } from "../../elements/select/select";
 
 const { Row, Col,Col_Width, T_Align } = Grid;
 
 const options = [ {
-    id: '1', value: 'value1'
+    id: 1, value: 'value1'
 }, {
-    id: '2', value: 'value2'
+    id: 2, value: 'value2'
 }, {
-    id: '3', value: 'value3'
+    id: 3, value: 'value3'
 }, {
-    id: '4', value: 'value4'
+    id: 4, value: 'value4'
 } ];
 
 export class FilterComponent extends Component {
@@ -20,6 +20,10 @@ export class FilterComponent extends Component {
         typeFood: EMPTY_ITEM,
         stars: EMPTY_ITEM,
         time: EMPTY_ITEM
+    };
+
+    handleSelectChange = (value: SelectValue, name: string): void => {
+        this.setState({ [name]: value })
     };
 
     render () {
@@ -35,23 +39,39 @@ export class FilterComponent extends Component {
                 <Row>
                     <Col textAlign={T_Align.LEFT}>
                         <Text sub black>City</Text>
-                        <Select options={options} value={city} />
+                        <Select
+                            options={options}
+                            value={city}
+                            name='city'
+                            onSelectChange={this.handleSelectChange}
+                        />
                     </Col>
                     <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                         <Text sub black>Type food</Text>
-                        <Select options={options} value={typeFood} />
+                        <Select
+                            options={options}
+                            value={typeFood}
+                            name='typeFood'
+                            onSelectChange={this.handleSelectChange}
+                        />
                     </Col>
                     <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                         <Text sub black>Stars</Text>
-                        <Select options={options} value={stars} />
-                    </Col>
-                    <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
-                        <Text sub black>Price</Text>
-                        <Select options={options} />
+                        <Select
+                            options={options}
+                            value={stars}
+                            name='stars'
+                            onSelectChange={this.handleSelectChange}
+                        />
                     </Col>
                     <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
                         <Text sub black>Time to delivery</Text>
-                        <Select options={options} value={time} />
+                        <Select
+                            options={[]}
+                            value={time}
+                            name={'time'}
+                            onSelectChange={this.handleSelectChange}
+                        />
                     </Col>
                 </Row>
             </Grid>

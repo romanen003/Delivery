@@ -1,74 +1,70 @@
 import React, { Component, RefObject, FocusEvent } from "react";
 import classNames from 'classnames/bind';
-import { Button } from "..";
+import { Button, Text } from "..";
 import style from './style.scss';
 
 const cn = classNames.bind(style);
 
-type Value = {
-    id: string,
+export type SelectValue = {
+    id: number,
     value: string
 };
-
-export const EMPTY_ITEM: Value = { id: '0', value: '' };
-
-
-interface Props {
-    value?: Value,
-    options?: Array<Value>,
-    withEmptyItem?: boolean,
-    onSelectChange?: (value: Value) => void
+type Props = {
+    value: SelectValue,
+    options: Array<SelectValue>,
+    onSelectChange: (value: SelectValue, name?: string) => void,
+    name?: string
 }
 type State = {
-    selectedValue: Value,
     opened: boolean
 }
 
-export class Select extends Component<Props, State> {
-    static defaultProps = {
-        options: [ EMPTY_ITEM ],
-        value: EMPTY_ITEM,
-        withEmptyItem: false
-    };
-    IconRef: RefObject<HTMLButtonElement>;
-    inputRef: RefObject<HTMLInputElement>;
+export const EMPTY_ITEM: SelectValue = { id: 0, value: '' };
 
+
+export class Select extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
         this.state = {
-            selectedValue: props.value || EMPTY_ITEM,
             opened: false
         };
-        this.IconRef = React.createRef();
-        this.inputRef = React.createRef();
+    }
+
+    IconRef: RefObject<HTMLButtonElement> = React.createRef();
+    inputRef: RefObject<HTMLInputElement> = React.createRef();
+    ListRef: RefObject<HTMLUListElement> = React.createRef();
+    itemsRefs: Array<RefObject<HTMLButtonElement>> = [];
+
+    getButtonRef = (ref: HTMLButtonElement): void  => {
+        if (ref){
+            this.itemsRefs.push(({ current: ref }))
+        }
     }
 
     handleSelectBlur = (event: FocusEvent): void => {
         const { relatedTarget } = event;
+        const refs = [ this.inputRef, this.IconRef, this.ListRef, ...this.itemsRefs ];
 
-        if (
-            !(relatedTarget === this.inputRef.current || relatedTarget === this.IconRef.current)
-            && this.state.opened
-        ){
+        if (!(refs.find(item => item.current === relatedTarget)) && this.state.opened){
             this.setState(() => ({ opened: false }))
+            this.itemsRefs = [];
         }
     };
+
     handleIconClick = (): void => this.setState(({ opened }) => ({ opened: !opened }));
 
-    handleItemClick = (selectedValue: Value): void => {
-        const { onSelectChange = () => {} } = this.props;
+    handleItemClick = (selectedValue: SelectValue): void => {
+        const { onSelectChange, name } = this.props;
 
-        this.setState(() => ({
-            selectedValue: selectedValue,
-            opened: false
-        }))
-        onSelectChange(selectedValue);
+        this.setState({ opened: false });
+        onSelectChange(selectedValue, name);
+        this.itemsRefs = [];
     };
 
     render() {
-        const { options = [] } = this.props;
-        const { opened, selectedValue } = this.state;
+        const { options = [], value: selectedValue } = this.props;
+        const { opened } = this.state;
 
         return (
             <div className={cn('select')}>
@@ -91,24 +87,29 @@ export class Select extends Component<Props, State> {
                     />
                 </div>
                 {opened &&
-                <ul className={cn('select__dropdown')} tabIndex={1}>
-                    {opened &&
-                    options.map(({ value, id }) => (
-                        <li
-                            key={`${id}-select`}
-                            onClick={() => this.handleItemClick({ value, id })}
-                        >
-                            <button
-                                className={cn('select__item', {
-                                    'select__item_selected' : selectedValue.id === id
-                                })}
-                            >
-                                {value}
-                            </button>
-                        </li>
-                    ))
-                    }
-                </ul>
+                    <ul className={cn('select__dropdown')} tabIndex={1} ref={this.ListRef}>
+                        {options. length ? (
+                            options.map(({ value, id }: SelectValue) => (
+                                <li
+                                    key={`${id}-select`}
+                                >
+                                    <button
+                                        ref={this.getButtonRef}
+                                        className={cn('select__item', {
+                                            'select__item_selected' : selectedValue.id === id
+                                        })}
+                                        onClick={() => this.handleItemClick({ value, id })}
+                                    >
+                                        {value}
+                                    </button>
+                                </li>
+                            ))
+                        ) : (
+                            <li className={cn('select__empty')}>
+                                <Text black>empty</Text>
+                            </li>
+                        )}
+                    </ul>
                 }
             </div>
         )
