@@ -18,7 +18,7 @@ import './style.scss';
 const ROOT = 'root';
 const RootElement = document.getElementById(ROOT);
 
-const App = () => (
+const App: React.FunctionComponent = () => (
     <Provider store={store}>
         <BrowserRouter>
             <LayoutHome

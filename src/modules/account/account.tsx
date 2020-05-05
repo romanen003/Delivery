@@ -7,15 +7,15 @@ import style from './account.scss';
 
 const cn = classNames.bind(style);
 
-interface Props {
+type State =  { openedMenu: boolean }
 
+interface type {
+    state: State,
+    handleMouseEnter: () => void,
+    handleMouseLeave:() => void
 }
 
-interface State {
-    openedMenu: boolean
-}
-
-class AccountComponent extends Component<Props, State> {
+class AccountComponent extends Component<State> implements type {
     state = {
         openedMenu: false
     };
@@ -39,18 +39,18 @@ class AccountComponent extends Component<Props, State> {
             >
                 <Text title>Roman</Text>
                 {openedMenu &&
-                    <div className={cn('account__menu')}>
+                    <ul className={cn('account__menu')}>
                         {
                             MENU_ELEMENT.map(name => (
-                                <div
+                                <li
                                     className={cn('account__element')}
                                     key={name}
                                 >
                                     <Text sub>{name}</Text>
-                                </div>
+                                </li>
                             ))
                         }
-                    </div>
+                    </ul>
                 }
             </div>
         );

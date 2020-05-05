@@ -1,17 +1,17 @@
 import { Authorization } from "./authorization";
 import { registerModal } from '../modals-root/register-modals';
 
-export const AUTHORIZATION_URL = '/api/auth/check-auth';
+export const AUTHORIZATION_URL: string = '/api/auth/check-auth';
 
-export const AUTHORIZATION = 'Authorization';
+export const AUTHORIZATION: string = 'Authorization';
 
-export const PLACEHOLDERS = {
+export const PLACEHOLDERS: {[key: string]: string} = {
     LOGIN: 'Enter login',
     PASSWORD: 'Enter password',
     SUBMIT: 'Authorization'
 };
 
-export const AUTHORIZATION_MODAL_NAME = 'AUTHORIZATION';
+export const AUTHORIZATION_MODAL_NAME: string= 'AUTHORIZATION';
 
 export const AUTHORIZATION_MODAL_CONFIG = {
     name: AUTHORIZATION_MODAL_NAME,

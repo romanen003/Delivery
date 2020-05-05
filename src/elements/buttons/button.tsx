@@ -5,7 +5,7 @@ import style from './button.scss';
 
 const cn = classNames.bind(style);
 
-export interface ButtonProps {
+export type ButtonProps = {
     type?: 'submit' | 'reset' | 'button',
     active?: boolean,
     edit?: boolean,
@@ -49,7 +49,7 @@ export class Button extends Component<ButtonProps> {
         type: 'button'
     };
 
-    handleOnClick = (event: React.SyntheticEvent) => {
+    handleOnClick = (event: React.SyntheticEvent): void => {
         const { onClick } = this.props;
 
         event.stopPropagation();
@@ -59,7 +59,7 @@ export class Button extends Component<ButtonProps> {
         }
     };
 
-    handleButtonBlur = (event: FocusEvent) => {
+    handleButtonBlur = (event: FocusEvent): void => {
         const { onBlur } = this.props;
 
         if (onBlur){

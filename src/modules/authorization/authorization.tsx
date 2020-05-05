@@ -7,37 +7,41 @@ import { checkAuthorization } from "./actions";
 import style from  './authorization.scss';
 
 const cn = classNames.bind(style);
-
 const { Row, Col, Margin, Col_Width } = Grid;
 
-interface Props {
+type Props = {
     auth: (login: string, password: string) => any
 }
+type State = {
+    login: string,
+    password: string,
+    showError: boolean
+}
 
-class AuthorizationContainer extends Component<Props> {
+interface IAuthorization {
+    state: State,
+    handleChangeLogin: (value: string) => void,
+    handleChangePassword: (value: string) => void,
+    handleCheckAuthorization: () => void
+}
+
+class AuthorizationContainer extends Component<Props, State> implements IAuthorization{
     state = {
         login: '',
         password: '',
         showError: false
     };
 
-    handleChangeLogin = (value: string) => {
-        this.setState(()=> ({
-            login: value
-        }))
-    };
+    handleChangeLogin = (value: string): void => this.setState({ login: value });
 
-    handleChangePassword = (value: string) => {
-        this.setState(()=> ({
-            password: value
-        }))
-    };
+    handleChangePassword = (value: string): void => this.setState({ password: value });
 
-    handleCheckAuthorization = () => {
+    handleCheckAuthorization = (): void => {
         const { login, password } = this.state;
-        this.props.auth(login, password);
-    };
+        const { auth } = this.props;
 
+        auth(login, password);
+    };
 
     renderContentView = () => {
         const { login, password } = this.state;
@@ -87,6 +91,9 @@ class AuthorizationContainer extends Component<Props> {
     }
 }
 
-export const Authorization = connect(null,{
+const mapStateToProps = null;
+const mapDispatchToProps = {
     auth: checkAuthorization
-})(AuthorizationContainer);
+};
+
+export const Authorization = connect(mapStateToProps, mapDispatchToProps)(AuthorizationContainer);
