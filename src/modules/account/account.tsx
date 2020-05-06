@@ -15,7 +15,7 @@ interface type {
     handleMouseLeave:() => void
 }
 
-class AccountComponent extends Component<State> implements type {
+class AccountComponent extends Component<{},State> implements type {
     state = {
         openedMenu: false
     };

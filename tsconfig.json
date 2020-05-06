@@ -15,7 +15,8 @@
     "pretty": true,
     "target": "esnext",
     "noEmit": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "experimentalDecorators": true
   },
   "compileOnSave": true,
   "exclude": [
