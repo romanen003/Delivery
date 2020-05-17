@@ -101,7 +101,8 @@ module.exports = {
     entry: ['@babel/polyfill', './index.tsx'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: getFileName('js')
+        filename: getFileName('js'),
+        chunkFilename: getFileName('js')
     },
     resolve: {
         extensions: ['.js', '.tsx', '.ts', '.jpeg', '.jpg'],

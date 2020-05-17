@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Grid, Select, Text } from "../../elements";
 import { EMPTY_ITEM, SelectValue } from "../../elements/select/select";
 
-const { Row, Col,Col_Width, T_Align } = Grid;
+const { Row, Col,Col_Width, T_Align, Margin_Top, Position } = Grid;
 
 const options = [ {
     id: 1, value: 'value1'
@@ -14,9 +15,9 @@ const options = [ {
     id: 4, value: 'value4'
 } ];
 
+
 export class FilterComponent extends Component {
     state = {
-        city: EMPTY_ITEM,
         typeFood: EMPTY_ITEM,
         stars: EMPTY_ITEM,
         time: EMPTY_ITEM
@@ -28,7 +29,6 @@ export class FilterComponent extends Component {
 
     render () {
         const {
-            city,
             typeFood,
             stars,
             time
@@ -36,17 +36,8 @@ export class FilterComponent extends Component {
 
         return (
             <Grid>
-                <Row>
-                    <Col textAlign={T_Align.LEFT}>
-                        <Text sub black>City</Text>
-                        <Select
-                            options={options}
-                            value={city}
-                            name='city'
-                            onSelectChange={this.handleSelectChange}
-                        />
-                    </Col>
-                    <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
+                <Row  marginTop={Margin_Top.X16} position={Position.CENTER}>
+                    <Col col={Col_Width.THIRTY} textAlign={T_Align.LEFT}>
                         <Text sub black>Type food</Text>
                         <Select
                             options={options}
@@ -55,7 +46,7 @@ export class FilterComponent extends Component {
                             onSelectChange={this.handleSelectChange}
                         />
                     </Col>
-                    <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
+                    <Col col={Col_Width.THIRTY} textAlign={T_Align.LEFT}>
                         <Text sub black>Stars</Text>
                         <Select
                             options={options}
@@ -64,7 +55,7 @@ export class FilterComponent extends Component {
                             onSelectChange={this.handleSelectChange}
                         />
                     </Col>
-                    <Col col={Col_Width.QUARTER} textAlign={T_Align.LEFT}>
+                    <Col col={Col_Width.THIRTY} textAlign={T_Align.LEFT}>
                         <Text sub black>Time to delivery</Text>
                         <Select
                             options={[]}
@@ -78,3 +69,5 @@ export class FilterComponent extends Component {
         )
     }
 }
+
+export const ConnectedFilterComponent = connect()(FilterComponent);
