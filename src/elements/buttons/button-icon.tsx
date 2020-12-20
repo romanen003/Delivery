@@ -10,7 +10,7 @@ import clear from './svg/clear.svg';
 import list from './svg/list.svg';
 import top from './svg/top.svg';
 
-const  createButtonIcon = (typeIcon: string) => (props: ButtonProps) =>
+const createButtonIcon = (typeIcon: string) => (props: ButtonProps) =>
     <Button {...props} icon>
         <img src={typeIcon} alt={typeIcon} />
     </Button>

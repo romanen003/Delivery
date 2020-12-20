@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-template",
+  "name": "delivery",
   "version": "1.0.0",
-  "description": "my first template",
+  "description": "delivery project",
   "private": true,
   "scripts": {
     "dev": "concurrently --kill-others \"npm run start\" \"npm run server\"",
