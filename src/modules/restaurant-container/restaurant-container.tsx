@@ -20,6 +20,7 @@ const { Row, Col, Margin_Top, Col_Width, T_Align, Position } = Grid;
 
 interface Data {[key: string]: any}
 
+
 interface Props {
     getRestaurantData?: (params?: Data) => void,
     data?: Array<Data>,
