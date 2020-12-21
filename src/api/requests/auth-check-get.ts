@@ -5,9 +5,10 @@ export type AuthCheckGetRequestType = {
   password: string
 }
 
-export const authCheckGetRequest = ({ login, password }:AuthCheckGetRequestType) => request.request({
-    url: '/api/auth/check-auth',
-    method: request.method.POST,
-    useFormData: true,
-    body: { login, password }
-});
+export const authCheckGetRequest = ({ login, password }:AuthCheckGetRequestType) =>
+    request.request({
+        url: '/api/auth/check-auth',
+        method: request.method.POST,
+        useFormData: true,
+        body: { login, password }
+    });
