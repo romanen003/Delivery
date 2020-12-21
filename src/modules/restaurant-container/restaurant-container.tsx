@@ -2,29 +2,20 @@ import React, { Component } from "react";
 import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { Grid, Text } from '../../elements';
-import { getRestaurantData } from './actions';
 import { StoreTypes } from "../../store/store-types";
 import { RestaurantBoxWithRouting } from '../restaurant-box/restaurant-box-routing';
 import { FilterComponent } from "..";
-import {
-    RestaurantDataSelector,
-    RestaurantFiltersSelector,
-    RestaurantPaginationSelector
-} from "../../store/restaurant/selectors";
-import { fetchingAllDictionaries } from "../../store/dictionaries/actions";
+import { RestaurantDataSelector } from "../../store/restaurant/selectors";
 import style from './restaurant-container.scss';
+import { getRestaurantsActionSaga } from '../../store/restaurant/action';
 
 const cn = classNames.bind(style);
-
 const { Row, Col, Margin_Top, Col_Width, T_Align, Position } = Grid;
 
 interface Data {[key: string]: any}
-
 interface Props {
-    getRestaurantData?: (params?: Data) => void,
-    data?: Array<Data>,
-    filters?: Data,
-    pagination?: Data,
+    getRestaurantData: () => void,
+    data: Array<Data>,
     history: {
         push: (arg: string) => void
     }
@@ -32,19 +23,10 @@ interface Props {
 
 class RestaurantContainerComponent extends Component<Props> {
     componentDidMount(): void {
-        const {
-            getRestaurantData = () => {},
-            filters = {},
-            pagination = {}
-        } = this.props;
-
-        getRestaurantData({ ...filters, ...pagination, 'city': 'moscow', 'gender': 'm' });
-        fetchingAllDictionaries();
+        this.props.getRestaurantData();
     }
 
     render(){
-        const { data = [], history } = this.props;
-
         return (
             <div className={cn('restaurant-container')}>
                 <FilterComponent />
@@ -55,7 +37,7 @@ class RestaurantContainerComponent extends Component<Props> {
                         </Col>
                     </Row>
                     <Row marginTop={Margin_Top.X16} position={Position.CENTER}>
-                        {data.map(({
+                        {this.props.data.map(({
                             nameRu,
                             rating,
                             id,
@@ -75,7 +57,7 @@ class RestaurantContainerComponent extends Component<Props> {
                                     deliveryTime={'30'}
                                     key={id}
                                     nameEn={nameEn}
-                                    history={history}
+                                    history={this.props.history}
                                 />
                             </Col>)}
                     </Row>
@@ -87,11 +69,7 @@ class RestaurantContainerComponent extends Component<Props> {
 
 
 export const RestaurantContainer = connect((state: StoreTypes) => ({
-    data: RestaurantDataSelector(state),
-    filters: RestaurantFiltersSelector(state),
-    pagination: RestaurantPaginationSelector(state)
+    data: RestaurantDataSelector(state)
 }), {
-    getRestaurantData,
-    fetchingAllDictionaries
-    // @ts-ignore
+    getRestaurantData: getRestaurantsActionSaga
 })(RestaurantContainerComponent);

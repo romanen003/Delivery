@@ -1,11 +1,5 @@
 import { AnyAction } from "redux";
-import {
-    DOWNLOAD_STATUS,
-    SET_FILTERS,
-    SET_DATA,
-    SET_PAGINATION,
-    SHOW_ERROR
-} from './constants';
+import { SET_DATA } from './constants';
 
 export interface RestaurantType {
     id: number,
@@ -19,46 +13,19 @@ export interface RestaurantType {
 }
 
 export interface RestaurantStoreType {
-    data: Array<RestaurantType>,
-    filters: {[key: string]: any},
-    pagination: {[key: string]: any},
-    loading: boolean
+    data: Array<RestaurantType>
 }
 
 const InitialState = {
-    data: [],
-    filters: [],
-    pagination: [],
-    loading: false,
-    error: false
+    data: []
 };
 
 export const RestaurantReducer = (state: RestaurantStoreType  = InitialState, action: AnyAction) => {
     switch (action.type) {
-        case (DOWNLOAD_STATUS):
-            return ({
-                ...state,
-                loading: action.payload
-            });
-        case (SET_PAGINATION):
-            return ({
-                ...state,
-                pagination: { ...action.payload }
-            });
-        case (SET_FILTERS):
-            return ({
-                ...state,
-                filters: { ...action.payload }
-            });
         case (SET_DATA):
             return ({
                 ...state,
                 data: [ ...action.payload ]
-            });
-        case (SHOW_ERROR):
-            return ({
-                ...state,
-                error: action.payload
             });
         default:
             return state

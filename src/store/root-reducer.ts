@@ -4,7 +4,6 @@ import { ModalsReducer } from "./modals/reducer";
 import { LoadingReducer } from "./loading/reducer";
 import { NotificationReducer } from './notification/reducer';
 import { RestaurantReducer } from "./restaurant/reducer";
-import { DictionariesReducer } from "./dictionaries/reducer";
 
 
 export const rootReducer = combineReducers({
@@ -12,6 +11,5 @@ export const rootReducer = combineReducers({
     modals: ModalsReducer,
     loading: LoadingReducer,
     notification: NotificationReducer,
-    restaurant: RestaurantReducer,
-    dictionaries: DictionariesReducer
+    restaurant: RestaurantReducer
 });

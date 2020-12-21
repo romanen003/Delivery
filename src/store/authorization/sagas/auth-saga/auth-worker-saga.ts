@@ -38,7 +38,7 @@ export function* authWorkerSaga(action: any){
             description: error.message,
             lifeTime: 5000,
             id: 1
-        }))
+        }));
     } finally {
         yield put(offLoading());
     }
