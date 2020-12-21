@@ -23,6 +23,5 @@ export const getRestaurantData = (params: {[key: string]: any}) => (dispatch: Di
             dispatch(setData(response))
         })
         .catch(() => dispatch(showError(true)))
-        .finally(() => dispatch(offLoading()))
-
+        .finally(() => dispatch(offLoading()));
 };

@@ -3,14 +3,14 @@ import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { Button, Grid, Input, ModalLayout } from "../../elements";
 import { AUTHORIZATION, PLACEHOLDERS } from "./constants";
-import { checkAuthorization } from "./actions";
 import style from  './authorization.scss';
+import { authCheckActionSaga } from '../../store/authorization/action';
 
 const cn = classNames.bind(style);
 const { Row, Col, Margin, Col_Width } = Grid;
 
 type Props = {
-    auth: (login: string, password: string) => any
+    auth: (data: {login: string, password: string}) => any
 }
 type State = {
     login: string,
@@ -40,7 +40,7 @@ class AuthorizationContainer extends Component<Props, State> implements IAuthori
         const { login, password } = this.state;
         const { auth } = this.props;
 
-        auth(login, password);
+        auth({ login, password });
     };
 
     renderContentView = () => {
@@ -93,7 +93,7 @@ class AuthorizationContainer extends Component<Props, State> implements IAuthori
 
 const mapStateToProps = null;
 const mapDispatchToProps = {
-    auth: checkAuthorization
+    auth: authCheckActionSaga
 };
 
 export const Authorization = connect(mapStateToProps, mapDispatchToProps)(AuthorizationContainer);

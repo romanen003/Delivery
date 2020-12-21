@@ -14,7 +14,6 @@ import {
 } from "./modules";
 import './style.scss';
 
-
 const ROOT = 'root';
 const RootElement = document.getElementById(ROOT);
 

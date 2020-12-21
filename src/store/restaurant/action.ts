@@ -6,7 +6,7 @@ import {
     SHOW_ERROR
 } from './constants';
 
-export const setFilters = (payload: {[key: string]: any}) => ({
+export const setFilters = (payload: {[key: string]: string | number}) => ({
     type: SET_FILTERS,
     payload
 });
