@@ -6,8 +6,7 @@ const PASSWORD = "1";
 
 checkAuthorize.post('/check-auth', (request, response) => {
     const {login, password} = request.body;
-    console.log('request', request.body.login);
-    console.log('request', login.toString() === LOGIN);
+
     setTimeout(() => {
         if (login.toString() === LOGIN && password.toString() === PASSWORD){
             const Data = {
