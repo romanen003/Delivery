@@ -42,8 +42,6 @@ const parseFormData = (params: {[key: string]: any}) => {
     return formData;
 }
 
-
-
 const requestData = ({
     url,
     method,
@@ -62,13 +60,11 @@ const requestData = ({
         nextBody = parseFormData(body)
     }
 
-    return fetch(nextUrl, {
+    return () => fetch(nextUrl, {
         method,
         body: nextBody
     })
 };
-
-
 
 export const request = {
     request: requestData,

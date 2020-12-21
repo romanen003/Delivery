@@ -1,8 +1,6 @@
 import { Authorization } from "./authorization";
 import { registerModal } from '../modals-root/register-modals';
 
-export const AUTHORIZATION_URL: string = '/api/auth/check-auth';
-
 export const AUTHORIZATION: string = 'Authorization';
 
 export const PLACEHOLDERS: {[key: string]: string} = {

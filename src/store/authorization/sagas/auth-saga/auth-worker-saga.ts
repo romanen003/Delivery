@@ -1,21 +1,23 @@
 import { put, call } from 'redux-saga/effects';
 import { offLoading, onLoading } from '../../../loading/action';
-import { request } from '../../../../utils/request';
-import { AUTHORIZATION_URL } from '../../../../modules/authorization/constants';
 import { setAuthorisation } from '../../action';
 import { addNotification } from '../../../notification/action';
 import { TYPES } from '../../../../elements/notification/constants';
 import { closeModal } from '../../../modals/action';
+import { authCheckGetRequest, AuthCheckGetRequestType } from '../../../../api/requests';
 
-export function* authWorkerSaga(action: any){
+type PropsType = {
+    type: string,
+    payload: AuthCheckGetRequestType
+};
+
+export function* authWorkerSaga({ payload }: PropsType){
     try {
         yield put(onLoading());
 
-        const response = yield call(() => request.request({
-            url: AUTHORIZATION_URL,
-            method: request.method.POST,
-            useFormData: true,
-            body: { login: action.payload.login, password:action.payload.password }
+        const response = yield call(authCheckGetRequest({
+            login: payload.login,
+            password: payload.password
         }));
 
         if (response.status !== 200 ){
