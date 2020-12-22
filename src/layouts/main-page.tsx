@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import classNames from 'classnames/bind';
-import { Button } from "../elements";
+import { Button, Typography } from '@material-ui/core';
 import style from './style.scss';
 import { History } from 'history';
 
@@ -18,9 +18,13 @@ export const MainPage = memo(({ history }: PropsType) => {
     return (
         <div className={cn('mainLayout')}>
             <div className={cn('mainLayout__wrapper')}>
-                <p className={cn('mainLayout__title')}>Delivery Food</p>
+                <div className={cn('mainLayout__title')}>
+                    <Typography variant="h2">Delivery Food</Typography>
+                </div>
                 <div className={cn('mainLayout__wrapper_btn')}>
-                    <Button onClick={handleButtonClick}>to order</Button>
+                    <Button variant="contained" color="secondary" onClick={handleButtonClick}>
+                        to order
+                    </Button>
                 </div>
             </div>
         </div>
