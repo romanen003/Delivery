@@ -5,6 +5,7 @@ import { addNotification } from '../../../notification/action';
 import { TYPES } from '../../../../elements/notification/constants';
 import { closeModal } from '../../../modals/action';
 import { authCheckGetRequest, AuthCheckGetRequestType } from '../../../../api/requests';
+import { batchActions } from 'redux-batched-actions';
 
 type PropsType = {
     type: string,
@@ -24,14 +25,16 @@ export function* authWorkerSaga({ payload }: PropsType){
             throw new Error('Ошибка авторизации');
         }
 
-        yield put(setAuthorisation(true));
-        yield put(addNotification({
-            type: TYPES.SUCCESS,
-            title: 'Успешная авторизация',
-            lifeTime: 5000,
-            id: 1
-        }));
-        yield put(closeModal());
+        yield put(batchActions([
+            setAuthorisation(true),
+            addNotification({
+                type: TYPES.SUCCESS,
+                title: 'Успешная авторизация',
+                lifeTime: 5000,
+                id: 1
+            }),
+            closeModal()
+        ]));
 
     } catch (error) {
         yield put(addNotification({

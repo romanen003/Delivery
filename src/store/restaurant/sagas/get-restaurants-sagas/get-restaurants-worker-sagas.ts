@@ -4,12 +4,12 @@ import { setData } from '../../action';
 import { addNotification } from '../../../notification/action';
 import { TYPES } from '../../../../elements/notification/constants';
 import { getRestaurantsGetRequest } from '../../../../api/requests';
+import { batchActions } from 'redux-batched-actions';
 
 
 export function* getRestaurantsWorkerSaga(){
     try {
-        yield put(onLoading());
-        yield put(setData([]));
+        yield put(batchActions([ onLoading(), setData([]) ]));
 
         const response = yield call(getRestaurantsGetRequest());
         const { data } = yield response.json();

@@ -4,10 +4,11 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from 'redux-saga'
 import { authWatcherSaga } from "./authorization/sagas";
 import { getRestaurantsWatcherSaga } from "./restaurant/sagas";
+import { batchDispatchMiddleware } from "redux-batched-actions";
 
 const sagaMiddleware = createSagaMiddleware();
 export const store = createStore(rootReducer,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)));
+    composeWithDevTools(applyMiddleware(sagaMiddleware, batchDispatchMiddleware)));
 
 
 sagaMiddleware.run(authWatcherSaga);
