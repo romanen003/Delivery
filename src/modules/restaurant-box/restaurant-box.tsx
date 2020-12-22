@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import classNames from "classnames/bind";
 import { Text, Grid } from "../../elements";
 import { Rating } from './rating/rating';
@@ -20,7 +20,7 @@ export interface Props {
     nameEn: string
 }
 
-export const RestaurantBox = ({
+export const RestaurantBox = memo(({
     coverImg,
     name,
     rating,
@@ -29,10 +29,10 @@ export const RestaurantBox = ({
     deliveryTime,
     logoImg
 }: Props) => {
-    const currentStyle = {
+    const currentStyle = useMemo(() => ({
         background: `url(${coverImg}) 50%`,
         backgroundSize: '100%'
-    };
+    }), [ coverImg ]);
 
     return (
         <div className={cn('restaurant-box')}>
@@ -69,4 +69,4 @@ export const RestaurantBox = ({
             </div>
         </div>
     );
-};
+});

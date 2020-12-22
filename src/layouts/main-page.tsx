@@ -1,19 +1,19 @@
-import React from "react";
+import React, { memo, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import { Button } from "../elements";
 import style from './style.scss';
+import { History } from 'history';
 
 const cn = classNames.bind(style);
 
-interface Props {
-    history: {
-        push: (arg: string) => void
-    }
+interface PropsType {
+    history: History
 }
 
-export const MainPage = (props: Props) => {
-    const { history  } = props;
-    const handleButtonClick = () => history.push('restaurant');
+export const MainPage = memo(({ history }: PropsType) => {
+    const handleButtonClick = useCallback(() => {
+        history.push('restaurant')
+    },[ history.push ]);
 
     return (
         <div className={cn('mainLayout')}>
@@ -25,4 +25,4 @@ export const MainPage = (props: Props) => {
             </div>
         </div>
     );
-};
+});

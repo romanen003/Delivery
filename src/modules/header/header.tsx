@@ -11,34 +11,17 @@ import { getAuthorizationStatusSelector } from "../../store/authorization/select
 import style from './header.scss';
 
 const cn = classNames.bind(style);
-
 const { Row, Col, Margin, Col_Width, T_Align } = Grid;
 
 interface Props {
     authorization?: boolean,
     setAuthorisation?: (value: boolean) => void,
-    showModal?: (name: string) => void
+    showModal: (name: string) => void
 }
 
 class HeaderContainer extends Component<Props> {
     handleAuthorClick = () => {
-        const {
-            showModal = () => {}
-        } = this.props;
-
-        showModal(AUTHORIZATION_MODAL_NAME)
-    };
-
-    renderRightSide = () => {
-        const { authorization } = this.props;
-
-        return (
-            authorization
-                ? <Account />
-                : <Button onClick={this.handleAuthorClick}>
-                    Authorisation
-                </Button>
-        )
+        this.props.showModal(AUTHORIZATION_MODAL_NAME)
     };
 
     render() {
@@ -53,7 +36,12 @@ class HeaderContainer extends Component<Props> {
                         </Col>
                         <Col col={Col_Width.SEVENTY} textAlign={T_Align.RIGHT}>
                             <Watch />
-                            {this.renderRightSide()}
+                            {this.props.authorization
+                                ? <Account />
+                                : <Button onClick={this.handleAuthorClick}>
+                                  Authorisation
+                                </Button>
+                            }
                         </Col>
                     </Row>
                 </Grid>

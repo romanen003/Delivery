@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from 'react';
 import classNames from "classnames/bind";
 import style from './rating.scss';
 
@@ -8,9 +8,9 @@ interface Props {
     rating: string | number
 }
 
-export const Rating = ({ rating }: Props) => (
+export const Rating = memo(({ rating }: Props) => (
     <div className={cn('rating')}>
         <span className={cn('rating__star')} />
         <span className={cn('rating__number')}>{rating}</span>
     </div>
-);
+));

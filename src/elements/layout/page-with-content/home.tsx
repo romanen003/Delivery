@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { memo, ReactElement } from 'react';
 import classNames from 'classnames/bind';
 import style from './home.scss';
 
@@ -10,7 +10,7 @@ interface Props {
     footerView?: ReactElement
 }
 
-export const LayoutHome = ({
+export const LayoutHome = memo(({
     headerView,
     contentView,
     footerView
@@ -26,4 +26,4 @@ export const LayoutHome = ({
             {footerView}
         </footer>
     </div>
-);
+));

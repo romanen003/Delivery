@@ -5,20 +5,18 @@ import { StoreTypes } from "../../store/store-types";
 import { getLoadingStatusSelector } from "../../store/loading/selectors";
 
 interface Props {
-    loading?: boolean
+    loading: boolean
 }
 
 class LoadingRootContainer extends Component<Props> {
     render() {
-        const { loading } = this.props;
-
-        return loading && (
-            <div>
+        return this.props.loading
+            ? (
                 <Overlay>
                     <Loading pan />
                 </Overlay>
-            </div>
-        )
+            )
+            : null
     }
 }
 

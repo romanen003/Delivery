@@ -25,7 +25,7 @@ interface IAuthorization {
     handleCheckAuthorization: () => void
 }
 
-class AuthorizationContainer extends Component<Props, State> implements IAuthorization{
+class AuthorizationContainer extends Component<Props> implements IAuthorization{
     state = {
         login: '',
         password: '',
@@ -38,48 +38,43 @@ class AuthorizationContainer extends Component<Props, State> implements IAuthori
 
     handleCheckAuthorization = (): void => {
         const { login, password } = this.state;
-        const { auth } = this.props;
 
-        auth({ login, password });
+        this.props.auth({ login, password });
     };
 
-    renderContentView = () => {
-        const { login, password } = this.state;
-
-        return (
-            <div className={cn('authorization')}>
-                <Grid>
-                    <Row>
-                        <Col>
-                            <Input.Clear
-                                value={login}
-                                onChange={this.handleChangeLogin}
-                                placeholder={PLACEHOLDERS.LOGIN}
-                            />
-                        </Col>
-                    </Row>
-                    <Row marginTop={Margin.X12}>
-                        <Col>
-                            <Input.Password
-                                value={password}
-                                onChange={this.handleChangePassword}
-                                placeholder={PLACEHOLDERS.PASSWORD}
-                            />
-                        </Col>
-                    </Row>
-                    <Row marginTop={Margin.X16}>
-                        <Col col={Col_Width.HALF}>
-                            <Button
-                                onClick={this.handleCheckAuthorization}
-                            >
-                                {PLACEHOLDERS.SUBMIT}
-                            </Button>
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
-        )
-    };
+    renderContentView = () => (
+        <div className={cn('authorization')}>
+            <Grid>
+                <Row>
+                    <Col>
+                        <Input.Clear
+                            value={this.state.login}
+                            onChange={this.handleChangeLogin}
+                            placeholder={PLACEHOLDERS.LOGIN}
+                        />
+                    </Col>
+                </Row>
+                <Row marginTop={Margin.X12}>
+                    <Col>
+                        <Input.Password
+                            value={this.state.password}
+                            onChange={this.handleChangePassword}
+                            placeholder={PLACEHOLDERS.PASSWORD}
+                        />
+                    </Col>
+                </Row>
+                <Row marginTop={Margin.X16}>
+                    <Col col={Col_Width.HALF}>
+                        <Button
+                            onClick={this.handleCheckAuthorization}
+                        >
+                            {PLACEHOLDERS.SUBMIT}
+                        </Button>
+                    </Col>
+                </Row>
+            </Grid>
+        </div>
+    );
 
     render() {
         return (

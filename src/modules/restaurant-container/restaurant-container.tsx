@@ -8,17 +8,17 @@ import { FilterComponent } from "..";
 import { RestaurantDataSelector } from "../../store/restaurant/selectors";
 import style from './restaurant-container.scss';
 import { getRestaurantsActionSaga } from '../../store/restaurant/action';
+import { History } from 'history';
 
 const cn = classNames.bind(style);
 const { Row, Col, Margin_Top, Col_Width, T_Align, Position } = Grid;
 
 interface Data {[key: string]: any}
+
 interface Props {
     getRestaurantData: () => void,
     data: Array<Data>,
-    history: {
-        push: (arg: string) => void
-    }
+    history: History
 }
 
 class RestaurantContainerComponent extends Component<Props> {

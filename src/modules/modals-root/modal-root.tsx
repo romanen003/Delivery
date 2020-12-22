@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import classNames from "classnames/bind";
 import { connect } from "react-redux";
 import { StoreTypes } from "../../store/store-types";
@@ -12,17 +12,13 @@ import style from  './modal-root.scss';
 const cn = classNames.bind(style);
 
 interface Props {
-    modals?: Array<string>,
-    closeModal? : () => void
+    modals: Array<string>,
+    closeModal: () => void
 }
 
 class ModalRootContainer extends Component<Props> {
     handleCloseModal = () => {
-        const {
-            closeModal = () => {}
-        } = this.props;
-
-        closeModal();
+        this.props.closeModal();
     };
 
     handleModalClick = (event: React.SyntheticEvent) => {
@@ -54,20 +50,11 @@ class ModalRootContainer extends Component<Props> {
     };
 
     render() {
-        const {
-            modals = []
-        } = this.props;
-        const modalsArray = modals.map((value: string): ModalConfig => getModal(value));
+        const modalsArray = this.props.modals.map((value: string): ModalConfig => getModal(value));
 
-        return (
-            <Fragment>
-                {
-                    modalsArray.length
-                        ? modalsArray.map((modal: ModalConfig, index: number) => (this.renderModal(modal, index)))
-                        : null
-                }
-            </Fragment>
-        );
+        return modalsArray.length
+            ? modalsArray.map((modal: ModalConfig, index: number) => (this.renderModal(modal, index)))
+            : null;
     }
 }
 

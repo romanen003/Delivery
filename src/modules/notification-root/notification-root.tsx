@@ -11,25 +11,19 @@ import style from './notification-root.scss';
 const cn = classNames.bind(style);
 
 interface Props {
-    notifications?: Array<NotificationType>,
-    deleteNotification?: (id: number) => void
+    notifications: Array<NotificationType>,
+    deleteNotification: (id: number) => void
 }
 
 class NotificationRootContainer extends Component<Props> {
     handleCloseNotification = (id: number) => {
-        const {
-            deleteNotification = () => {}
-        } = this.props;
-
-        deleteNotification(id)
+        this.props.deleteNotification(id)
     };
 
     render () {
-        const { notifications = [] } = this.props;
-
         return (
             <div className={cn('notification-root')}>
-                {notifications.map(({ type, description, title, lifeTime, id }) => (
+                {this.props.notifications.map(({ type, description, title, lifeTime, id }) => (
                     <div className={cn('notification-root__item-wrapper')} key={id}>
                         <Notification
                             type={type}

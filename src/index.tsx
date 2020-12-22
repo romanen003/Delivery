@@ -28,7 +28,6 @@ const App: React.FunctionComponent = () => (
                         <Route exact path='/432424' component={MainPage} />
                         <Route exact path='/restaurant' component={RestaurantContainer} />
                         <Route exact path='/test' component={TestView} />
-                        <Route component={TestView} />
                     </Switch>
                 }
             />
