@@ -1,16 +1,16 @@
 import React, { memo } from 'react';
 import classNames from 'classnames/bind';
-import { Text } from "../../../elements";
 import style from './delivery-time.scss';
+import { Typography } from '@material-ui/core';
 
 const cn = classNames.bind(style);
 
-interface Props {
+interface PropsType {
     time: string
 }
 
-export const DeliveryTime = memo(({ time }:Props) => (
+export const DeliveryTime = memo(({ time }:PropsType) => (
     <div className={cn('delivery-time')}>
-        <Text>{time}</Text>
+        <Typography variant='subtitle2'>{time}</Typography>
     </div>
 ));

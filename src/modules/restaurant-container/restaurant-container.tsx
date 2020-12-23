@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import classNames from "classnames/bind";
 import { connect } from "react-redux";
-import { Grid, Text } from '../../elements';
+import { History } from 'history';
+import { Grid, Typography } from '@material-ui/core';
 import { StoreTypes } from "../../store/store-types";
 import { RestaurantBoxWithRouting } from '../restaurant-box/restaurant-box-routing';
-import { FilterComponent } from "..";
 import { RestaurantDataSelector } from "../../store/restaurant/selectors";
-import style from './restaurant-container.scss';
 import { getRestaurantsActionSaga } from '../../store/restaurant/action';
-import { History } from 'history';
+import style from './restaurant-container.scss';
 
 const cn = classNames.bind(style);
-const { Row, Col, Margin_Top, Col_Width, T_Align, Position } = Grid;
 
 interface Data {[key: string]: any}
 
@@ -29,14 +27,9 @@ class RestaurantContainerComponent extends Component<Props> {
     render(){
         return (
             <div className={cn('restaurant-container')}>
-                <FilterComponent />
-                <Grid>
-                    <Row marginTop={Margin_Top.X16}>
-                        <Col textAlign={T_Align.LEFT}>
-                            <Text black heading> Рестораны :</Text>
-                        </Col>
-                    </Row>
-                    <Row marginTop={Margin_Top.X16} position={Position.CENTER}>
+                <Typography variant="h3">Рестораны</Typography>
+                <div className={cn('restaurant-container__wrapper')}>
+                    <Grid container spacing={2} justify='space-between'>
                         {this.props.data.map(({
                             nameRu,
                             rating,
@@ -46,7 +39,7 @@ class RestaurantContainerComponent extends Component<Props> {
                             logoImg,
                             nameEn
                         }) =>
-                            <Col col={Col_Width.QUARTER} marginT={Margin_Top.X16} key={id}>
+                            <Grid key={id} item>
                                 <RestaurantBoxWithRouting
                                     name={nameRu}
                                     coverImg={coverImg}
@@ -59,9 +52,9 @@ class RestaurantContainerComponent extends Component<Props> {
                                     nameEn={nameEn}
                                     history={this.props.history}
                                 />
-                            </Col>)}
-                    </Row>
-                </Grid>
+                            </Grid>)}
+                    </Grid>
+                </div>
             </div>
         )
     }
